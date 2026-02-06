@@ -18,6 +18,11 @@
   margin-bottom: 0.5rem;
 }
 
+/* Hide permalink on hero heading */
+.hero h1 .headerlink {
+  display: none;
+}
+
 .hero p {
   font-size: 1.1rem;
   color: #555;
