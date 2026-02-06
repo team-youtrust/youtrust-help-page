@@ -39,3 +39,5 @@ jobs:
         uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: site/
+          deploy-repository: ${{ github.repository }}
+          pages-branch: published-pages
