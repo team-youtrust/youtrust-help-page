@@ -1,0 +1,78 @@
+name: PR Diff Summary
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+permissions:
+  pull-requests: write
+
+jobs:
+  diff-summary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate diff summary
+        run: |
+          BASE=${{ github.event.pull_request.base.sha }}
+          HEAD=${{ github.event.pull_request.head.sha }}
+
+          echo "## 変更されたファイル" > diff_summary.md
+          echo "" >> diff_summary.md
+
+          git diff --name-status "$BASE"..."$HEAD" | while IFS=$'\t' read -r status file; do
+            case "$status" in
+              A) icon="🆕 追加" ;;
+              M) icon="✏️ 変更" ;;
+              D) icon="🗑️ 削除" ;;
+              R*) icon="📝 名前変更" ;;
+              *) icon="🔄 $status" ;;
+            esac
+            echo "- ${icon}: \`${file}\`" >> diff_summary.md
+          done
+
+          MD_FILES=$(git diff --name-only --diff-filter=AM "$BASE"..."$HEAD" -- 'docs/*.md')
+          if [ -n "$MD_FILES" ]; then
+            echo "" >> diff_summary.md
+            echo "### コンテンツの差分" >> diff_summary.md
+            echo "" >> diff_summary.md
+            echo '```diff' >> diff_summary.md
+            git diff "$BASE"..."$HEAD" -- docs/*.md | head -200 >> diff_summary.md
+            echo '```' >> diff_summary.md
+          fi
+
+      - name: Update PR description
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const summary = fs.readFileSync('diff_summary.md', 'utf8');
+            const marker = '<!-- diff-summary -->';
+
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number,
+            });
+
+            let body = pr.body || '';
+            const section = marker + '\n---\n' + summary + '\n' + marker;
+            const regex = new RegExp(marker + '[\\s\\S]*?' + marker);
+
+            if (regex.test(body)) {
+              body = body.replace(regex, section);
+            } else {
+              body = body + '\n\n' + section;
+            }
+
+            await github.rest.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number,
+              body: body,
+            });
