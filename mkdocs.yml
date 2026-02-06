@@ -17,8 +17,7 @@ theme:
     - navigation.indexes
     - search.highlight
     - search.suggest
-  icon:
-    logo: material/help-circle-outline
+  logo: img/youtrust_icon.png
 
 plugins:
   - search:
