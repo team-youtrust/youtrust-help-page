@@ -18,7 +18,6 @@ jobs:
           fetch-depth: 0
 
       - name: Generate diff summary
-        id: diff
         run: |
           BASE=${{ github.event.pull_request.base.sha }}
           HEAD=${{ github.event.pull_request.head.sha }}
@@ -26,7 +25,6 @@ jobs:
           echo "## 変更されたファイル" > diff_summary.md
           echo "" >> diff_summary.md
 
-          # Changed files with status
           git diff --name-status "$BASE"..."$HEAD" | while IFS=$'\t' read -r status file; do
             case "$status" in
               A) icon="🆕 追加" ;;
@@ -38,7 +36,6 @@ jobs:
             echo "- ${icon}: \`${file}\`" >> diff_summary.md
           done
 
-          # Markdown content diff
           MD_FILES=$(git diff --name-only --diff-filter=AM "$BASE"..."$HEAD" -- 'docs/*.md')
           if [ -n "$MD_FILES" ]; then
             echo "" >> diff_summary.md
@@ -49,20 +46,13 @@ jobs:
             echo '```' >> diff_summary.md
           fi
 
-          # Set output
-          {
-            echo "summary<<EOF"
-            cat diff_summary.md
-            echo "EOF"
-          } >> "$GITHUB_OUTPUT"
-
       - name: Update PR description
         uses: actions/github-script@v7
         with:
           script: |
-            const summary = `${{ steps.diff.outputs.summary }}`;
+            const fs = require('fs');
+            const summary = fs.readFileSync('diff_summary.md', 'utf8');
             const marker = '<!-- diff-summary -->';
-            const section = `${marker}\n---\n${summary}\n${marker}`;
 
             const { data: pr } = await github.rest.pulls.get({
               owner: context.repo.owner,
@@ -71,8 +61,9 @@ jobs:
             });
 
             let body = pr.body || '';
+            const section = marker + '\n---\n' + summary + '\n' + marker;
+            const regex = new RegExp(marker + '[\\s\\S]*?' + marker);
 
-            const regex = new RegExp(`${marker}[\\s\\S]*?${marker}`);
             if (regex.test(body)) {
               body = body.replace(regex, section);
             } else {
