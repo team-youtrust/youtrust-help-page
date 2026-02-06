@@ -1,0 +1,53 @@
+site_name: YOUTRUST ヘルプページ
+site_url: https://youtrust.github.io/youtrust-help-page/
+site_description: YOUTRUSTのヘルプページ
+
+theme:
+  name: material
+  language: ja
+  palette:
+    scheme: default
+  font:
+    text: Noto Sans JP
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - navigation.indexes
+    - search.highlight
+    - search.suggest
+  icon:
+    logo: material/help-circle-outline
+
+plugins:
+  - search:
+      lang: ja
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - ホーム: index.md
+  - よくあるご質問: faq.md
+  - アカウント設定: account.md
+  - 登録プロフィール: profile.md
+  - 通知: notification.md
+  - プロフィールの公開範囲: privacy.md
+  - つながり: connection.md
+  - 投稿: post.md
+  - 応募・メッセージ: application.md
+  - コミュニティ: community.md
+  - その他: other.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:
+      permalink: true
