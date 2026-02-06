@@ -36,12 +36,9 @@ docs/
 
 ## 公開までの流れ
 
-1. ブランチを作成してMarkdownを編集
+1. ブランチを作成して `docs/` 配下のMarkdownを編集
 2. pushしてPRを作成
-3. PRにプレビューURLが自動コメントされる
-4. チームがプレビューを確認・レビュー
-5. PRをマージ → 本番サイトが自動更新
-
-## GitHub Pages設定（初回のみ）
-
-Settings → Pages → Source → **Deploy from a branch** → `gh-pages` / `/ (root)`
+3. PRの説明欄に変更ファイル一覧と差分が自動追記される
+4. `docs/` や `mkdocs.yml` の変更がある場合、`published-pages` ブランチの `pr-preview/pr-{番号}/` にプレビュー用HTMLが自動生成され、PRにプレビューURLがコメントされる
+5. チームがプレビューURLで表示を確認・レビュー
+6. PRをマージ → 本番サイトが自動更新、プレビューは自動削除される
