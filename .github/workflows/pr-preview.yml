@@ -40,4 +40,4 @@ jobs:
         with:
           source-dir: site/
           deploy-repository: ${{ github.repository }}
-          pages-branch: published-pages
+          preview-branch: published-pages
