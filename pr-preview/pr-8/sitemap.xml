@@ -1,51 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://youtrust.github.io/youtrust-help-page/</loc>
-         <lastmod>2026-02-08</lastmod>
-    </url>
-    <url>
-         <loc>https://youtrust.github.io/youtrust-help-page/account/</loc>
-         <lastmod>2026-02-08</lastmod>
-    </url>
-    <url>
-         <loc>https://youtrust.github.io/youtrust-help-page/application/</loc>
-         <lastmod>2026-02-08</lastmod>
-    </url>
-    <url>
-         <loc>https://youtrust.github.io/youtrust-help-page/community/</loc>
-         <lastmod>2026-02-08</lastmod>
-    </url>
-    <url>
-         <loc>https://youtrust.github.io/youtrust-help-page/connection/</loc>
-         <lastmod>2026-02-08</lastmod>
-    </url>
-    <url>
-         <loc>https://youtrust.github.io/youtrust-help-page/faq/</loc>
-         <lastmod>2026-02-08</lastmod>
-    </url>
-    <url>
-         <loc>https://youtrust.github.io/youtrust-help-page/notification/</loc>
-         <lastmod>2026-02-08</lastmod>
-    </url>
-    <url>
-         <loc>https://youtrust.github.io/youtrust-help-page/other/</loc>
-         <lastmod>2026-02-08</lastmod>
-    </url>
-    <url>
-         <loc>https://youtrust.github.io/youtrust-help-page/post/</loc>
-         <lastmod>2026-02-08</lastmod>
-    </url>
-    <url>
-         <loc>https://youtrust.github.io/youtrust-help-page/privacy/</loc>
-         <lastmod>2026-02-08</lastmod>
-    </url>
-    <url>
-         <loc>https://youtrust.github.io/youtrust-help-page/profile/</loc>
-         <lastmod>2026-02-08</lastmod>
-    </url>
-    <url>
          <loc>https://youtrust.github.io/youtrust-help-page/recruiter/</loc>
+         <lastmod>2026-02-08</lastmod>
+    </url>
+    <url>
+         <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/admin/</loc>
          <lastmod>2026-02-08</lastmod>
     </url>
     <url>
@@ -81,6 +41,10 @@
          <lastmod>2026-02-08</lastmod>
     </url>
     <url>
+         <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/billing/</loc>
+         <lastmod>2026-02-08</lastmod>
+    </url>
+    <url>
          <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/billing/carryover-scout/</loc>
          <lastmod>2026-02-08</lastmod>
     </url>
@@ -109,6 +73,10 @@
          <lastmod>2026-02-08</lastmod>
     </url>
     <url>
+         <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/candidate-management/</loc>
+         <lastmod>2026-02-08</lastmod>
+    </url>
+    <url>
          <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/candidate-management/archive/</loc>
          <lastmod>2026-02-08</lastmod>
     </url>
@@ -130,6 +98,10 @@
     </url>
     <url>
          <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/candidate-management/status-not-updated/</loc>
+         <lastmod>2026-02-08</lastmod>
+    </url>
+    <url>
+         <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/communication/</loc>
          <lastmod>2026-02-08</lastmod>
     </url>
     <url>
@@ -157,6 +129,10 @@
          <lastmod>2026-02-08</lastmod>
     </url>
     <url>
+         <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/company-page/</loc>
+         <lastmod>2026-02-08</lastmod>
+    </url>
+    <url>
          <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/company-page/about-followers/</loc>
          <lastmod>2026-02-08</lastmod>
     </url>
@@ -181,6 +157,10 @@
          <lastmod>2026-02-08</lastmod>
     </url>
     <url>
+         <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/connection/</loc>
+         <lastmod>2026-02-08</lastmod>
+    </url>
+    <url>
          <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/connection/increase/</loc>
          <lastmod>2026-02-08</lastmod>
     </url>
@@ -190,6 +170,10 @@
     </url>
     <url>
          <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/connection/suggestion-criteria/</loc>
+         <lastmod>2026-02-08</lastmod>
+    </url>
+    <url>
+         <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/notification/</loc>
          <lastmod>2026-02-08</lastmod>
     </url>
     <url>
@@ -206,6 +190,10 @@
     </url>
     <url>
          <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/notification/slack-integration/</loc>
+         <lastmod>2026-02-08</lastmod>
+    </url>
+    <url>
+         <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/post/</loc>
          <lastmod>2026-02-08</lastmod>
     </url>
     <url>
@@ -237,6 +225,10 @@
          <lastmod>2026-02-08</lastmod>
     </url>
     <url>
+         <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/scout/</loc>
+         <lastmod>2026-02-08</lastmod>
+    </url>
+    <url>
          <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/scout/cannot-send/</loc>
          <lastmod>2026-02-08</lastmod>
     </url>
@@ -262,6 +254,10 @@
     </url>
     <url>
          <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/scout/scout-vs-message/</loc>
+         <lastmod>2026-02-08</lastmod>
+    </url>
+    <url>
+         <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/search/</loc>
          <lastmod>2026-02-08</lastmod>
     </url>
     <url>
@@ -310,6 +306,10 @@
     </url>
     <url>
          <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/search/similar-search/</loc>
+         <lastmod>2026-02-08</lastmod>
+    </url>
+    <url>
+         <loc>https://youtrust.github.io/youtrust-help-page/recruiter/faq/talent-pick/</loc>
          <lastmod>2026-02-08</lastmod>
     </url>
     <url>
