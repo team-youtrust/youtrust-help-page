@@ -5,13 +5,10 @@ YOUTRUSTのヘルプページです。[Material for MkDocs](https://squidfunk.gi
 ## ローカル環境のセットアップ
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-mkdocs serve
+docker compose up
 ```
 
-http://127.0.0.1:8000/youtrust-help-page/ で確認できます。
+http://localhost:8000 でプレビューを確認できます。ファイルを編集すると自動でリロードされます。
 
 ## ページの編集・追加
 
