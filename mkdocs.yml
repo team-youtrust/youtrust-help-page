@@ -7,6 +7,7 @@ theme:
   language: ja
   palette:
     scheme: default
+    primary: custom
   font:
     text: Noto Sans JP
     code: Roboto Mono
@@ -15,9 +16,11 @@ theme:
     - navigation.tracking
     - navigation.top
     - navigation.indexes
+    - navigation.tabs
     - search.highlight
     - search.suggest
   logo: img/youtrust_icon.png
+  favicon: img/youtrust_icon.png
 
 plugins:
   - search:
@@ -28,16 +31,195 @@ extra_css:
 
 nav:
   - ホーム: index.md
-  - よくあるご質問: faq.md
-  - アカウント設定: account.md
-  - 登録プロフィール: profile.md
-  - 通知: notification.md
-  - プロフィールの公開範囲: privacy.md
-  - つながり: connection.md
-  - 投稿: post.md
-  - 応募・メッセージ: application.md
-  - コミュニティ: community.md
-  - その他: other.md
+  - 一般ユーザー向け:
+      - user/index.md
+      - アカウント設定:
+          - user/account/index.md
+          - user/account/create.md
+          - user/account/login-trouble.md
+          - user/account/change-email.md
+          - user/account/logout.md
+          - user/account/unlink-sns.md
+          - user/account/set-password-after-facebook.md
+          - user/account/delete.md
+      - 登録プロフィール:
+          - user/profile/index.md
+          - user/profile/edit.md
+          - user/profile/change-name.md
+          - user/profile/change-photo.md
+          - user/profile/career.md
+          - user/profile/skills.md
+          - user/profile/link-sns.md
+          - user/profile/share-url.md
+          - user/profile/birthday.md
+          - user/profile/recommendation.md
+          - user/profile/recommended-content.md
+      - 通知:
+          - user/notification/index.md
+          - user/notification/email-settings.md
+          - user/notification/push-settings.md
+          - user/notification/slack.md
+          - user/notification/job-alert.md
+          - user/notification/favorite-list.md
+      - プロフィールの公開範囲:
+          - user/privacy/index.md
+          - user/privacy/profile-visibility.md
+          - user/privacy/career-interest-settings.md
+          - user/privacy/career-interest-visibility.md
+          - user/privacy/colleague-visibility.md
+          - user/privacy/hide-from-company.md
+      - つながり:
+          - user/connection/index.md
+          - user/connection/about.md
+          - user/connection/invite-code.md
+          - user/connection/qr-code.md
+          - user/connection/suggestion-criteria.md
+          - user/connection/unknown-request.md
+          - user/connection/delete-request.md
+          - user/connection/disconnect.md
+          - user/connection/block.md
+          - user/connection/report.md
+          - user/connection/report-violation.md
+      - 投稿:
+          - user/post/index.md
+          - user/post/how-to-post.md
+          - user/post/types.md
+          - user/post/edit.md
+          - user/post/search.md
+          - user/post/browse-jobs.md
+          - user/post/manage-applicants.md
+          - user/post/cost.md
+          - user/post/featured-recruitment.md
+          - user/post/recruitment-notice.md
+          - user/post/job-posting-notice.md
+          - user/post/deletion-policy.md
+          - user/post/casual-meeting-guideline.md
+      - 応募・メッセージ:
+          - user/message/index.md
+          - user/message/reply.md
+          - user/message/want-to-talk.md
+          - user/message/check-interested.md
+          - user/message/search-jobs.md
+          - user/message/casual-vs-interview.md
+          - user/message/group-chat.md
+          - user/message/company-page.md
+      - コミュニティ:
+          - user/community/index.md
+          - user/community/about.md
+          - user/community/join.md
+          - user/community/create.md
+          - user/community/post.md
+          - user/community/leave.md
+          - user/community/owner-guide.md
+          - user/community/company-page.md
+          - user/community/rulebook.md
+      - その他:
+          - user/other/index.md
+          - user/other/official-recruiter.md
+          - user/other/external-data.md
+          - user/other/security-policy.md
+          - user/other/contact.md
+  - 公式リクルーター向け:
+      - recruiter/index.md
+      - 活用ガイド:
+          - recruiter/guide/index.md
+          - recruiter/guide/search-candidates.md
+          - recruiter/guide/send-scout.md
+          - recruiter/guide/posting.md
+          - recruiter/guide/manage-candidates.md
+          - recruiter/guide/increase-candidates.md
+          - recruiter/guide/status-management.md
+          - recruiter/guide/notification-settings.md
+      - 管理者設定:
+          - recruiter/faq/admin/index.md
+          - recruiter/faq/admin/add-recruiter.md
+          - recruiter/faq/admin/role-differences.md
+          - recruiter/faq/admin/view-permission.md
+          - recruiter/faq/admin/switch-organization.md
+          - recruiter/faq/admin/mobile-access.md
+          - recruiter/faq/admin/admin-notification.md
+          - recruiter/faq/admin/footprint-notification.md
+          - recruiter/faq/admin/hot-talent.md
+      - 人材を探す:
+          - recruiter/faq/search/index.md
+          - recruiter/faq/search/search-tips.md
+          - recruiter/faq/search/search-scope.md
+          - recruiter/faq/search/save-search.md
+          - recruiter/faq/search/similar-search.md
+          - recruiter/faq/search/ai-talent-request.md
+          - recruiter/faq/search/featured-talent.md
+          - recruiter/faq/search/new-user-order.md
+          - recruiter/faq/search/interested-count.md
+          - recruiter/faq/search/increase-approachable.md
+          - recruiter/faq/search/close-recruiter.md
+          - recruiter/faq/search/hide-user.md
+          - recruiter/faq/search/connection-not-reflected.md
+      - スカウト:
+          - recruiter/faq/scout/index.md
+          - recruiter/faq/scout/scout-vs-message.md
+          - recruiter/faq/scout/message-scope.md
+          - recruiter/faq/scout/cannot-send.md
+          - recruiter/faq/scout/check-other-scout.md
+          - recruiter/faq/scout/scheduled-send.md
+          - recruiter/faq/scout/message-builder.md
+          - recruiter/faq/scout/csv-download.md
+      - 候補者管理:
+          - recruiter/faq/candidate-management/index.md
+          - recruiter/faq/candidate-management/favorite-list.md
+          - recruiter/faq/candidate-management/list-difference.md
+          - recruiter/faq/candidate-management/manage-access.md
+          - recruiter/faq/candidate-management/notification-on-add.md
+          - recruiter/faq/candidate-management/archive.md
+          - recruiter/faq/candidate-management/status-not-updated.md
+      - コミュニケーション:
+          - recruiter/faq/communication/index.md
+          - recruiter/faq/communication/casual-meeting.md
+          - recruiter/faq/communication/group-chat.md
+          - recruiter/faq/communication/hidden-scout.md
+          - recruiter/faq/communication/labor-conditions.md
+          - recruiter/faq/communication/after-resignation.md
+          - recruiter/faq/communication/after-permission-removed.md
+      - 投稿:
+          - recruiter/faq/post/index.md
+          - recruiter/faq/post/edit-post.md
+          - recruiter/faq/post/visibility.md
+          - recruiter/faq/post/check-interested.md
+          - recruiter/faq/post/link-company-page.md
+          - recruiter/faq/post/image-size.md
+          - recruiter/faq/post/job-posting-notice.md
+          - recruiter/faq/post/violation-examples.md
+      - 企業ページ:
+          - recruiter/faq/company-page/index.md
+          - recruiter/faq/company-page/edit.md
+          - recruiter/faq/company-page/add-member.md
+          - recruiter/faq/company-page/post-as-company.md
+          - recruiter/faq/company-page/about-followers.md
+          - recruiter/faq/company-page/view-followers.md
+          - recruiter/faq/company-page/increase-followers.md
+      - つながり:
+          - recruiter/faq/connection/index.md
+          - recruiter/faq/connection/increase.md
+          - recruiter/faq/connection/request-temperature.md
+          - recruiter/faq/connection/suggestion-criteria.md
+      - 通知:
+          - recruiter/faq/notification/index.md
+          - recruiter/faq/notification/service-notification.md
+          - recruiter/faq/notification/interest-change.md
+          - recruiter/faq/notification/slack-integration.md
+          - recruiter/faq/notification/ats-integration.md
+      - 料金・プラン:
+          - recruiter/faq/billing/index.md
+          - recruiter/faq/billing/check-contract.md
+          - recruiter/faq/billing/change-plan.md
+          - recruiter/faq/billing/check-scout-count.md
+          - recruiter/faq/billing/carryover-scout.md
+          - recruiter/faq/billing/credit-card.md
+          - recruiter/faq/billing/invoice-timing.md
+          - recruiter/faq/billing/preparation.md
+      - タレントピック:
+          - recruiter/faq/talent-pick/index.md
+          - recruiter/faq/talent-pick/about.md
+          - recruiter/faq/talent-pick/view-more.md
 
 markdown_extensions:
   - admonition
