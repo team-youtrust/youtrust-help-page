@@ -19,17 +19,30 @@ http://127.0.0.1:8000/youtrust-help-page/ で確認できます。
 
 ```
 docs/
-├── index.md           # トップページ
-├── faq.md             # よくあるご質問
-├── account.md         # アカウント設定
-├── profile.md         # 登録プロフィール
-├── notification.md    # 通知
-├── privacy.md         # プロフィールの公開範囲
-├── connection.md      # つながり
-├── post.md            # 投稿
-├── application.md     # 応募・メッセージ
-├── community.md       # コミュニティ
-└── other.md           # その他
+├── user/                 # 一般ユーザー向けヘルプ
+│   ├── account/          #   アカウント設定
+│   ├── profile/          #   登録プロフィール
+│   ├── notification/     #   通知
+│   ├── privacy/          #   プロフィールの公開範囲
+│   ├── connection/       #   つながり
+│   ├── post/             #   投稿
+│   ├── message/          #   応募・メッセージ
+│   ├── community/        #   コミュニティ
+│   └── other/            #   その他
+└── recruiter/            # 公式リクルーター向けヘルプ
+    ├── guide/            #   活用ガイド
+    └── faq/              #   よくあるご質問
+        ├── admin/        #     管理者設定
+        ├── search/       #     人材を探す
+        ├── scout/        #     スカウト
+        ├── candidate-management/ # 候補者管理
+        ├── communication/ #    コミュニケーション
+        ├── post/         #     投稿
+        ├── company-page/ #     企業ページ
+        ├── connection/   #     つながり
+        ├── notification/ #     通知
+        ├── billing/      #     料金・プラン
+        └── talent-pick/  #     タレントピック
 ```
 
 ナビゲーションの順序は `mkdocs.yml` の `nav` セクションで管理しています。
