@@ -5,13 +5,10 @@ YOUTRUSTのヘルプページです。[Material for MkDocs](https://squidfunk.gi
 ## ローカル環境のセットアップ
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-mkdocs serve
+docker compose up
 ```
 
-http://127.0.0.1:8000/youtrust-help-page/ で確認できます。
+http://localhost:8000 でプレビューを確認できます。ファイルを編集すると自動でリロードされます。
 
 ## ページの編集・追加
 
@@ -29,7 +26,11 @@ docs/
 ├── post.md            # 投稿
 ├── application.md     # 応募・メッセージ
 ├── community.md       # コミュニティ
-└── other.md           # その他
+├── other.md           # その他
+├── user/              # 一般ユーザー向けヘルプ
+├── recruiter/         # 公式リクルーター向けヘルプ
+├── img/               # サイト共通画像
+└── stylesheets/       # カスタムCSS
 ```
 
 ナビゲーションの順序は `mkdocs.yml` の `nav` セクションで管理しています。
