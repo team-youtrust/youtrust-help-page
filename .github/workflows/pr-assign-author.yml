@@ -1,0 +1,13 @@
+name: Auto Assign PR Author
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  assignAuthor:
+    name: Set Assignees
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Assign author to PR
+        uses: technote-space/assign-author@v1
