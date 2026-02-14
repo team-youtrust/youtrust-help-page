@@ -59,6 +59,16 @@
   fill: #00a5b5;
 }
 
+/* Heading icon color */
+.md-typeset h1 .twemoji svg,
+.md-typeset h2 .twemoji svg,
+.md-typeset h3 .twemoji svg {
+  color: #00a5b5;
+  fill: #00a5b5;
+  vertical-align: middle;
+  transform: translateY(6px);
+}
+
 /* Sidebar navigation icons - only for section headings in primary nav */
 .md-nav--primary .md-nav__container > a.md-nav__link::before {
   content: "";
