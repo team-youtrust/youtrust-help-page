@@ -69,6 +69,17 @@
   transform: translateY(6px);
 }
 
+/* Image row - horizontal layout */
+.image-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.image-row p {
+  margin: 0;
+}
+
 /* Sidebar navigation icons - only for section headings in primary nav */
 .md-nav--primary .md-nav__container > a.md-nav__link::before {
   content: "";
