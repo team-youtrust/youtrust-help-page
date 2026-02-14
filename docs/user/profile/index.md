@@ -1,4 +1,4 @@
-# 登録プロフィール
+# :material-card-account-details: 登録プロフィール
 
 プロフィールの編集やSNS連携に関するヘルプです。
 

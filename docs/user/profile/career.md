@@ -6,11 +6,13 @@
 !!! tip "ヒント"
     異なる所属・企業での経歴を登録する場合には、新たに「＋経歴の追加」ボタンから登録してください。開始月が新しいものが上に表示されるように自動で並び替えられます。
 
-## アプリ
+## :material-cellphone: アプリ
 
 ホーム＞自分のアイコンをタップ＞ 「プロジェクト・部署を追加する」
 
-## Web
+![アプリ経歴プロジェクト追加](./images/app-career-project-add.png){ width="400" style="display: block; margin: 0 auto;" }
+
+## :material-monitor: Web
 
 [マイページ](https://youtrust.jp/mypage?tab=profile)の「経歴」欄から追加・編集ができます。
 
@@ -25,3 +27,5 @@
     - 一緒に働いていたユーザー（YOUTRUSTの友達が候補で表示されます）
 - プロジェクトの補足オプション
     - 「副業」または「インターン」で関わっていた場合には、スタンプをつけることが可能です
+
+![Web経歴追加フォーム](./images/web-career-add-form.png){ width="500" style="display: block; margin: 0 auto;" }
