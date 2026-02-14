@@ -1,8 +1,8 @@
-# 利用者情報の外部送信について
+# :material-database-export-outline: 利用者情報の外部送信について
 
 YOUTRUSTでは、サービス向上や広告配信のために、以下の外部サービスを利用しています。
 
-## アクセス解析
+## :material-chart-line: アクセス解析
 
 | サービス名 | 事業者 | プライバシーポリシー | オプトアウト |
 |-----------|--------|---------------------|-------------|
@@ -14,7 +14,7 @@ YOUTRUSTでは、サービス向上や広告配信のために、以下の外部
 | サーチコンソール | Google LLC | [リンク](https://policies.google.com/privacy?hl=ja) | [リンク](https://tools.google.com/dlpage/gaoptout?hl=ja) |
 | ahrefs | Ahrefs Pte.Ltd | [リンク](https://ahrefs.com/ja/legal/privacy-policy) | [リンク](https://ahrefs.jp/cookie-policy/) |
 
-## 広告・マーケティング
+## :material-bullhorn-outline: 広告・マーケティング
 
 | サービス名 | 事業者 | プライバシーポリシー | オプトアウト |
 |-----------|--------|---------------------|-------------|
@@ -34,7 +34,7 @@ YOUTRUSTでは、サービス向上や広告配信のために、以下の外部
 | Appier | Appier | [リンク](https://www.appier.com/ja-jp/about/privacy-policy) | - |
 | AMoAd・Afio | 株式会社サイバーエージェント | [リンク](https://www.amoad.com/guideline/) | [リンク](https://www.amoad.com/optout/) |
 
-## 関連ページ
+## :material-link-variant: 関連ページ
 
 - [情報セキュリティ方針](security-policy.md)
 - [お問い合わせ窓口](contact.md)

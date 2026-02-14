@@ -1,4 +1,4 @@
-# Slack連携を設定したい
+# :material-slack: Slack連携を設定したい
 
 マイページの[設定](https://youtrust.jp/settings)＞Slack連携より設定できます。
 
@@ -6,7 +6,7 @@ YOUTRUSTから送信される各種通知をSlackで受け取るためには、S
 
 以下の手順に従って連携を行ってください。
 
-## 連携手順
+## :material-playlist-check: 連携手順
 
 1. Slackアプリのサイドバーから「その他」＞**「App」を選択**してください。
 
