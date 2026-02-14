@@ -7,6 +7,8 @@
 YOUTRUSTはフルネームで登録いただいております。
 別途エンジニアの方などビジネスネームでのご登録をご希望の場合には、お名前のあとに括弧表記で記載いただくことが多いです。
 
+![プロフィール自己紹介の例](./images/web-profile-intro-example.png)
+
 ### 所属企業
 
 ご自身の所属企業の登録をお願いしております。
@@ -20,8 +22,12 @@ YOUTRUSTはフルネームで登録いただいております。
 
 プロフィール画面から、左カードの一番下＜編集する＞から編集が可能です。
 
+![プロフィールコミュニティ編集](./images/web-profile-community-edit.png)
+
 基本情報から所属の入力・変更いただけます。
+
+![基本情報編集](./images/web-basic-info-edit.png)
 
 ---
 
-### [【YOUTRUST】ログインはこちらから](https://youtrust.jp/)
+### :material-link: YOUTRUSTのログインは[こちら](https://youtrust.jp/)から
