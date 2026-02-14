@@ -2,13 +2,15 @@
 
 副業意欲や転職意欲は、特定の企業に非公開にすることができます。
 
-## アプリ
+## :material-cellphone: アプリ
 
 ホーム＞自分のアイコンをタップ＞ 副業意欲もしくは転職意欲をタップ＞「意欲を見られたくない会社を設定する」をタップ
 
-## Web
+## :material-monitor: Web
 
-[マイページ](https://youtrust.jp/mypage/) ＞副業意欲もしくは転職意欲をタップ＞「設定を変更する」＞「非公開にする所属を追加」
+マイページ > 編集 > [意欲の非公開設定](https://youtrust.jp/settings/career_motivation_hidden_company)から設定をしてください。
+
+![Web意欲の非公開設定](./images/web-hide-interest-settings.png){ width="600" style="display: block; margin: 0 auto;" }
 
 ---
 
