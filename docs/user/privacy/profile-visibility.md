@@ -4,10 +4,12 @@
 
 YOUTRUSTユーザー以外の方へのプロフィールの公開を制限したい場合は、下記手順によって設定が可能です。
 
-## アプリ
+## :material-cellphone: アプリ
 
-プロフィール＞ 右側のメニューバー＞設定より、プロフィールの公開範囲を設定できます。
+プロフィール ＞ 右上の⚙️マーク ＞ プロフィールの公開範囲より、プロフィールの公開範囲を設定できます。
 
-## Web
+## :material-monitor: Web
 
-こちらの[設定画面](https://youtrust.jp/settings)からプロフィールの公開範囲より、プロフィールの一般公開を制限するこができます。
+![Webプロフィール公開範囲設定](./images/web-profile-visibility-settings.png){ width="600" style="display: block; margin: 0 auto;" }
+
+[プロフィールの公開範囲設定画面](https://youtrust.jp/settings/profile_public_range)からプロフィールの公開範囲を制限するこができます。
