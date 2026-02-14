@@ -11,6 +11,12 @@
 2. 特集企画のハッシュタグを選択
 3. 特集企画に沿った内容で投稿
 
+![募集作成フロー](./images/web-job-listing-create-flow.png){ width="900" style="display: block; margin: 0 auto;" }
+
+![特集企画ステップ1-3](./images/featured-campaign-steps-1-3.png){ width="900" style="display: block; margin: 0 auto;" }
+
+![特集企画ステップ4-6](./images/featured-campaign-steps-4-6.png){ width="900" style="display: block; margin: 0 auto;" }
+
 ## 注意事項
 
 - カジュアル面談の募集投稿作成はPC版YOUTRUSTからのみとなります。

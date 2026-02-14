@@ -5,13 +5,31 @@ YOUTRUSTのヘルプページです。[Material for MkDocs](https://squidfunk.gi
 ## ローカル環境のセットアップ
 
 ```bash
+# Python仮想環境を作成（プロジェクト専用の環境を用意）
 python3 -m venv .venv
+
+# 仮想環境を有効化（以降のpipコマンドはこの環境にインストールされる）
 source .venv/bin/activate
+
+# 必要なパッケージをインストール（MkDocs、Material for MkDocsなど）
 pip install -r requirements.txt
+
+# ローカルサーバーを起動
 mkdocs serve
 ```
 
 http://127.0.0.1:8000/youtrust-help-page/ で確認できます。
+
+### リアルタイム反映オプション
+
+ドキュメント（Markdown）やCSS/テーマの変更をリアルタイムで反映させたい場合は、以下のオプションを使用してください。
+
+```bash
+mkdocs serve --watch-theme --livereload
+```
+
+- `--watch-theme`: テーマファイル（CSS等）の変更を監視
+- `--livereload`: ドキュメントやファイル変更時にブラウザを自動リロード
 
 ## ページの編集・追加
 
@@ -46,6 +64,16 @@ docs/
 ```
 
 ナビゲーションの順序は `mkdocs.yml` の `nav` セクションで管理しています。
+
+### アイコンの使い方
+
+Markdownファイル内で `:アイコン名:` の形式でアイコンを挿入できます。
+
+| プレフィックス        | 例                         | アイコン一覧                                    |
+| --------------------- | -------------------------- | ----------------------------------------------- |
+| `:material-`          | `:material-home:`          | https://pictogrammers.com/library/mdi/          |
+| `:fontawesome-solid-` | `:fontawesome-solid-user:` | https://fontawesome.com/icons?d=gallery&s=solid |
+| `:octicons-`          | `:octicons-gear-16:`       | https://primer.style/octicons/                  |
 
 ## 公開までの流れ
 
