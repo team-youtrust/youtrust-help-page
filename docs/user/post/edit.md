@@ -26,7 +26,17 @@ YOUTRUSTへ一度投稿した内容は、投稿後にも編集・修正するこ
 
 該当投稿の右上三点リーダーより、「編集」「削除」が選択できます。
 
-### できること
+<div class="grid" markdown>
+
+<div markdown>
+
+![募集編集メニュー](./images/job-listing-edit-menu.png){ width="400" }
+
+</div>
+
+<div markdown>
+
+### :material-check-circle: できること
 
 - 募集ポジションの変更
 - タイトルの変更
@@ -34,9 +44,13 @@ YOUTRUSTへ一度投稿した内容は、投稿後にも編集・修正するこ
 - タグの変更
 - 画像の変更
 
-### できないこと
+### :material-close-circle: できないこと
 
 - カテゴリ（カジュアル面談/メンバー募集）の修正
 - 紐づく企業の変更
 
 カテゴリや企業の変更を行いたい場合は募集を削除し、新しく投稿してください。
+</div>
+
+</div>
+

@@ -8,23 +8,26 @@ YOUTRUSTユーザーであれば、**誰でも投稿することができます�
 - 募集は1投稿まで無料で公開可能です。
     - 有料公式リクルーターの場合は通常投稿に加えて公開募集件数も無制限です。
 
+![投稿機能比較表](./images/post-features-comparison-table.png){ width="600" style="display: block; margin: 0 auto;" }
+
 ## 通常投稿の投稿方法
 
-PC web、Appのすべてのデバイスから投稿可能です。
-
-通常投稿は投稿範囲を「全体公開」「友達まで公開」から選択できます。
-
+PC web、Appのすべてのデバイスから投稿可能です。  
+通常投稿は投稿範囲を「全体公開」「友達まで公開」から選択できます。  
 また、「＃ハッシュタグ」「＠メンション」の設定も可能です。
 
 ※万が一、他者の権利を侵害する内容（動画・画像含む）の投稿があった場合には、利用規約第4条及び第5条に基づき、弊社にて削除対応いたします。ご了承ください。
 
-[削除対象となる投稿](deletion-policy.md)
+- [削除対象となる投稿](deletion-policy.md)
+- [友達・つながりについて知りたい](../connection/about.md)
 
-[友達・つながりについて知りたい](../connection/about.md)
+![通常投稿の方法](./images/how-to-post-brain-memo.png){ width="700" style="display: block; margin: 0 auto;" }
 
 ## 募集の作成方法
 
 ※PC webからのみ作成可能です
+
+![募集作成手順](./images/web-job-create-steps.png){ width="700" style="display: block; margin: 0 auto;" }
 
 正社員、契約社員、アルバイトなど雇用契約を結ぶ募集を出す際には、こちらの注意事項（[雇用契約を伴う求人掲載時の注意点](job-posting-notice.md)）をよく読んで投稿するようにしてください。
 
