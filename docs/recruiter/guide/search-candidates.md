@@ -12,13 +12,13 @@
 
 # 「検索」でできること
 
-![スクリーンショット 2022-06-08 10.21.16.png](../../assets/recruiter/guide/search-candidates/スクリーンショット_2022-06-08_10.21.16.png)
+![検索フィルターパネル](images/web-search-filter-panel.png)
 
 「すべての絞り込み」をクリックすることで、詳細な絞り込みを行うことが可能です。
 
 ### 1. フリーワードでの検索
 
-![Untitled](../../assets/recruiter/guide/search-candidates/Untitled.png)
+![フリーワード検索のAND/OR切替](images/web-search-keyword-and-or-filter.png)
 
 - ユーザーがプロフィールに書いている内容をもとに、フリーワードでの検索が可能です。
 - スペースを入力することで「and条件」「or条件」での検索もできます。
@@ -27,7 +27,7 @@
 
 ### 2. 除外ワードの指定
 
-![スクリーンショット 2022-06-08 10.39.35.png](../../assets/recruiter/guide/search-candidates/スクリーンショット_2022-06-08_10.39.35.png)
+![除外ワード入力欄](images/web-search-exclude-keyword.png)
 
 - 1と同様に、除外したいワードも「and条件」で指定することが可能です。
 
@@ -36,26 +36,26 @@
 - 転職意欲、副業意欲を「and条件」で絞り込むことが可能です。
 - 正社員の採用をしたい場合は、転職意欲の上位3つを選択して検索することを推奨しております。
 
-![スクリーンショット 2022-06-08 10.45.00.png](../../assets/recruiter/guide/search-candidates/スクリーンショット_2022-06-08_10.45.00.png)
+![意欲の状況フィルター](images/web-search-intent-status-filter.png){ width="70%" style="display: block; margin: 0 auto;" }
 
 ### 4. 副業/転職意欲の更新時期の絞り込み
 
-- 転職意欲、副業意欲を更新した時期を、24時間以内、1週間以内、1ヶ月以内で　絞り込むことが可能です。
+- 転職意欲、副業意欲を更新した時期を、24時間以内、1週間以内、1ヶ月以内で絞り込むことが可能です。
 
-![スクリーンショット 2022-06-08 10.45.00 2.png](../../assets/recruiter/guide/search-candidates/スクリーンショット_2022-06-08_10.45.00_2.png)
+![意欲の更新時期フィルター](images/web-search-intent-update-period-filter.png){ width="70%" style="display: block; margin: 0 auto;" }
 
 ### 5. 最終ログインの絞り込み
 
 - 最終ログイン日時を、24時間以内、1週間以内、1ヶ月以内で絞り込むことが可能です。
 
-![スクリーンショット 2022-06-08 10.45.00 4.png](../../assets/recruiter/guide/search-candidates/スクリーンショット_2022-06-08_10.45.00_4.png)
+![最終ログインフィルター](images/web-search-last-login-filter.png){ width="70%" style="display: block; margin: 0 auto;" }
 
 ### 6. 職種の絞り込み
 
 - ユーザーが職種を設定している場合、大項目・小項目で絞り込むことが可能です。
     - 大項目は単一選択、小項目は複数選択が可能です。
 
-![スクリーンショット 2024-11-07 8.35.50.png](../../assets/recruiter/guide/search-candidates/スクリーンショット_2024-11-07_8.35.50.png)
+![職種の絞り込みフィルター](images/web-search-job-category-filter.png)
 
 ### 7. 除外項目の指定
 
@@ -66,14 +66,14 @@
     4. **気になるリスト追加済みタレント**　※ 企業単位
     5. **候補者追加済みタレント**　※ 企業単位
 
-![スクリーンショット 2024-11-07 11.47.34.png](../../assets/recruiter/guide/search-candidates/スクリーンショット_2024-11-07_11.47.34.png)
+![除外項目フィルター](images/web-search-exclusion-filters.png){ width="70%" style="display: block; margin: 0 auto;" }
 
 ### 8. 社内のリクルーターの友達の絞り込み
 
 - チェックしたリクルーターの友達のみが表示されるようになります。
     - リファラル採用での活用を推奨しております。
 
-![スクリーンショット 2022-06-08 10.45.00 5.png](../../assets/recruiter/guide/search-candidates/スクリーンショット_2022-06-08_10.45.00_5.png)
+![リクルーターの友達フィルター](images/web-search-recruiter-friend-filter.png){ width="70%" style="display: block; margin: 0 auto;" }
 
 ### 9. 非表示ユーザーの表示
 
@@ -83,7 +83,7 @@
 
 <!-- TODO: 検索画面から特定のユーザーを非表示にしたい への内部リンクを設定 -->
 
-![スクリーンショット 2022-06-08 10.45.00 7.png](../../assets/recruiter/guide/search-candidates/スクリーンショット_2022-06-08_10.45.00_7.png)
+![非表示ユーザーのみ表示トグル](images/web-search-hidden-user-toggle.png){ width="70%" style="display: block; margin: 0 auto;" }
 
 ### 10. 並び替え
 
@@ -96,7 +96,7 @@
 
 <!-- TODO: 「新着ユーザー順」とは何か知りたい への内部リンクを設定 -->
 
-![スクリーンショット 2022-06-08 10.45.00 6.png](../../assets/recruiter/guide/search-candidates/スクリーンショット_2022-06-08_10.45.00_6.png)
+![検索結果の並び替えオプション](images/web-search-sort-options.png){ width="70%" style="display: block; margin: 0 auto;" }
 
 # 候補者検索のコツ
 
@@ -110,5 +110,3 @@ YOUTRUSTはキャリアSNS（≠ 転職サイト）なので、**キャリアSNS
 の2つに分けて説明しておりますので、ぜひ参考にしていただけますと幸いです。
 
 <!-- TODO: 候補者探しのコツを知りたい への内部リンクを設定 -->
-
-![Untitled](../../assets/recruiter/guide/search-candidates/Untitled_1.png)

@@ -16,7 +16,7 @@ YOUTRUST上では無料で「通常投稿」「募集投稿」の2種類を掲�
 
 **募集投稿では「話を聞きたい！」ボタンが生成される**ことが、通常投稿との大きな違いです。
 
-![画像編集用_通常 (4).png](../../assets/recruiter/guide/posting/画像編集用_通常_(4).png)
+![通常投稿と募集投稿の比較](images/web-post-types-comparison.png)
 
 # 投稿活用のメリット
 
@@ -65,11 +65,11 @@ noteやブログ記事よりもライトに投稿できる点もYOUTRUSTの特�
 
 ①YOUTRUSTマイページ「募集」から「新しく募集を作成」を選択してください。
 
-![スクリーンショット 2023-02-02 22.41.32.png](../../assets/recruiter/guide/posting/スクリーンショット_2023-02-02_22.41.32.png)
+![マイページ募集一覧と新規作成ボタン](images/web-profile-job-list-create-button.png)
 
 ②募集作成は「カジュアル面談」「メンバー募集」のどちらかを選択し、画面手順に従って設定を行ってください。
 
-![candidate (1).png](../../assets/recruiter/guide/posting/candidate_(1).png)
+![募集作成タイプ選択画面](images/web-job-creation-type-select.png)
 
 ### 募集投稿への応募者管理
 
@@ -78,7 +78,7 @@ noteやブログ記事よりもライトに投稿できる点もYOUTRUSTの特�
 募集投稿に「話を聞きたい！」を押したユーザーには、つながりの範囲に関わらずメッセージにてご連絡いただけます。
 ※メッセージ送信可能者は募集を投稿したご本人のみになります。
 
-![スクリーンショット 2023-02-06 17.56.05.png](../../assets/recruiter/guide/posting/スクリーンショット_2023-02-06_17.56.05.png)
+![応募者管理画面](images/web-profile-applicant-management.png)
 
 ### リクルーター管理画面での管理
 
@@ -88,4 +88,4 @@ noteやブログ記事よりもライトに投稿できる点もYOUTRUSTの特�
 
 候補者リストには、ユーザーがどの募集投稿に反応したかが表示されます。
 
-![スクリーンショット 2025-02-21 17.33.32.png](../../assets/recruiter/guide/posting/スクリーンショット_2025-02-21_17.33.32.png)
+![候補者リストの応募経由表示](images/web-applicant-detail-source.png)

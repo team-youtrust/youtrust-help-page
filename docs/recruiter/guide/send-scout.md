@@ -33,11 +33,11 @@ YOUTRUST登録ユーザーに、直接スカウトを送ることができます
 
 <!-- TODO: スカウトとメッセージの違いを知りたい への内部リンクを設定 -->
 
-![サービス画面からのスカウト送付ボタン](../../assets/recruiter/guide/send-scout/スカウトボタン.png)
+![プロフィール画面のスカウトボタン](images/web-candidate-profile-scout-button.png)
 
 サービス画面からのスカウト送付ボタン
 
-![管理画面からのスカウト送付ボタン](../../assets/recruiter/guide/send-scout/スクリーンショット_2022-08-18_15.06.56_2.png)
+![管理画面のスカウトボタン](images/web-candidate-detail-scout-tab.png)
 
 管理画面からのスカウト送付ボタン
 

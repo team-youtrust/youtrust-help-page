@@ -50,13 +50,13 @@ docs/
 └── recruiter/            # 公式リクルーター向けヘルプ
     ├── guide/            #   活用ガイド
     └── faq/              #   よくあるご質問
-        ├── admin/        #     管理者設定
-        ├── search/       #     人材を探す
+        ├── admin/        #     リクルーター管理画面
+        ├── search/       #     タレントを探す
         ├── scout/        #     スカウト
         ├── candidate-management/ # 候補者管理
         ├── communication/ #    コミュニケーション
         ├── post/         #     投稿
-        ├── company-page/ #     企業ページ
+        ├── company-page/ #     カンパニーページ
         ├── connection/   #     つながり
         ├── notification/ #     通知
         ├── billing/      #     料金・プラン

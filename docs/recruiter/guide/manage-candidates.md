@@ -4,17 +4,17 @@
 
 検索後、気になる候補者がいたら、「気になるリスト」に追加しましょう。検索画面からの追加も、ユーザー詳細画面からの追加も可能です。
 
-![スクリーンショット 2022-03-15 13.14.41.png](../../assets/recruiter/guide/manage-candidates/スクリーンショット_2022-03-15_13.14.41.png)
+![検索画面の気になるボタン](images/web-candidate-card-bookmark-button.png)
 
-![スクリーンショット 2022-08-18 15.05.52 2.png](../../assets/recruiter/guide/manage-candidates/スクリーンショット_2022-08-18_15.05.52_2.png)
+![ユーザー詳細画面の気になるボタン](images/web-candidate-detail-bookmark-button.png)
 
 また、追加の際には、**ボタン左側（気になる）**を押すことで**未分類で追加**、**ボタン右側（ ∨ ）**を押すことで**指定リストに追加**が可能です。
 
-![スクリーンショット 2022-03-15 13.14.41.png](../../assets/recruiter/guide/manage-candidates/スクリーンショット_2022-03-15_13.14.41_1.png)
+![気になるボタンの構成](images/web-bookmark-button.png){ width="40%" style="display: block; margin: 0 auto;" }
 
 さらに、複数の気になるリストに追加することも可能なので、職種や繋がり、声かけタイミングのフェーズ等、お好きなリストを作成してください。
 
-![スクリーンショット 2022-03-15 13.14.14.png](../../assets/recruiter/guide/manage-candidates/スクリーンショット_2022-03-15_13.14.14.png)
+![気になるリスト選択ポップアップ](images/web-bookmark-list-popup.png){ width="80%" style="display: block; margin: 0 auto;" }
 
 ※ユーザーを追加すると、追加されたユーザーに通知が届きます。
 <!-- TODO: リストに追加すると相手に通知されるのか知りたい への内部リンクを設定 -->
@@ -25,24 +25,24 @@
 
 ※通知は各リクルーターが個別に確認可能です。他リクルーターが見ても消えません。
 
-![スクリーンショット 2022-03-15 13.27.54.png](../../assets/recruiter/guide/manage-candidates/スクリーンショット_2022-03-15_13.27.54.png)
+![気になるリスト一覧ページ](images/web-bookmark-list-page.png)
 
 各リストに表示される数字は、それぞれ下記を表しています。
 
 - **グレーの数字**：リスト内に追加しているユーザーのうち、意欲が上位2つ（「積極的に探している」「検討している」）に設定されているユーザーの数
 - **グリーンの数字**：リスト内に追加しているユーザーのうち、直近1週間以内に意欲が上がったユーザーの数
 
-![スクリーンショット 2022-03-23 14.40.41.png](../../assets/recruiter/guide/manage-candidates/スクリーンショット_2022-03-23_14.40.41.png)
+![気になるリストの意欲バッジ](images/web-bookmark-list-intent-badges.png){ width="60%" style="display: block; margin: 0 auto;" }
 
 <!-- TODO: Slackに通知を連携したい への内部リンクを設定 -->
 
-![スクリーンショット 2022-03-15 13.28.05.png](../../assets/recruiter/guide/manage-candidates/スクリーンショット_2022-03-15_13.28.05.png)
+![Slack意欲変更通知](images/web-bookmark-slack-notification.png)
 
 # ユーザーのステータス変更・確認
 
 気になるリストに追加したユーザーのステータスやアクションは、リクルーター全員が確認・管理可能です。検索画面や気になるリストから各ユーザーページに遷移し、メモを残しましょう。
 
-![スクリーンショット 2022-08-18 15.06.56.png](../../assets/recruiter/guide/manage-candidates/スクリーンショット_2022-08-18_15.06.56.png)
+![ユーザー詳細のステータスパネル](images/web-candidate-detail-status-panel.png)
 
 # 候補者リストへの追加
 
@@ -52,7 +52,7 @@
 
 また、候補者リストでは、担当者や進捗状況での絞り込み等が可能です。
 
-![スクリーンショット 2022-05-11 13.43.15.png](../../assets/recruiter/guide/manage-candidates/スクリーンショット_2022-05-11_13.43.15.png)
+![候補者管理リスト](images/web-candidate-management-list.png)
 
 # 補足（2022/03/23以前にご導入いただいた企業様向け）
 
@@ -60,7 +60,7 @@
 
 旧・気になるリストに追加していたユーザーのデータは、自動で現・気になるリストの中に移行されています。
 
-![スクリーンショット 2022-03-15 13.47.20.png](../../assets/recruiter/guide/manage-candidates/スクリーンショット_2022-03-15_13.47.20.png)
+![旧気になるリストからのデータ移行](images/web-bookmark-list-migration.png)
 
 ### 候補者リストから気になるリストへの追加
 
