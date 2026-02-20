@@ -7,6 +7,8 @@
 - スカウト数と契約期日：[管理画面](https://youtrust.jp/recruiter_team)右上に表示
 - リクルーター数：管理画面＞[設定](https://youtrust.jp/recruiter_team/settings)に表示
 
+![管理画面のスカウト残数とメンバー管理](images/web-settings-scout-count-and-members.png)
+
 [送付可能なスカウト通数を確認したい](../billing/check-scout-count.md)
 
 [契約プランを途中で変えたい](../billing/change-plan.md)

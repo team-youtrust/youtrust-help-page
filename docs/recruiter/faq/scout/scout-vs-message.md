@@ -44,4 +44,8 @@ YOUTRUSTには「メッセージルーム」と「スカウトルーム」が存
 
 ### ライトプランの送付範囲
 
+![ライトプランのスカウト送付範囲](images/web-scout-scope-light-plan-diagram.png)
+
 ### スタンダードプラン以上の送付範囲
+
+![スタンダードプラン以上のスカウト送付範囲](images/web-scout-scope-standard-plan-diagram.png)

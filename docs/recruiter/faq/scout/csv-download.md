@@ -2,6 +2,8 @@
 
 スカウト進捗のデータを管理画面からcsv形式でダウンロードが可能です。
 
+![管理画面のCSVダウンロードボタン](images/web-admin-settings-csv-download.png)
+
 1. 管理画面＞[設定](https://youtrust.jp/recruiter_team/settings)を開く
 2. 期間を指定の上、職種別もしくは転職意欲別のデータをダウンロード
 

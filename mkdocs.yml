@@ -68,7 +68,7 @@ nav:
           - user/privacy/career-interest-visibility.md
           - user/privacy/colleague-visibility.md
           - user/privacy/hide-from-company.md
-      - つながり:
+      - 友達:
           - user/connection/index.md
           - user/connection/about.md
           - user/connection/invite-code.md
@@ -153,7 +153,7 @@ nav:
           - recruiter/faq/search/close-recruiter.md
           - recruiter/faq/search/hide-user.md
           - recruiter/faq/search/connection-not-reflected.md
-      - スカウト:
+      - スカウト・チャット:
           - recruiter/faq/scout/index.md
           - recruiter/faq/scout/scout-vs-message.md
           - recruiter/faq/scout/message-scope.md
@@ -162,7 +162,7 @@ nav:
           - recruiter/faq/scout/scheduled-send.md
           - recruiter/faq/scout/message-builder.md
           - recruiter/faq/scout/csv-download.md
-      - 候補者管理:
+      - 候補者の管理:
           - recruiter/faq/candidate-management/index.md
           - recruiter/faq/candidate-management/favorite-list.md
           - recruiter/faq/candidate-management/list-difference.md
@@ -170,7 +170,7 @@ nav:
           - recruiter/faq/candidate-management/notification-on-add.md
           - recruiter/faq/candidate-management/archive.md
           - recruiter/faq/candidate-management/status-not-updated.md
-      - コミュニケーション:
+      - 候補者とのやりとり:
           - recruiter/faq/communication/index.md
           - recruiter/faq/communication/casual-meeting.md
           - recruiter/faq/communication/group-chat.md
@@ -195,7 +195,7 @@ nav:
           - recruiter/faq/company-page/about-followers.md
           - recruiter/faq/company-page/view-followers.md
           - recruiter/faq/company-page/increase-followers.md
-      - つながり:
+      - 友達:
           - recruiter/faq/connection/index.md
           - recruiter/faq/connection/increase.md
           - recruiter/faq/connection/request-temperature.md
@@ -206,7 +206,7 @@ nav:
           - recruiter/faq/notification/interest-change.md
           - recruiter/faq/notification/slack-integration.md
           - recruiter/faq/notification/ats-integration.md
-      - 料金・プラン:
+      - 請求・契約:
           - recruiter/faq/billing/index.md
           - recruiter/faq/billing/check-contract.md
           - recruiter/faq/billing/change-plan.md

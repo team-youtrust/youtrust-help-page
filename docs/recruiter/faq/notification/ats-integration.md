@@ -2,6 +2,8 @@
 
 ### **YOUTRUSTのリクルーター管理画面での操作**
 
+![外部サービス連携設定画面](images/web-admin-external-service-integration.png)
+
 **YOUTRUSTリクルーター管理画面＞[設定](https://admin.youtrust.jp/recruiter_team/settings)＞外部サービス連携＞[HRMOS採用]連携 / [HERP Hire]連携 / [Talentio]連携**の「webhookトークン」欄に取得した媒体連携トークンを入力する
 
 ## YOUTRUSTと連携可能なATSサービス
@@ -28,6 +30,8 @@ ATS連携後、候補者がATSサービス内に取り込まれる条件は以�
     - チャットメッセージではない
 
 **※2** 複数社でリクルーター権限をご利用いただいている方は、スカウト送信時の**スカウトルームの紐づいている企業宛に連携が行われます**。
+
+![スカウトルームのヘッダー表示](images/web-scout-room-header.png)
 
 正常に連携が行われない場合はATSに手動で入力していただくことが必要です。
 

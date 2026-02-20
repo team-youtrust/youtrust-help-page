@@ -9,3 +9,5 @@
 1. リクルーター管理画面の[「設定」](https://youtrust.jp/recruiter_team/settings)に「リクルーターチーム切り替え」が表示されます。
 
 2. 「株式会社〇〇に切り替える」ボタンより、ワンクリックで所属するリクルーターチームを切り替えられます。
+
+![リクルーターチーム切替画面](images/web-settings-team-switch.png)
