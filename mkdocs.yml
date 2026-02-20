@@ -129,7 +129,7 @@ nav:
           - recruiter/guide/increase-candidates.md
           - recruiter/guide/status-management.md
           - recruiter/guide/notification-settings.md
-      - 管理者設定:
+      - リクルーター管理画面:
           - recruiter/faq/admin/index.md
           - recruiter/faq/admin/add-recruiter.md
           - recruiter/faq/admin/role-differences.md
@@ -139,7 +139,7 @@ nav:
           - recruiter/faq/admin/admin-notification.md
           - recruiter/faq/admin/footprint-notification.md
           - recruiter/faq/admin/hot-talent.md
-      - 人材を探す:
+      - タレントを探す:
           - recruiter/faq/search/index.md
           - recruiter/faq/search/search-tips.md
           - recruiter/faq/search/search-scope.md
@@ -187,7 +187,7 @@ nav:
           - recruiter/faq/post/image-size.md
           - recruiter/faq/post/job-posting-notice.md
           - recruiter/faq/post/violation-examples.md
-      - 企業ページ:
+      - カンパニーページ:
           - recruiter/faq/company-page/index.md
           - recruiter/faq/company-page/edit.md
           - recruiter/faq/company-page/add-member.md
