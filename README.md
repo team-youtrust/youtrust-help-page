@@ -42,7 +42,7 @@ docs/
 │   ├── profile/          #   登録プロフィール
 │   ├── notification/     #   通知
 │   ├── privacy/          #   プロフィールの公開範囲
-│   ├── connection/       #   つながり
+│   ├── connection/       #   友達
 │   ├── post/             #   投稿
 │   ├── message/          #   応募・メッセージ
 │   ├── community/        #   コミュニティ
@@ -52,14 +52,14 @@ docs/
     └── faq/              #   よくあるご質問
         ├── admin/        #     リクルーター管理画面
         ├── search/       #     タレントを探す
-        ├── scout/        #     スカウト
-        ├── candidate-management/ # 候補者管理
-        ├── communication/ #    コミュニケーション
+        ├── scout/        #     スカウト・チャット
+        ├── candidate-management/ # 候補者の管理
+        ├── communication/ #    候補者とのやりとり
         ├── post/         #     投稿
         ├── company-page/ #     カンパニーページ
-        ├── connection/   #     つながり
+        ├── connection/   #     友達
         ├── notification/ #     通知
-        ├── billing/      #     料金・プラン
+        ├── billing/      #     請求・契約
         └── talent-pick/  #     タレントピック
 ```
 

@@ -8,9 +8,13 @@
 
 3. 除外条件を設定し、「リクエスト作成」
 
+![AIタレントリクエストの入力フォーム](images/web-ai-talent-request-form.png)
+
 ※リクエスト作成から完了までは少々お時間をいただきます。
 
 **Slack連携にて、完了通知を受け取ることも可能です。設定方法は下記「リクエスト完了をSlack通知で受け取りたい」をご確認ください。**
+
+![AIタレントリクエスト実行中の画面](images/web-ai-talent-request-processing.png)
 
 ### リクエストが完了したら
 
@@ -24,9 +28,13 @@
 
 3. リストのアクセス権限を変更
 
+![AIタレントリクエスト完了後のリスト編集](images/web-ai-talent-request-completed.png)
+
 ### AIによるスコアと評価コメント
 
 AIによるプロフィールの要約とピックアップ理由である評価コメントはタレントごとに「社内メモ」に記載されます。
+
+![AIによるスコアと評価コメント](images/web-ai-talent-request-score-comment.png)
 
 ## リクエスト完了をSlack通知で受け取りたい
 
@@ -35,3 +43,5 @@ AIによるプロフィールの要約とピックアップ理由である評価
 2. 【AIタレントリクエスト】を選択
 
 通知設定が完了すると該当チャンネルに通知が届きます。
+
+![Slack通知設定とAIタレントリクエスト完了通知](images/web-slack-ai-talent-request-notification.png)

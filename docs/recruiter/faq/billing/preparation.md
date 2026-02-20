@@ -14,6 +14,8 @@ YOUTRUST企業プランをご契約頂きまして、誠にありがとうござ
 
 [社内向けYOUTRUST登録案内 資料](https://docs.google.com/presentation/d/1yjW9kCWRQkdRcjS6SLHVm89tVsZ6_CcHPlhwq4eEzrw/edit#slide=id.g14816945ff1_0_147)
 
+![友達とつながる案内資料](images/web-friend-connection-guide.png)
+
 スカウトのデータベース拡大のために、より多くのメンバーが登録し、つながりを広げることが重要です。アカウントの登録だけでなく、プロフィールの入力やつながり申請も忘れずに依頼しましょう。
 
 ## 2. 公式リクルーター権限の設定

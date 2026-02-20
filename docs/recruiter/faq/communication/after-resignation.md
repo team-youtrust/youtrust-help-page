@@ -6,6 +6,8 @@
 
 ## ご退職者様にご対応いただくこと
 
+![退職時の対応フロー](images/web-after-resignation-flow.png)
+
 ### 1. ご自身がスカウトを送った方の進捗状況の更新
 
 リクルーター管理画面の「[候補者](https://youtrust.jp/recruiter_team/candidates)」リストにて、「担当者」をご自身で絞り込みます。

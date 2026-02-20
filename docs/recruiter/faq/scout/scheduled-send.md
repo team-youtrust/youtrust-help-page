@@ -14,6 +14,8 @@
 
 スカウト文章を作成後、**「予約送信」**をクリックします。
 
+![スカウト作成画面の予約送信ボタン](images/web-scout-compose-scheduled-send-button.png){ width="70%" style="display: block; margin: 0 auto;" }
+
 ### 2. 予約送信をクリックし、送信日時を登録
 
 送信日時を**任意の時間に指定**ができます。
@@ -21,9 +23,13 @@
 !!! warning "最終確認はしっかりと行なってください"
     **スカウト内容について弊社では一切の責任を負いかねます。**
 
+![予約送信の日時選択ダイアログ](images/web-scout-scheduled-datetime-picker.png){ width="60%" style="display: block; margin: 0 auto;" }
+
 ### 3. 予約送信の登録が完了
 
 予約送信の登録が完了するとタレント詳細ページの上部に帯バナーが表示されます。
+
+![スカウト送信完了とリマインド推奨バナー](images/web-scout-sent-remind-banner.png)
 
 ### 4. 登録された予約送信の確認が可能
 
@@ -31,12 +37,18 @@
 
 また管理画面の**メッセージ内部に表示されている帯バナー「スカウトメッセージ予約中」の確認より**予約送信されているメッセージの確認や削除が可能です。
 
+![スカウトサイドバーの予約送信・リマインドフィルター](images/web-scout-sidebar-scheduled-remind-filter.png)
+![スカウトルームの予約送信バナー](images/web-scout-room-scheduled-banner.png)
+![スカウトルームの予約送信詳細](images/web-scout-room-scheduled-detail.png)
+
 ### 5. 送信相手に予約されたメッセージが届く
 
 任意の時間になると通常のスカウトと同様の見え方でスカウトメッセージが届きます。
 
 !!! info "注意"
     予約登録期間中に送信相手から返信があった場合は予約送信は実行されません
+
+![image.png.png](images/image.png.png)
 
 ## リマインドの予約送信の登録動線
 
@@ -46,13 +58,19 @@
 
 こちらの帯バナー「【おすすめ】リマインドを送ることで、返信率が5%アップの可能性があります！」より「予約」をクリックするとメッセージルームに遷移して登録が可能です。
 
+![タレント詳細のリマインド登録バナー](images/web-talent-detail-remind-registration-banner.png)
+
 ### 2. 登録バナーから予約をクリックするとリマインド登録が可能
 
 初回スカウト送信と同じ形式のフォームからメッセージの登録が可能です。
 
+![リマインドメッセージ作成画面](images/web-remind-message-compose.png){ width="70%" style="display: block; margin: 0 auto;" }
+
 ### 3. リマインド予約送信の登録が完了
 
 リマインドの予約送信が登録されると登録された旨とその送信日時が帯バナーとして表示されます。
+
+![タレント詳細の予約送信・リマインドバナー](images/web-talent-detail-scheduled-remind-banners.png)
 
 ### 4. 登録されたリマインド予約送信の確認が可能
 
@@ -67,7 +85,11 @@
 !!! info "注意"
     予約登録期間中に送信相手から返信があった場合は予約送信は実行されません
 
+![スカウトルームのリマインド送信済み表示](images/web-scout-room-remind-sent.png)
+
 ### 6. メッセージタブからもリマインド予約送信の登録が可能
+
+![メッセージタブからのリマインド予約登録](images/web-scout-room-remind-registration.png)
 
 ## 予約送信Q&A
 
@@ -93,6 +115,8 @@
 
 また予約送信の登録中は同じユーザーに他のメッセージ送信ができません。
 
+![送信相手に届くスカウトメッセージの見え方](images/web-user-view-scout-message.png)
+
 ### 予約送信が取り消される場合について
 
 予約送信の実行を取り消すケースは下記の通りです。
@@ -117,6 +141,8 @@
 !!! info "注意"
     送信相手から返信があった場合は自動で取り消されます
 
+![スカウトルームの予約送信削除](images/web-scout-room-scheduled-delete.png)
+
 ### 予約送信を登録できる期間
 
 予約送信を登録できる期間は下記の通りです。
@@ -134,14 +160,24 @@
 
 #### 初回スカウト予約可能時間
 
+![初回スカウト予約可能時間（72時間）](images/web-scheduled-send-timeline-72h.png)
+
 #### リマインド予約可能時間
 
+![リマインド予約可能時間（168時間）](images/web-scheduled-send-timeline-168h.png)
+
 #### リマインド予約可能時（初回スカウト設定済み）
+
+![リマインド予約可能時間（初回スカウト設定済み）](images/web-remind-timeline-with-scout.png)
 
 ### 他のリクルーターが予約送信の設定状況を確認する方法
 
 自分以外のリクルーターが予約送信を設定している場合、そのタレント詳細ページにアクセスすると**「〇〇さんがスカウトを予約送信しようとしています」**と表記されます。
 
+![他のリクルーターの予約送信設定状況の確認](images/web-talent-detail-other-recruiter-scheduled.png)
+
 ### アプリもしくはスマートフォンブラウザ側で予約送信ルームに対してできること
 
 アプリもしくはスマートフォンブラウザでは予約送信の**有無の確認**は可能ですが、予約送信の**内容確認**や**削除**はできません。
+
+![アプリでの予約送信確認画面](images/web-app-scout-room-scheduled-notice.png)
