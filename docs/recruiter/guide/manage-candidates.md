@@ -1,4 +1,4 @@
-# 候補者を管理する
+# :material-clipboard-list-outline: 候補者を管理する
 
 # 気になるリストの作成・追加
 

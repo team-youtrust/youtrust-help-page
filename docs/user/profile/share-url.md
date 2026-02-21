@@ -1,4 +1,4 @@
-# プロフィールURLを共有したい
+# :material-share-outline: プロフィールURLを共有したい
 
 ## :material-cellphone: アプリ
 

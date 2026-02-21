@@ -1,4 +1,4 @@
-# 投稿
+# :material-text-box-outline: 投稿
 
 投稿の作成、編集、募集の管理に関するヘルプです。
 

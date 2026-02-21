@@ -1,4 +1,4 @@
-# 生年月日について知りたい
+# :material-cake-variant-outline: 生年月日について知りたい
 
 ## :material-cake-variant: 生年月日の設定について
 

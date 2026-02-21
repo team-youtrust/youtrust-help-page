@@ -1,4 +1,4 @@
-# カジュアル面談Guideline
+# :material-coffee-outline: カジュアル面談Guideline
 
 ## :material-information-outline: 本ガイドラインについて
 

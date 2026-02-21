@@ -1,4 +1,4 @@
-# プロフィール写真を変更したい
+# :material-camera-account: プロフィール写真を変更したい
 
 ## :material-cellphone: アプリ
 

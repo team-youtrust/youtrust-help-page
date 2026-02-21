@@ -1,4 +1,4 @@
-# 検索条件を保存したい
+# :material-content-save-outline: 検索条件を保存したい
 
 ## 検索条件の保存方法
 

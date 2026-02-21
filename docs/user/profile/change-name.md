@@ -1,4 +1,4 @@
-# 表示プロフィール名を変更したい
+# :material-rename-box: 表示プロフィール名を変更したい
 
 ## :material-cellphone: アプリ
 

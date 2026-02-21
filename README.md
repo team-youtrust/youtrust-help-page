@@ -18,7 +18,7 @@ pip install -r requirements.txt
 mkdocs serve
 ```
 
-http://127.0.0.1:8000/youtrust-help-page/ で確認できます。
+http://localhost:8000/youtrust-help-page/ で確認できます。
 
 ### リアルタイム反映オプション
 
@@ -42,7 +42,7 @@ docs/
 │   ├── profile/          #   登録プロフィール
 │   ├── notification/     #   通知
 │   ├── privacy/          #   プロフィールの公開範囲
-│   ├── connection/       #   友達
+│   ├── connection/       #   つながり
 │   ├── post/             #   投稿
 │   ├── message/          #   応募・メッセージ
 │   ├── community/        #   コミュニティ
@@ -51,13 +51,13 @@ docs/
     ├── guide/            #   活用ガイド
     └── faq/              #   よくあるご質問
         ├── admin/        #     リクルーター管理画面
-        ├── search/       #     タレントを探す
+        ├── search/       #     候補者の検索
         ├── scout/        #     スカウト・チャット
         ├── candidate-management/ # 候補者の管理
         ├── communication/ #    候補者とのやりとり
         ├── post/         #     投稿
         ├── company-page/ #     カンパニーページ
-        ├── connection/   #     友達
+        ├── connection/   #     つながり
         ├── notification/ #     通知
         ├── billing/      #     請求・契約
         └── talent-pick/  #     タレントピック

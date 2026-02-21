@@ -1,4 +1,4 @@
-# その他
+# :material-dots-horizontal-circle-outline: その他
 
 お問い合わせ、セキュリティポリシーなどに関するヘルプです。
 

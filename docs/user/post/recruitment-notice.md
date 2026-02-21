@@ -1,4 +1,4 @@
-# 募集投稿時の注意点
+# :material-alert-circle-outline: 募集投稿時の注意点
 
 YOUTRUSTでは、ユーザーの皆さんが自由に募集投稿を掲出し、その内容を見ることができます。
 

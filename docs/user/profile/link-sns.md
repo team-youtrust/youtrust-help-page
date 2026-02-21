@@ -1,4 +1,4 @@
-# 各種SNSアカウントと連携したい
+# :material-link-variant: 各種SNSアカウントと連携したい
 
 ## :material-cellphone: アプリ
 

@@ -1,4 +1,4 @@
-# 公式リクルーター向けヘルプページ
+# :material-briefcase-account: 公式リクルーター向けヘルプページ
 
 こちらは、YOUTRUSTを有料でご利用いただいている企業様向けのヘルプページです。
 
@@ -47,7 +47,7 @@
 - [カンパニーページのフォロワーを増やしたい](faq/company-page/increase-followers.md)
 - [カンパニーページのフォロワーへ会社名義で通常投稿したい](faq/company-page/post-as-company.md)
 
-### 友達
+### つながり
 
 - [つながりを増やしたい](faq/connection/increase.md)
 - [つながり候補に出てくる人の条件を知りたい](faq/connection/suggestion-criteria.md)

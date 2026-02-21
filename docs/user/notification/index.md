@@ -1,4 +1,4 @@
-# 通知
+# :material-bell-outline: 通知
 
 メール、プッシュ通知、Slack連携の設定に関するヘルプです。
 

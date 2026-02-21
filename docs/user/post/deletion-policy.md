@@ -1,4 +1,4 @@
-# 削除対象となる投稿
+# :material-delete-alert-outline: 削除対象となる投稿
 
 以下の内容を含む投稿に関しては、職業安定法、[募集・求人業務取扱要領](https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000179543.html)などへの法令違反や[利用規約](https://youtrust.jp/terms_of_service)に反するものとして事前の通告なく運営チームが投稿を削除またはアカウントを停止・削除することがあります。
 

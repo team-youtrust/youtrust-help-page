@@ -1,4 +1,4 @@
-# プロフィールの追加や編集をしたい
+# :material-account-edit: プロフィールの追加や編集をしたい
 
 ## :material-cellphone: アプリ
 

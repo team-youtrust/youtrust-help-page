@@ -1,4 +1,4 @@
-# 投稿方法を知りたい
+# :material-pencil-plus-outline: 投稿方法を知りたい
 
 YOUTRUSTユーザーであれば、**誰でも投稿することができます。**
 

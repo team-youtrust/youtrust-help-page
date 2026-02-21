@@ -1,4 +1,4 @@
-# 【YOUTRUST】ヘルプページ
+# :material-help-circle-outline: 【YOUTRUST】ヘルプページ
 
 こちらは一般ユーザーの方向けのヘルプページです。
 

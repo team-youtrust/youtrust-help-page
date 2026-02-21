@@ -1,4 +1,4 @@
-# つながりを解除したい
+# :material-link-variant-off: つながりを解除したい
 
 YOUTRUSTでのつながりをブロックまたは解除したい対象の人の[プロフィールページ](https://youtrust.jp/mypage?tab=friends)を開き、
 
@@ -20,6 +20,9 @@ YOUTRUSTでのつながりをブロックまたは解除したい対象の人の
 - **Web（友達以外）**：左下の三点マーク
 
 をクリックすると、「友達から外す」の項目が現れます。
+
+![アプリの三点メニューからつながり解除](images/app-profile-three-dot-menu-disconnect.png){ width="50%" style="display: block; margin: 0 auto;" }
+![Webのプロフィールページの友達ボタンからつながり解除](images/web-profile-friend-button-disconnect.png)
 
 ## ブロックする
 

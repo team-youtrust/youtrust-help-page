@@ -1,4 +1,4 @@
-# アカウントを退会したい
+# :material-account-remove: アカウントを退会したい
 
 YOUTRUSTのアカウントは、アプリとWebから退会手続きが可能です。
 
