@@ -1,4 +1,4 @@
-# SNSアカウント連携を解除したい
+# :material-link-off: SNSアカウント連携を解除したい
 
 連携しているSNSアカウント（Facebook、Google、LINE）の連携を解除する方法をご案内します。
 

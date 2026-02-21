@@ -1,4 +1,4 @@
-# 招待コードで繋がりたい
+# :material-ticket-outline: 招待コードで繋がりたい
 
 YOUTRUSTをまだ登録していない方へ、招待コードを発行できます。
 
@@ -11,3 +11,5 @@ YOUTRUSTをまだ登録していない方へ、招待コードを発行できま
 ## Web
 
 ホーム＞右上の人形のボタン＞招待リンクをシェア
+
+![Webの招待リンクシェア画面](images/web-invite-link-share.png)

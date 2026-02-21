@@ -1,4 +1,4 @@
-# Slackに通知を連携したい
+# :material-slack: Slackに通知を連携したい
 
 [リクルーター管理画面の設定](https://youtrust.jp/recruiter_team/settings)「外部サービス連携」より、Slack連携が可能です。
 

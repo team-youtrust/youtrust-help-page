@@ -1,4 +1,4 @@
-# 候補者探しのコツを知りたい
+# :material-lightbulb-outline: 候補者探しのコツを知りたい
 
 # はじめに
 

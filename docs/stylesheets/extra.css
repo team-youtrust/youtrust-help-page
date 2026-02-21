@@ -5,58 +5,12 @@
   --md-accent-fg-color: #00a5b5;
 }
 
-/* Hero section */
-.hero {
-  text-align: center;
-  padding: 2.5rem 1rem 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.hero h1 {
-  font-size: 2rem;
+/* Heading style */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
   font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-/* Hide permalink on hero heading */
-.hero h1 .headerlink {
-  display: none;
-}
-
-.hero p {
-  font-size: 1.1rem;
-  color: #555;
-}
-
-/* Card - clickable & hover effect */
-.md-typeset .grid.cards>ul>li {
-  position: relative;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.md-typeset .grid.cards>ul>li:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-}
-
-/* Stretch title link to cover entire card */
-.md-typeset .grid.cards>ul>li a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.md-typeset .grid.cards>ul>li p:first-child a::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-}
-
-/* Card icon color */
-.md-typeset .grid.cards .twemoji,
-.md-typeset .grid.cards .middle svg {
-  color: #00a5b5;
-  fill: #00a5b5;
+  color: #37352f;
 }
 
 /* Heading icon color */

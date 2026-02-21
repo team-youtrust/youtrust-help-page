@@ -1,4 +1,4 @@
-# 違反ユーザーを運営に報告したい
+# :material-alert-outline: 違反ユーザーを運営に報告したい
 
 [利用規約](https://youtrust.jp/terms_of_service)に反するユーザーを見つけた場合、以下の方法で運営に報告することができます。
 

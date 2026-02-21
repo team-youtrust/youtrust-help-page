@@ -1,4 +1,4 @@
-# YOUTRUSTコミュニティについて知りたい
+# :material-information-outline: YOUTRUSTコミュニティについて知りたい
 
 YOUTRUSTのコミュニティは、興味関心のある話題の中でユーザー同士で交流し、情報を共有する場所になります。
 

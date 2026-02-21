@@ -1,4 +1,4 @@
-# 基本の活用マニュアル（導入編）
+# :material-book-open-page-variant: 基本の活用マニュアル（導入編）
 
 YOUTRUSTを活用するための基本的なステップをご案内します。
 

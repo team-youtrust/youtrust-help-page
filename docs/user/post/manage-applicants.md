@@ -1,4 +1,4 @@
-# 募集・応募者の管理をしたい
+# :material-clipboard-list-outline: 募集・応募者の管理をしたい
 
 ## 募集の管理
 

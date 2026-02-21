@@ -1,4 +1,4 @@
-# 通知設定を管理する
+# :material-bell-cog-outline: 通知設定を管理する
 
 ## YOUTRUSTで活用すべき通知
 

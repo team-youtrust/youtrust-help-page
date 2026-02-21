@@ -1,4 +1,4 @@
-# つながりを増やしたい
+# :material-account-multiple-plus: つながりを増やしたい
 
 YOUTRUSTで友達を増やすには3つの方法があります。
 

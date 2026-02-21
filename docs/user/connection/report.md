@@ -1,4 +1,4 @@
-# 「報告する」について知りたい
+# :material-flag-outline: 「報告する」について知りたい
 
 [利用規約に違反しているユーザー](../post/deletion-policy.md)を見つけたり不快な思いをされたりした場合は、「報告する」を押すと、運営に報告することができます。
 
@@ -21,9 +21,15 @@
 
 をクリックすると、「報告する」の項目が現れます。
 
+![アプリの三点メニューから報告](images/app-profile-three-dot-menu-report.png){ width="50%" style="display: block; margin: 0 auto;" }
+
+![Webのプロフィールページの報告ボタン](images/web-profile-report-button.png)
+
 ## 投稿の報告手順
 
 アプリ、Webともに、右上の三点マークをクリックすると、「報告する」の項目が現れます。
+
+![Webの投稿の三点メニューから報告](images/web-post-three-dot-menu-report.png)
 
 また、アカウントは報告だけでなく、ブロックすることも可能です。
 

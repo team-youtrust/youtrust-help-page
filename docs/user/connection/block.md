@@ -1,4 +1,4 @@
-# 「ブロックする」について知りたい
+# :material-block-helper: 「ブロックする」について知りたい
 
 特定のユーザーからのメッセージの受信、プロフィールの閲覧等を制限したい場合は、「ブロックする」を押すことで制限をかけることができます。
 
@@ -27,6 +27,9 @@
 - **Web（友達以外）**：左下の三点マーク
 
 をクリックすると、「ブロックする」の項目が現れます。
+
+![アプリの三点メニューからブロック](images/app-profile-three-dot-menu-block.png){ width="50%" style="display: block; margin: 0 auto;" }
+![Webのプロフィールページのブロックボタン](images/web-profile-friend-block-button.png)
 
 また、利用規約に違反するユーザーを発見した場合には、運営に報告することができます。
 

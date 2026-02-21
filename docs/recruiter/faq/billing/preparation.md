@@ -1,4 +1,4 @@
-# 企業プラン導入にあたっての事前準備
+# :material-clipboard-check-outline: 企業プラン導入にあたっての事前準備
 
 YOUTRUST企業プランをご契約頂きまして、誠にありがとうございます！！
 

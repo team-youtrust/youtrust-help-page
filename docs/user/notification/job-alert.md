@@ -1,4 +1,4 @@
-# 募集アラートについて知りたい
+# :material-bell-ring-outline: 募集アラートについて知りたい
 
 ## 募集アラートとは？
 
@@ -14,7 +14,10 @@
 
 1. [募集ページ](https://youtrust.jp/recruitment_posts) に進みます。
 2. Webブラウザの場合は、画面中央の「募集アラート」をクリックします。アプリの場合は、画面右上の🔔マークをタップします。
+  ![Webの募集アラートボタン](images/web-job-alert-button.png)
+  ![アプリの募集アラートベルアイコン](images/app-job-alert-bell-icon.png)
 3. 希望の「キーワード」「職種」「働き方/関わり方」を入力し、「保存」で完了です。
+  ![募集アラート設定フォーム](images/web-job-alert-settings-form.png)
 
 ## 注意点
 

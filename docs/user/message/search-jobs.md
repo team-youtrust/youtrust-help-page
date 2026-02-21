@@ -1,6 +1,10 @@
-# 副業・転職など募集情報を探したい
+# :material-briefcase-search-outline: 副業・転職など募集情報を探したい
 
 公開されている募集は「募集」タブからまとめて確認することができます。
+
+![アプリ下部メニューの募集タブ](images/app-footer-jobs-tab.png)
+
+![Webヘッダーの募集メニュー](images/web-header-jobs-menu.png)
 
 - **アプリ**：下部メニューの「募集」タブ
 - **Web**：左上の「募集」メニュー
@@ -8,6 +12,8 @@
 ## 表示される募集について
 
 募集は全てのユーザーに公開され、アプリとWebの両方から確認できます。
+
+![アプリとWebの募集一覧ページ](images/app-web-jobs-list-page.png)
 
 ## 募集の検索について
 

@@ -1,4 +1,4 @@
-# 候補者を増やす
+# :material-account-multiple-plus: 候補者を増やす
 
 **YOUTRUSTで候補者を増やすには主に3つ方法があります。**
 
