@@ -26,6 +26,9 @@ plugins:
   - search:
       lang: ja
 
+extra:
+  generator: false
+
 extra_css:
   - stylesheets/extra.css
 
