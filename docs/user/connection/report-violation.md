@@ -9,9 +9,9 @@
 
 をクリックし、「報告する」から送信できます。
 
-![2026-02-23-10-06-53.png](images/2026-02-23-10-06-53.png)
+![アプリ報告画面](images/app-report-violation.png){ width="300" style="display: block; margin: 0 auto;" }
 
-![2026-02-23-10-07-01.png](images/2026-02-23-10-07-01.png)
+![Web報告画面](images/web-report-violation.png){ width="500" style="display: block; margin: 0 auto;" }
 
 ブロックと報告の違いは、下記ページを参考にしてください。
 
