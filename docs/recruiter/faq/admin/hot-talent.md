@@ -6,7 +6,7 @@
 
 ![登録直後のホットなタレント一覧](images/web-hot-talent-list-with-bookmark.png)
 
-### できること
+### :material-check-circle-outline: できること
 
 「登録直後のホットなタレントβ版」に表示されるタレントに対しては、以下のアプローチが可能です。
 
@@ -21,7 +21,7 @@
     
     ![スカウト通数無料期間の表示](images/web-scout-room-free-period.png)
 
-### こんな方におすすめ
+### :material-account-star-outline: こんな方におすすめ
 
 - YOUTRUSTのアクティブなユーザーに出会いたい方
 - 他の企業がまだアプローチしていない優秀な人に出会いたい方

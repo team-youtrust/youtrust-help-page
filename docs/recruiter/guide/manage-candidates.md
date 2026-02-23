@@ -1,6 +1,6 @@
 # :material-clipboard-list-outline: 候補者を管理する
 
-# 気になるリストの作成・追加
+## :material-heart-plus-outline: 気になるリストの作成・追加
 
 検索後、気になる候補者がいたら、「気になるリスト」に追加しましょう。検索画面からの追加も、ユーザー詳細画面からの追加も可能です。
 
@@ -17,9 +17,10 @@
 ![気になるリスト選択ポップアップ](images/web-bookmark-list-popup.png){ width="80%" style="display: block; margin: 0 auto;" }
 
 ※ユーザーを追加すると、追加されたユーザーに通知が届きます。
-<!-- TODO: リストに追加すると相手に通知されるのか知りたい への内部リンクを設定 -->
 
-# 意欲変更通知の確認
+[リストに追加すると相手に通知されるのか知りたい](../faq/candidate-management/notification-on-add.md)
+
+## :material-bell-ring-outline: 意欲変更通知の確認
 
 気になるリストに追加したユーザーの意欲変更通知は、管理画面やSlackでリアルタイムに確認が可能です。
 
@@ -34,34 +35,34 @@
 
 ![気になるリストの意欲バッジ](images/web-bookmark-list-intent-badges.png){ width="60%" style="display: block; margin: 0 auto;" }
 
-<!-- TODO: Slackに通知を連携したい への内部リンクを設定 -->
+Slackとの連携方法は [Slackに通知を連携したい](../faq/notification/slack-integration.md)をご確認ください。
 
 ![Slack意欲変更通知](images/web-bookmark-slack-notification.png)
 
-# ユーザーのステータス変更・確認
+## :material-account-sync-outline: ユーザーのステータス変更・確認
 
 気になるリストに追加したユーザーのステータスやアクションは、リクルーター全員が確認・管理可能です。検索画面や気になるリストから各ユーザーページに遷移し、メモを残しましょう。
 
 ![ユーザー詳細のステータスパネル](images/web-candidate-detail-status-panel.png)
 
-# 候補者リストへの追加
+## :material-playlist-plus: 候補者リストへの追加
 
 スカウト送付後、選考に進んだユーザーは候補者リストに移動することで別途管理が可能です。
 
-<!-- TODO: 「気になるリスト」と「候補者リスト」の違いを知りたい への内部リンクを設定 -->
+[「気になるリスト」と「候補者リスト」の違いを知りたい](../faq/candidate-management/list-difference.md)
 
 また、候補者リストでは、担当者や進捗状況での絞り込み等が可能です。
 
 ![候補者管理リスト](images/web-candidate-management-list.png)
 
-# 補足（2022/03/23以前にご導入いただいた企業様向け）
+## :material-information-outline: 補足（2022/03/23以前にご導入いただいた企業様向け）
 
-### **旧・気になるリスト（〜2022/3/22）からのデータ移行**
+### :material-database-sync-outline: **旧・気になるリスト（〜2022/3/22）からのデータ移行**
 
 旧・気になるリストに追加していたユーザーのデータは、自動で現・気になるリストの中に移行されています。
 
 ![旧気になるリストからのデータ移行](images/web-bookmark-list-migration.png)
 
-### 候補者リストから気になるリストへの追加
+### :material-playlist-star: 候補者リストから気になるリストへの追加
 
 候補者リストの中で中長期的に接点を持ちたい候補者は、気になるリストへ追加してください

@@ -1,12 +1,12 @@
 # :material-bullhorn-outline: カンパニーページのフォロワーへ会社名義で通常投稿したい
 
-## カンパニーページの投稿機能について
+## :material-information-outline: カンパニーページの投稿機能について
 
 **カンパニーページのフォロワーに対して、社内の日頃の様子やイベント情報など、自社の最新情報の発信ができる機能**です。
 
 [リクルーター管理画面の投稿](https://admin.youtrust.jp/recruiter_team/recruiter_team_posts)から、作成・管理ができます。投稿一覧は、同じ所属の自分以外の公式リクルーターの投稿も表示されます。
 
-## 投稿手順
+## :material-format-list-numbered: 投稿手順
 
 1. サイドバーの「投稿」をクリックし、投稿ページを表示
 2. 右上の新規投稿ボタンから、投稿を作成
@@ -25,7 +25,7 @@
 
 ※カンパニーページのアクティビティにも投稿が表示されます。
 
-## 投稿の編集・削除
+## :material-file-edit-outline: 投稿の編集・削除
 
 [リクルーター管理画面の投稿](https://admin.youtrust.jp/recruiter_team/recruiter_team_posts)から、投稿の編集・削除ができます。
 
@@ -42,12 +42,12 @@
 
 ![投稿の削除・更新ボタン](images/web-admin-post-edit-delete-buttons.png)
 
-## カンパニーページ上での表示
+## :material-monitor: カンパニーページ上での表示
 
 カンパニーページ内、アクティビティのタイムライン上に表示されます。
 
 ![カンパニーページのアクティビティ表示](images/web-company-page-activity-post.png)
-## ユーザー側の表示
+## :material-account-eye-outline: ユーザー側の表示
 
 カンパニーページのフォロワーのタイムライン上に表示されます。
 

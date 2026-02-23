@@ -1,10 +1,10 @@
 # :material-swap-horizontal: リクルーター管理画面を他の所属に切り替えたい
 
-## 複数の所属でリクルーター管理画面へアクセスしたいとき
+## :material-account-multiple-outline: 複数の所属でリクルーター管理画面へアクセスしたいとき
 
 運営側での設定が必要となりますので、お問い合わせフォームよりお問い合わせください。
 
-## 複数の所属でリクルーター権限の切り替え方
+## :material-swap-horizontal: 複数の所属でリクルーター権限の切り替え方
 
 1. リクルーター管理画面の[「設定」](https://youtrust.jp/recruiter_team/settings)に「リクルーターチーム切り替え」が表示されます。
 

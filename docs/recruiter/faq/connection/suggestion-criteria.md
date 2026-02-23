@@ -1,6 +1,6 @@
 # :material-account-search: つながり候補に出てくる人の条件を知りたい
 
-### 友達候補として表示される条件
+### :material-format-list-checks: 友達候補として表示される条件
 
 1. YOUTRUSTログインにご利用いただいている**Facebookアカウントの友達**
 
@@ -12,4 +12,4 @@
 
 「つながり候補」は類似性の高い方をレコメンドしているので、ぜひカジュアルに友達申請をお送りください。申請を送る基準や温度感に関して不安がある方は、こちらのページをご覧ください。
 
-[つながり申請の温度感を知りたい](request-temperature.md)
+[:material-thermometer: つながり申請の温度感を知りたい](request-temperature.md)

@@ -10,4 +10,4 @@
 
 より詳しい情報はCXチームにお問い合わせください。
 
-[いつ労働条件を示す必要があるのか知りたい](../communication/labor-conditions.md)
+[:material-file-document-outline: いつ労働条件を示す必要があるのか知りたい](../communication/labor-conditions.md)

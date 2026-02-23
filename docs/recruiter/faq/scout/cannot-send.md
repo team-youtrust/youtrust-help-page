@@ -6,13 +6,13 @@
 
 ご契約いただいているプランによって解決方法が異なりますので、下記を参考にご対応ください。
 
-## ライトプランの場合
+## :material-account-outline: ライトプランの場合
 
 自分からはスカウトが送れませんので、繋がりがあると表示されるリクルーターに、スカウトを送っていただくようにご依頼ください。
 
 ![ライトプランのスカウト送信範囲](images/web-scout-scope-light-plan.png)
 
-## スタンダード以上のプランの場合
+## :material-account-star: スタンダード以上のプランの場合
 
 対象のユーザーと友達の友達の関係にあるリクルーターと繋がることで、自分からもスカウトが送れるようになります。
 
@@ -20,6 +20,6 @@
 
 ![スタンダード以上のスカウト送信範囲](images/web-scout-scope-standard-plan.png)
 
-[スカウトとメッセージの違いを知りたい](scout-vs-message.md)
+[:material-compare: スカウトとメッセージの違いを知りたい](scout-vs-message.md)
 
-[メッセージを送れる範囲について知りたい](message-scope.md)
+[:material-target: メッセージを送れる範囲について知りたい](message-scope.md)

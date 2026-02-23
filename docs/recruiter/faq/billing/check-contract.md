@@ -9,6 +9,6 @@
 
 ![管理画面のスカウト残数とメンバー管理](images/web-settings-scout-count-and-members.png)
 
-[送付可能なスカウト通数を確認したい](../billing/check-scout-count.md)
+[:material-counter: 送付可能なスカウト通数を確認したい](../billing/check-scout-count.md)
 
-[契約プランを途中で変えたい](../billing/change-plan.md)
+[:material-swap-horizontal: 契約プランを途中で変えたい](../billing/change-plan.md)

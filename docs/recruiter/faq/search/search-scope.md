@@ -8,10 +8,10 @@
 
 # YOUTRUSTサービス画面での検索
 
-YOUTRUSTサービス内検索でユーザーを探す際は、全ユーザーが検索対象ですが、名前のみ検索が可能です。詳細なプロフィールは、友達でない限り閲覧できませんのでご注意下さい。
+YOUTRUSTサービス内検索でユーザーを探す際は、全ユーザーが検索対象ですが、名前・社名のみ検索が可能です。詳細なプロフィールは、友達でない限り閲覧できませんのでご注意下さい。
 
 ![YOUTRUSTサービス画面の検索バー](images/web-service-search-bar.png)
 
-[アプローチできる候補者を増やしたい](increase-approachable.md)
+[:material-account-arrow-up: アプローチできる候補者を増やしたい](increase-approachable.md)
 
-[検索画面に他のリクルーターのつながりが反映されない](connection-not-reflected.md)
+[:material-alert-outline: 検索画面に他のリクルーターのつながりが反映されない](connection-not-reflected.md)

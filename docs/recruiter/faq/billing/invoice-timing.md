@@ -4,4 +4,4 @@
 
 （例：1月1日~1日31日にご契約いただいた場合、2月頭に請求書が送付され、2月末が支払い期限になります。）
 
-[契約内容を確認したい](../billing/check-contract.md)
+[:material-file-search-outline: 契約内容を確認したい](../billing/check-contract.md)

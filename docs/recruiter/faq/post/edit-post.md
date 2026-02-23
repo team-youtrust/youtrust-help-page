@@ -1,6 +1,6 @@
 # :material-file-edit-outline: 公開した募集を編集したい
 
-## 公開後の編集機能について
+## :material-information-outline: 公開後の編集機能について
 
 投稿後の編集機能では文章の修正に加え、写真の変更が可能でございます。
 
@@ -8,7 +8,7 @@
 
 ![募集投稿の編集メニュー](images/web-post-edit-menu.png)
 
-### できること
+### :material-check-circle-outline: できること
 
 - 募集ポジションの変更
 - タイトルの変更
@@ -16,7 +16,7 @@
 - タグの変更
 - 画像の変更
 
-### できないこと
+### :material-close-circle-outline: できないこと
 
 - カテゴリ（カジュアル面談/メンバー募集）の修正
 - 紐づく企業の変更

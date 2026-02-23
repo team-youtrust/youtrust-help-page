@@ -3,4 +3,4 @@
 ご契約期間の途中でプランの変更や解約は、原則できません。
 別途CX担当者へご相談ください。
 
-[契約内容を確認したい](../billing/check-contract.md)
+[:material-file-search-outline: 契約内容を確認したい](../billing/check-contract.md)
