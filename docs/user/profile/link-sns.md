@@ -33,6 +33,6 @@
 
 ※Facebook連携のみ一度連携すると解除ができないためご注意ください。新しいアカウントにFacebook連携したい場合、紐づいている古いアカウントを削除していただく必要がございます。
 
-削除については[アカウントを退会したい](../account/delete.md)のページをご覧ください。
+削除については[:material-account-remove: アカウントを退会したい](../account/delete.md)のページをご覧ください。
 
 ![Webスマホ版SNS連携ボタン](./images/web-sp-sns-link-button.jpg){ width="300" style="display: block; margin: 0 auto;" }

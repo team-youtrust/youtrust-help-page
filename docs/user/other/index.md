@@ -4,7 +4,7 @@
 
 ---
 
-## このセクションの記事
+## :material-format-list-bulleted: このセクションの記事
 
 - [公式リクルーター(採用アカウント)とは何ですか？](official-recruiter.md)
 - [お問い合わせ窓口](contact.md)

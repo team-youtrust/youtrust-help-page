@@ -4,7 +4,7 @@
 
 ---
 
-## このセクションの記事
+## :material-format-list-bulleted: このセクションの記事
 
 - [プロフィールに記載いただきたい内容](recommended-content.md)
 - [プロフィールの追加や編集をしたい](edit.md)

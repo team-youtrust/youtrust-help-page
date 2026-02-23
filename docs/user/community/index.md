@@ -4,7 +4,7 @@
 
 ---
 
-## このセクションの記事
+## :material-format-list-bulleted: このセクションの記事
 
 - [コミュニティ ルールブック](rulebook.md)
 - [YOUTRUSTコミュニティについて知りたい](about.md)

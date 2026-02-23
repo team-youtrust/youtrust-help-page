@@ -6,7 +6,7 @@
 
 ![紹介コメント例](./images/web-recommendation-comment-example.png){ width="400" style="display: block; margin: 0 auto;" }
 
-## 紹介コメントの書き方
+## :material-pencil-outline: 紹介コメントの書き方
 
 1. 紹介コメントを書きたい相手のマイページを見る
 2. 紹介コメントのページを見る

@@ -8,7 +8,7 @@ YOUTRUSTから送信される各種通知をSlackで受け取るためには、S
 
 以下の手順に従って連携を行ってください。
 
-## 連携手順
+## :material-format-list-numbered: 連携手順
 
 1. Slackアプリのサイドバーから「その他」＞**「App」を選択**してください。
     ![Slackサイドバーのその他からApp選択](images/slack-sidebar-app-menu.png)

@@ -1,4 +1,4 @@
-# :material-format-list-bulleted-type: 投稿タイプのちがいを知りたい
+# :material-format-list-bulleted-type: 投稿タイプの違いを知りたい
 
 YOUTRUSTの投稿には2種類の投稿タイプがあります。
 うまく使い分けてたくさんの人に投稿を見てもらいましょう。
@@ -9,7 +9,7 @@ YOUTRUSTの投稿には2種類の投稿タイプがあります。
 
 ---
 
-## 通常投稿
+## :material-text-box-outline: 通常投稿
 
 「投稿する」からは、どんなトピックでも自由に投稿できます。  
 ハッシュタグや画像を使えば、タイムラインで目に留まりやすくなります。
@@ -18,7 +18,7 @@ YOUTRUSTの投稿には2種類の投稿タイプがあります。
 
 ---
 
-## 募集投稿
+## :material-briefcase-outline: 募集投稿
 
 「募集」は2つのカテゴリで募集ができます！
 

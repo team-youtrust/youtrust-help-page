@@ -4,11 +4,11 @@ Facebookを使って登録・YOUTRUSTアカウント作成した場合でも、�
 
 また、Facebookでのログインも従来通り行うことができます。
 
-## アプリ
+## :material-cellphone: アプリ
 
 ホーム>アイコン>メニューバー>設定>外部連携>パスワードの設定 から設定できます。
 
-## Web
+## :material-monitor: Web
 
 こちらの[設定画面](https://youtrust.jp/settings)の『パスワード設定』よりパスワードを設定できます。
 

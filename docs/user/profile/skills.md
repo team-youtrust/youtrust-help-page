@@ -14,12 +14,12 @@
 
 [マイページ](https://youtrust.jp/mypage?tab=profile)から追加・編集ができます。
 
-![Webでのできること編集モーダル](./images/web-skills-edit-modal.png)
-
 デフォルトで表示されている候補だけでなく、任意で入力することも可能です。
+
+![Webでのできること編集モーダル](./images/web-skills-edit-modal.png)
 
 またWantedlyのアカウントと連携すると、Wantedlyに記入済の「できること」情報がインポートされ、YOUTRUSTのプロフィールに転記・追加することができます。
 
-また設定したできることに経験年数を設定できるようになりました。（2023/12/20~）
+また設定したできることに経験年数を設定できるようになりました。
 
 ![経験年数の選択](./images/web-experience-years-select.png)

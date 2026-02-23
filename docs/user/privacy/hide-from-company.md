@@ -20,8 +20,8 @@
 
 また「現在の所属」に登録している企業に所属するユーザーには、あなたの副業意欲・転職意欲は見えないようになっています。
 
-[同僚に副業・転職意欲が公開されているのか知りたい](colleague-visibility.md)
+[:material-account-eye: 同僚に副業・転職意欲が公開されているのか知りたい](colleague-visibility.md)
 
 企業単位でなく、個人単位であなたの副業意欲・転職意欲を見えないように設定するには「ブロックする」機能を活用してください。
 
-[つながりを解除したい](../connection/disconnect.md)
+[:material-link-variant-off: つながりを解除したい](../connection/disconnect.md)

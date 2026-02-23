@@ -4,7 +4,7 @@
 
 ---
 
-## このセクションの記事
+## :material-format-list-bulleted: このセクションの記事
 
 - [アカウントを作成したい](create.md)
 - [登録アドレスを変更したい](change-email.md)

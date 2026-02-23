@@ -4,7 +4,7 @@
 
 ---
 
-## このセクションの記事
+## :material-format-list-bulleted: このセクションの記事
 
 - [プロフィールの公開範囲を知りたい](profile-visibility.md)
 - [副業・転職意欲が見られない範囲を知りたい](career-interest-visibility.md)

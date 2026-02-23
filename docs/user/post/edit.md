@@ -2,25 +2,25 @@
 
 YOUTRUSTへ一度投稿した内容は、投稿後にも編集・修正することができます。
 
-## 投稿の場合
+## :material-text-box-edit-outline: 投稿の場合
 
-### 編集・修正できること
+### :material-check-circle-outline: 編集・修正できること
 
 - 本文の変更
 - 公開範囲の変更
 
-### 編集・修正できないこと
+### :material-close-circle-outline: 編集・修正できないこと
 
 - 画像の追加、変更、削除
 
-### 編集・修正の方法
+### :material-format-list-numbered: 編集・修正の方法
 
 - プロフィール＞「アクティビティ」をタップ／クリック
 - 修正したい投稿を選ぶ
 - 右上のボタンから「編集」をタップ／クリック
 - 編集・修正が終わったら、「更新する」をタップ／クリック
 
-## 募集の場合（PC webのみ対応）
+## :material-briefcase-edit-outline: 募集の場合（PC webのみ対応）
 
 公開後の編集機能では文章の修正に加え、画像の変更が可能です。
 
