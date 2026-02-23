@@ -10,13 +10,13 @@
 
 ## :material-send-clock: 初回スカウトの予約送信の登録動線
 
-### :material-pencil-outline: 1. スカウト文章を作成
+### 1. スカウト文章を作成
 
 スカウト文章を作成後、**「予約送信」**をクリックします。
 
 ![スカウト作成画面の予約送信ボタン](images/web-scout-compose-scheduled-send-button.png){ width="70%" style="display: block; margin: 0 auto;" }
 
-### :material-calendar-clock: 2. 予約送信をクリックし、送信日時を登録
+### 2. 予約送信をクリックし、送信日時を登録
 
 送信日時を**任意の時間に指定**ができます。
 
@@ -25,13 +25,13 @@
 
 ![予約送信の日時選択ダイアログ](images/web-scout-scheduled-datetime-picker.png){ width="60%" style="display: block; margin: 0 auto;" }
 
-### :material-check-circle-outline: 3. 予約送信の登録が完了
+### 3. 予約送信の登録が完了
 
 予約送信の登録が完了するとタレント詳細ページの上部に帯バナーが表示されます。
 
 ![スカウト送信完了とリマインド推奨バナー](images/web-scout-sent-remind-banner.png)
 
-### :material-eye-outline: 4. 登録された予約送信の確認が可能
+### 4. 登録された予約送信の確認が可能
 
 管理画面の**「スカウト」**タブに**「予約送信設定済」**というフィルターを追加しています。
 
@@ -41,18 +41,18 @@
 ![スカウトルームの予約送信バナー](images/web-scout-room-scheduled-banner.png)
 ![スカウトルームの予約送信詳細](images/web-scout-room-scheduled-detail.png)
 
-### :material-email-check-outline: 5. 送信相手に予約されたメッセージが届く
+### 5. 送信相手に予約されたメッセージが届く
 
 任意の時間になると通常のスカウトと同様の見え方でスカウトメッセージが届きます。
 
-!!! info "注意"
+!!! warning "注意"
     予約登録期間中に送信相手から返信があった場合は予約送信は実行されません
 
 ![image.png.png](images/image.png.png)
 
-## :material-bell-clock: リマインドの予約送信の登録動線
+## :material-clock-outline: リマインドの予約送信の登録動線
 
-### :material-flag-outline: 1. 初回スカウトを送信するとリマインドの登録バナーが表示
+### 1. 初回スカウトを送信するとリマインドの登録バナーが表示
 
 初回スカウトを送信/予約送信するとタレント詳細ページの上部に帯バナーが表示されます。
 
@@ -60,34 +60,34 @@
 
 ![タレント詳細のリマインド登録バナー](images/web-talent-detail-remind-registration-banner.png)
 
-### :material-cursor-default-click-outline: 2. 登録バナーから予約をクリックするとリマインド登録が可能
+### 2. 登録バナーから予約をクリックするとリマインド登録が可能
 
 初回スカウト送信と同じ形式のフォームからメッセージの登録が可能です。
 
 ![リマインドメッセージ作成画面](images/web-remind-message-compose.png){ width="70%" style="display: block; margin: 0 auto;" }
 
-### :material-check-circle-outline: 3. リマインド予約送信の登録が完了
+### 3. リマインド予約送信の登録が完了
 
 リマインドの予約送信が登録されると登録された旨とその送信日時が帯バナーとして表示されます。
 
 ![タレント詳細の予約送信・リマインドバナー](images/web-talent-detail-scheduled-remind-banners.png)
 
-### :material-eye-outline: 4. 登録されたリマインド予約送信の確認が可能
+### 4. 登録されたリマインド予約送信の確認が可能
 
 管理画面の**「スカウト」**タブに**「リマインド設定済み」**というフィルターを追加しています。
 
 また管理画面の**メッセージ内部に表示されている帯バナー「スカウトメッセージ予約中」**の確認より予約送信されているリマインドメッセージの確認や削除が可能です。
 
-### :material-email-check-outline: 5. 送信相手に予約されたメッセージが届く
+### 5. 送信相手に予約されたメッセージが届く
 
 任意の時間になると通常のスカウトと同様の見え方でリマインドメッセージが届きます。
 
-!!! info "注意"
+!!! warning "注意"
     予約登録期間中に送信相手から返信があった場合は予約送信は実行されません
 
 ![スカウトルームのリマインド送信済み表示](images/web-scout-room-remind-sent.png)
 
-### :material-tab: 6. メッセージタブからもリマインド予約送信の登録が可能
+### 6. メッセージタブからもリマインド予約送信の登録が可能
 
 ![メッセージタブからのリマインド予約登録](images/web-scout-room-remind-registration.png)
 
@@ -138,7 +138,7 @@
 
 **管理画面のメッセージタブから該当のルームにあるバナーの「確認」より予約送信の削除が可能**です
 
-!!! info "注意"
+!!! warning "注意"
     送信相手から返信があった場合は自動で取り消されます
 
 ![スカウトルームの予約送信削除](images/web-scout-room-scheduled-delete.png)
