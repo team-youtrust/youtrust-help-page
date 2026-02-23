@@ -14,7 +14,7 @@ YOUTRUSTコミュニティでは、**「安心して、安全に楽しむこと�
 
 [利用規約](https://youtrust.jp/terms_of_service)
 
-## 関連ページ
+## :material-link-variant: 関連ページ
 
 - [コミュニティ ルールブック](rulebook.md)
 - [コミュニティの参加方法を知りたい](join.md)

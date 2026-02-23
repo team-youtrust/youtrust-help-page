@@ -4,11 +4,11 @@
 
 ---
 
-## このセクションの記事
+## :material-format-list-bulleted: このセクションの記事
 
 - [投稿方法を知りたい](how-to-post.md)
 - [投稿内容を編集したい](edit.md)
-- [投稿タイプのちがいを知りたい](types.md)
+- [投稿タイプの違いを知りたい](types.md)
 - [投稿に費用がかかるのか知りたい](cost.md)
 - [削除対象となる投稿](deletion-policy.md)
 - [雇用契約を伴う求人掲載時の注意点](job-posting-notice.md)

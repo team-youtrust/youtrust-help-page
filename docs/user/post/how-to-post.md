@@ -10,7 +10,7 @@ YOUTRUSTユーザーであれば、**誰でも投稿することができます�
 
 ![投稿機能比較表](./images/post-features-comparison-table.png){ width="600" style="display: block; margin: 0 auto;" }
 
-## 通常投稿の投稿方法
+## :material-text-box-outline: 通常投稿の投稿方法
 
 PC web、Appのすべてのデバイスから投稿可能です。  
 通常投稿は投稿範囲を「全体公開」「友達まで公開」から選択できます。  
@@ -18,21 +18,21 @@ PC web、Appのすべてのデバイスから投稿可能です。
 
 ※万が一、他者の権利を侵害する内容（動画・画像含む）の投稿があった場合には、利用規約第4条及び第5条に基づき、弊社にて削除対応いたします。ご了承ください。
 
-- [削除対象となる投稿](deletion-policy.md)
-- [友達・つながりについて知りたい](../connection/about.md)
+- [:material-delete-alert-outline: 削除対象となる投稿](deletion-policy.md)
+- [:material-account-multiple: 友達・つながりについて知りたい](../connection/about.md)
 
 ![通常投稿の方法](./images/how-to-post-brain-memo.png){ width="700" style="display: block; margin: 0 auto;" }
 
-## 募集の作成方法
+## :material-briefcase-plus-outline: 募集の作成方法
 
 ※PC webからのみ作成可能です
 
 ![募集作成手順](./images/web-job-create-steps.png){ width="700" style="display: block; margin: 0 auto;" }
 
-正社員、契約社員、アルバイトなど雇用契約を結ぶ募集を出す際には、こちらの注意事項（[雇用契約を伴う求人掲載時の注意点](job-posting-notice.md)）をよく読んで投稿するようにしてください。
+正社員、契約社員、アルバイトなど雇用契約を結ぶ募集を出す際には、こちらの注意事項（[:material-file-document-alert-outline: 雇用契約を伴う求人掲載時の注意点](job-posting-notice.md)）をよく読んで投稿するようにしてください。
 
-また利用規約に反する投稿をした場合には、事前の通告なく削除される場合があります。（[削除対象となる投稿](deletion-policy.md)）
+また利用規約に反する投稿をした場合には、事前の通告なく削除される場合があります。（[:material-delete-alert-outline: 削除対象となる投稿](deletion-policy.md)）
 
 [利用規約](https://youtrust.jp/terms_of_service)をよく読みルールを守って、YOUTRUSTをご活用ください。
 
-[投稿内容を編集したい](edit.md)
+[:material-file-edit-outline: 投稿内容を編集したい](edit.md)

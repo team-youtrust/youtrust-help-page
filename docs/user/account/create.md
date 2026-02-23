@@ -2,26 +2,26 @@
 
 YOUTRUSTのアカウントは、以下の5つの方法で作成できます。（2025年8月時点）
 
-## 1【推奨】メールアドレス連携
+## :material-numeric-1-circle: 【推奨】メールアドレス連携
 
 ご利用のメールアドレスでアカウントを作成する方法です。Googleメールアドレスでの登録は、Googleアカウント連携とは異なる方法ですのでご注意ください。
 
-## 2【推奨】Facebookアカウント連携
+## :material-numeric-2-circle: 【推奨】Facebookアカウント連携
 
 お手持ちのFacebookアカウントと連携して登録する方法です。 また、すでにYOUTRUST会員の方もFacebookアカウントを後から連携することができます。
 
 !!! warning "注意"
     企業用のFacebookページ（ビジネスアカウント）は対象外です。個人のアカウントを連携してください。
 
-## 3 Googleアカウント連携
+## :material-numeric-3-circle: Googleアカウント連携
 
 お手持ちのGoogleアカウントと連携して登録する方法です。 また、すでにYOUTRUST会員の方もGoogleアカウントを後から連携することができます。
 
-## 4 LINE連携
+## :material-numeric-4-circle: LINE連携
 
 お手持ちのLINEアカウントと連携して登録する方法です。 また、すでにYOUTRUST会員の方もLINEアカウントを後から連携することができます。
 
-## 5 Apple ID連携（iOSアプリのみ）
+## :material-numeric-5-circle: Apple ID連携（iOSアプリのみ）
 
 Apple IDでアカウントを作成できます。
 
@@ -30,14 +30,14 @@ Apple IDでアカウントを作成できます。
 
 ---
 
-## :warning: 注意事項
+## :material-alert-circle-outline: 注意事項
 
 - いずれかのSNSアカウント（Facebook、Google、LINE、Apple ID）で連携して登録した場合、連携元のSNSアカウントを削除するとYOUTRUSTにログインできなくなります。
 - 登録後に、メールアドレスとパスワードを設定しておくことをお勧めします。
 
 ---
 
-## :lock: パスワード設定について
+## :material-lock: パスワード設定について
 
 メールアドレス連携でパスワードを設定する場合、以下の条件を満たす必要があります。
 
@@ -48,7 +48,7 @@ Apple IDでアカウントを作成できます。
 
 ---
 
-## :email: 認証メールが届かない場合
+## :material-email-alert: 認証メールが届かない場合
 
 以下の点をご確認ください。
 

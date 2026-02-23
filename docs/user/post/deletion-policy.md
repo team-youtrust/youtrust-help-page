@@ -13,8 +13,8 @@
 
 加えて、募集投稿を行う際には、特に以下の注意点をよく読んで、法令・利用規約を守った募集を行ってください。
 
-[募集投稿時の注意点](recruitment-notice.md)
+[:material-alert-circle-outline: 募集投稿時の注意点](recruitment-notice.md)
 
 また、上記に該当する投稿やコメントを見かけた際は、運営に「報告する」ことができます。
 
-[「報告する」について知りたい](../connection/report.md)
+[:material-flag-outline: 「報告する」について知りたい](../connection/report.md)

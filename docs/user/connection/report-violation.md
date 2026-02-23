@@ -9,8 +9,12 @@
 
 をクリックし、「報告する」から送信できます。
 
+![アプリ報告画面](images/app-report-violation.png){ width="300" style="display: block; margin: 0 auto;" }
+
+![Web報告画面](images/web-report-violation.png){ width="500" style="display: block; margin: 0 auto;" }
+
 ブロックと報告の違いは、下記ページを参考にしてください。
 
-[「ブロックする」について知りたい](block.md)
+[:material-block-helper: 「ブロックする」について知りたい](block.md)
 
-[「報告する」について知りたい](report.md)
+[:material-flag-outline: 「報告する」について知りたい](report.md)

@@ -4,7 +4,7 @@
 
 ---
 
-## このセクションの記事
+## :material-format-list-bulleted: このセクションの記事
 
 - [メッセージに返信したい/送りたい](reply.md)
 - [グループチャットを作りたい](group-chat.md)

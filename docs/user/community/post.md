@@ -2,27 +2,27 @@
 
 コミュニティに参加するとトピックの作成及び、トピック内でコミュニケーションを取ることができます。
 
-## トピックの作成
+## :material-chat-plus-outline: トピックの作成
 
 コミュニティの参加メンバーと話したいトピックを作成しましょう。トピックはコミュニティに参加している人であれば、誰でも気軽に立てることができます！
 
 ![アプリのトピック作成ボタン](images/app-community-create-topic-button.png)
 ![Webのトピック作成ボタン](images/web-community-create-topic-button.png)
 
-## トピック内のコメント
+## :material-comment-text-outline: トピック内のコメント
 
 各トピック内でコミュニケーションを取ることができます。興味・関心のあるトピックには積極的にコメントを送って、コミュニティ内の人と盛り上がりましょう！
 
 ![アプリのトピックコメント入力欄](images/app-community-topic-comment-input.png)
 ![Webのトピックコメント入力欄](images/web-community-topic-comment-input.png)
 
-## アンケート機能
+## :material-poll: アンケート機能
 
 コミュニティ内で、参加者に向けてアンケートを実施することができます。
 
 ![アンケート機能の利用手順](images/app-community-survey-feature.png)
 
-## 関連ページ
+## :material-link-variant: 関連ページ
 
 - [コミュニティ ルールブック](rulebook.md)
 - [YOUTRUSTコミュニティについて知りたい](about.md)

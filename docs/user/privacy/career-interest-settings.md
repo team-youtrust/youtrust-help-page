@@ -17,4 +17,4 @@
 
 詳細はこちらをご覧ください。
 
-[意欲を特定の企業に非公開にしたい](hide-from-company.md)
+[:material-eye-lock-outline: 意欲を特定の企業に非公開にしたい](hide-from-company.md)

@@ -6,7 +6,7 @@ YOUTRUSTでつながっている企業や友達とはメッセージでやりと
 
 ![アプリのメッセージ受信から開封までの流れ](images/app-message-inbox-flow.png)
 
-## メッセージに返信したい
+## :material-reply: メッセージに返信したい
 
 メッセージボックスから返信したいスレッドを選択すると、内容が確認できます。通常テキストのほか添付マークから画像やファイルを送ることも可能です。
 
@@ -15,7 +15,7 @@ YOUTRUSTでつながっている企業や友達とはメッセージでやりと
 - アプリの場合：取り消したいメッセージの長押し＞「送信を取り消す」を選択
 - WEBの場合：取り消したいメッセージの3点リーダーをクリック＞「送信を取り消す」をクリック
 
-## メッセージを送りたい
+## :material-send: メッセージを送りたい
 
 メッセージを送れる相手は以下の通りです。
 
@@ -31,10 +31,9 @@ YOUTRUSTでつながっている企業や友達とはメッセージでやりと
 
 ![Webのプロフィールページのメッセージボタン](images/web-profile-message-button.png)
 
-## メッセージ受信時のメール配信設定/プッシュ通知設定を変更したい
+## :material-cog-outline: メッセージ受信時のメール配信設定/プッシュ通知設定を変更したい
 
 メッセージを受信した時にメール配信・アプリのプッシュ通知するかのON/OFFを設定で変更できます。詳細はこちらのページをご覧ください。
 
-[メールの配信設定を確認・変更したい](../notification/email-settings.md)
-
-[アプリのプッシュ通知設定を変更したい](../notification/push-settings.md)
+- [:material-email-outline: メールの配信設定を確認・変更したい](../notification/email-settings.md)
+- [:material-cellphone-message: アプリのプッシュ通知設定を変更したい](../notification/push-settings.md)

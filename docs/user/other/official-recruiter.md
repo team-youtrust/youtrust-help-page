@@ -6,12 +6,8 @@
 
 ![無料と有料プランの機能比較表](images/web-free-vs-paid-plan-comparison.png)
 
-## お問い合わせ
+## :material-email-outline: お問い合わせ
 
 公式リクルーターの詳細が聞きたい・興味がある・契約したいといったお問い合わせは、以下のページからご連絡くださいませ。担当者より折り返しご連絡させていただきます。
 
 [＜企業様向け＞ YOUTRUST | 副業・転職のキャリアSNS](https://youtrust.jp/lp_recruiter)
-
-## 関連ページ
-
-- [お問い合わせ窓口](contact.md)

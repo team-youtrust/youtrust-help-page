@@ -4,7 +4,7 @@
 
 ---
 
-## このセクションの記事
+## :material-format-list-bulleted: このセクションの記事
 
 - [メールの配信設定を確認・変更したい](email-settings.md)
 - [アプリのプッシュ通知設定を変更したい](push-settings.md)

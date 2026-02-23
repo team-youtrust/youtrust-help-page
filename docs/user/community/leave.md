@@ -8,7 +8,7 @@
 
 ![コミュニティの退出メニュー](images/app-community-leave-menu.png)
 
-## 関連ページ
+## :material-link-variant: 関連ページ
 
 - [コミュニティ ルールブック](rulebook.md)
 - [YOUTRUSTコミュニティについて知りたい](about.md)

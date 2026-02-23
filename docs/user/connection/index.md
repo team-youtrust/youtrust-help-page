@@ -4,7 +4,7 @@
 
 ---
 
-## このセクションの記事
+## :material-format-list-bulleted: このセクションの記事
 
 - [友達・つながりについて知りたい](about.md)
 - [「ブロックする」について知りたい](block.md)
