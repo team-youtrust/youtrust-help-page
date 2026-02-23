@@ -1,18 +1,18 @@
 # :material-connection: 採用管理ツールと連携したい
 
-### **YOUTRUSTのリクルーター管理画面での操作**
+### :material-cog-outline: **YOUTRUSTのリクルーター管理画面での操作**
 
 ![外部サービス連携設定画面](images/web-admin-external-service-integration.png)
 
 **YOUTRUSTリクルーター管理画面＞[設定](https://admin.youtrust.jp/recruiter_team/settings)＞外部サービス連携＞[HRMOS採用]連携 / [HERP Hire]連携 / [Talentio]連携**の「webhookトークン」欄に取得した媒体連携トークンを入力する
 
-## YOUTRUSTと連携可能なATSサービス
+## :material-link-variant: YOUTRUSTと連携可能なATSサービス
 
 - HRMOS採用との連携
 - HERP Hireとの連携
 - Talentioとの連携
 
-## 候補者がATSサービス内に連携されるタイミング
+## :material-clock-outline: 候補者がATSサービス内に連携されるタイミング
 
 ATS連携後、候補者がATSサービス内に取り込まれる条件は以下の通りです。
 

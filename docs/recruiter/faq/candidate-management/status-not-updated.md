@@ -13,3 +13,5 @@
 - 「西川 浩史さん」へスカウトを送付した場合、**自動で「スカウト済」に変わりません**。
 
 ![候補者リストの進捗状況表示例](images/web-candidate-list-status-example.png)
+
+[:material-clipboard-list-outline: 候補者を管理する](../guide/manage-candidates.md)

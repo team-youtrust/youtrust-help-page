@@ -1,12 +1,12 @@
 # :material-trending-up: カンパニーページのフォロワーを増やしたい
 
-## YOUTRUSTサービス内での導線を利用する
+## :material-link-variant: YOUTRUSTサービス内での導線を利用する
 
 サービス内でのカンパニーページへのフォロー導線を随時強化しております。
 
 PC web、アプリ共に募集からのカンパニーページフォローの流入が見込めます。
 
-## 他SNSでカンパニーページURLを拡散する
+## :material-share-variant-outline: 他SNSでカンパニーページURLを拡散する
 
 カンパニーページのOGPは各企業のカバー画像が表示されます。
 

@@ -4,12 +4,12 @@ YOUTRUSTを活用するための基本的なステップをご案内します。
 
 ---
 
-## このセクションの記事
+## :material-format-list-bulleted: このセクションの記事
 
-- [投稿する](posting.md)
-- [募集のステータス管理をする](status-management.md)
-- [候補者を増やす](increase-candidates.md)
-- [候補者を検索する](search-candidates.md)
-- [候補者を管理する](manage-candidates.md)
-- [スカウトを送る](send-scout.md)
-- [通知設定を管理する](notification-settings.md)
+- [:material-pencil-plus-outline: 投稿する](posting.md)
+- [:material-list-status: 募集のステータス管理をする](status-management.md)
+- [:material-account-multiple-plus: 候補者を増やす](increase-candidates.md)
+- [:material-account-search: 候補者を検索する](search-candidates.md)
+- [:material-clipboard-list-outline: 候補者を管理する](manage-candidates.md)
+- [:material-send: スカウトを送る](send-scout.md)
+- [:material-bell-cog-outline: 通知設定を管理する](notification-settings.md)

@@ -1,6 +1,6 @@
 # :material-robot-outline: AIタレントリクエストについて知りたい
 
-## AIタレントリクエストで「探す」
+## :material-magnify: AIタレントリクエストで「探す」
 
 1. リクルーター管理画面の[「検索」メニュー](https://admin.youtrust.jp/recruiter_team/search)から「AIタレントリクエスト」を選択
 
@@ -16,7 +16,7 @@
 
 ![AIタレントリクエスト実行中の画面](images/web-ai-talent-request-processing.png)
 
-### リクエストが完了したら
+### :material-check-circle-outline: リクエストが完了したら
 
 自動的にスコア70以上のタレントが「気になるリスト」に自動で新規作成+追加されます。
 
@@ -30,13 +30,13 @@
 
 ![AIタレントリクエスト完了後のリスト編集](images/web-ai-talent-request-completed.png)
 
-### AIによるスコアと評価コメント
+### :material-star-half-full: AIによるスコアと評価コメント
 
 AIによるプロフィールの要約とピックアップ理由である評価コメントはタレントごとに「社内メモ」に記載されます。
 
 ![AIによるスコアと評価コメント](images/web-ai-talent-request-score-comment.png)
 
-## リクエスト完了をSlack通知で受け取りたい
+## :material-slack: リクエスト完了をSlack通知で受け取りたい
 
 1. リクルーター管理画面 > [外部サービス連携](https://admin.youtrust.jp/recruiter_team/settings/user_slack_linkage) > **Slack[個人設定]**を開く
 

@@ -1,6 +1,6 @@
 # :material-account-search: 候補者を検索する
 
-# リクルーター管理画面へのログイン
+## :material-login: リクルーター管理画面へのログイン
 
 [YOUTRUST](https://youtrust.jp/)にログイン後、画面上部の「管理画面」より[リクルーター管理画面](https://youtrust.jp/recruiter_team)にログインできます。
 
@@ -10,7 +10,7 @@
 
 <!-- TODO: リクルーター管理画面をスマホから使いたい への内部リンクを設定 -->
 
-# 「検索」でできること
+## :material-feature-search-outline: 「検索」でできること
 
 ![検索フィルターパネル](images/web-search-filter-panel.png)
 
@@ -98,7 +98,7 @@
 
 ![検索結果の並び替えオプション](images/web-search-sort-options.png){ width="70%" style="display: block; margin: 0 auto;" }
 
-# 候補者検索のコツ
+## :material-lightbulb-outline: 候補者検索のコツ
 
 YOUTRUSTはキャリアSNS（≠ 転職サイト）なので、**キャリアSNSならではの情報をキャッチできるかが「スカウト返信率」や「採用成功」に大きく影響**します。
 

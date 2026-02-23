@@ -11,6 +11,6 @@
 
 その違いについては下記ヘルプページを参考にしてください。
 
-[スカウトとメッセージの違いを知りたい](scout-vs-message.md)
+[:material-compare: スカウトとメッセージの違いを知りたい](scout-vs-message.md)
 
-[スカウトが送れないと表示される](cannot-send.md)
+[:material-alert-outline: スカウトが送れないと表示される](cannot-send.md)

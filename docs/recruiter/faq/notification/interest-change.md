@@ -1,6 +1,6 @@
 # :material-swap-vertical: 意欲変更通知について知りたい
 
-### 通知箇所ごとの一覧
+### :material-format-list-bulleted: 通知箇所ごとの一覧
 
 | 通知項目/通知箇所 | YOUTRUSTサービス画面（マイページ）の通知 | YOUTRUSTサービス画面（マイページ）のSlack連携 | リクルーター管理画面の通知 | リクルーター管理画面のSlack連携 |
 | --- | --- | --- | --- | --- |

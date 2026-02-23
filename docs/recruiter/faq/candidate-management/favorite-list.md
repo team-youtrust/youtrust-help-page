@@ -10,3 +10,5 @@
 など、中長期的に採用し得る候補者の情報を管理することができます。
 
 詳しい使い方は、下記ヘルプページや資料を参考にしてください。
+
+[:material-clipboard-list-outline: 候補者を管理する](../guide/manage-candidates.md)

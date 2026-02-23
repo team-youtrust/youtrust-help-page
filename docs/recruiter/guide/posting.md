@@ -1,16 +1,16 @@
 # :material-pencil-plus-outline: 投稿する
 
-# 投稿とは
+## :material-information-outline: 投稿とは
 
 YOUTRUST上では無料で「通常投稿」「募集投稿」の2種類を掲載できます。
 
-### 通常投稿
+### :material-pencil-outline: 通常投稿
 
 キャリアSNSとして、キャリアに関することや仕事での気づき等を自由に発信できます。
 
 自社の雰囲気を効果的に伝えることができ、採用広報としても活用いただけます。
 
-### 募集投稿
+### :material-clipboard-text-outline: 募集投稿
 
 「カジュアル面談募集」と「求人募集」の2つを募集できます。
 
@@ -18,7 +18,7 @@ YOUTRUST上では無料で「通常投稿」「募集投稿」の2種類を掲�
 
 ![通常投稿と募集投稿の比較](images/web-post-types-comparison.png)
 
-# 投稿活用のメリット
+## :material-star-outline: 投稿活用のメリット
 
 通常投稿や募集投稿を活用することで、採用広報として自社に関する情報を発信できます。
 
@@ -32,18 +32,18 @@ YOUTRUSTでは、企業アカウントではなく、個人ごとのアカウン
 
 [募集投稿の活用で自社プロダクトがなくても導入2ヶ月で7人採用【きっかけはYOUTRUST】キュレーションズ 荒井宏之さん・平山里桜さん | YOUTRUST JOURNAL](https://lp.youtrust.jp/journal/posts/case-curations)
 
-# 投稿のコツ
+## :material-lightbulb-outline: 投稿のコツ
 
-### 通常投稿のコツ
+### :material-pencil-outline: 通常投稿のコツ
 
 - **情報拡散チャネルとしての活用**
-社員インタビューの発信やプレスリリースの拡散など、自社に関する情報拡散チャネルの一つとしてご活用いただけます。
+    - 社員インタビューの発信やプレスリリースの拡散など、自社に関する情報拡散チャネルの一つとしてご活用いただけます。
 - **YOUTRUSTならではの情報発信**
-noteやブログ記事よりもライトに投稿できる点もYOUTRUSTの特徴です。
-実際に活用されている企業では、「社内でのオンラインランチ会の様子」や「Slackでの普段のやりとり」など自社の雰囲気を伝えられる内容をカジュアルに発信いただいています。
+    - noteやブログ記事よりもライトに投稿できる点もYOUTRUSTの特徴です。
+    - 実際に活用されている企業では、「社内でのオンラインランチ会の様子」や「Slackでの普段のやりとり」など自社の雰囲気を伝えられる内容をカジュアルに発信いただいています。
 - カンパニーページのメンバーに紐付いているユーザーからの投稿では、投稿時にカンパニーページに紐づけることを選択できます。
 
-### 募集投稿のコツ
+### :material-clipboard-text-outline: 募集投稿のコツ
 
 - YOUTRUSTでは無料で、何度でも募集投稿を掲載することができます
 募集投稿には「話を聞きたい！」ボタンが生成され、「話を聞きたい！」を押したユーザー宛には、友達の範囲外の方でも、チャットで連絡することが出来ます。
@@ -59,9 +59,9 @@ noteやブログ記事よりもライトに投稿できる点もYOUTRUSTの特�
 
     [初投稿から1週間。副業のスピード採用はなぜ成功したのか【きっかけはYOUTRUST 】TranSe CEO・安藤伊織さん | YOUTRUST JOURNAL](https://lp.youtrust.jp/journal/posts/case-transe)
 
-# 募集投稿の投稿方法・投稿への反応対応
+## :material-file-document-edit-outline: 募集投稿の投稿方法・投稿への反応対応
 
-### 投稿方法
+### :material-upload-outline: 投稿方法
 
 ①YOUTRUSTマイページ「募集」から「新しく募集を作成」を選択してください。
 
@@ -71,7 +71,7 @@ noteやブログ記事よりもライトに投稿できる点もYOUTRUSTの特�
 
 ![募集作成タイプ選択画面](images/web-job-creation-type-select.png)
 
-### 募集投稿への応募者管理
+### :material-account-check-outline: 募集投稿への応募者管理
 
 マイページ「募集」より応募者管理が可能でございます。
 
@@ -80,11 +80,11 @@ noteやブログ記事よりもライトに投稿できる点もYOUTRUSTの特�
 
 ![応募者管理画面](images/web-profile-applicant-management.png)
 
-### リクルーター管理画面での管理
+### :material-monitor-dashboard: リクルーター管理画面での管理
 
 **「話を聞きたい」を押したユーザーは、自動でリクルーター管理画面内の候補者リストに追加**されます。
 
-[候補者を管理する](manage-candidates.md)
+[:material-clipboard-list-outline: 候補者を管理する](manage-candidates.md)
 
 候補者リストには、ユーザーがどの募集投稿に反応したかが表示されます。
 

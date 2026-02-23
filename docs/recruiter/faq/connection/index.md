@@ -4,8 +4,8 @@
 
 ---
 
-## このセクションの記事
+## :material-format-list-bulleted: このセクションの記事
 
-- [つながりを増やしたい](increase.md)
-- [つながり候補に出てくる人の条件を知りたい](suggestion-criteria.md)
-- [つながり申請の温度感を知りたい](request-temperature.md)
+- [:material-account-multiple-plus: つながりを増やしたい](increase.md)
+- [:material-account-search: つながり候補に出てくる人の条件を知りたい](suggestion-criteria.md)
+- [:material-thermometer: つながり申請の温度感を知りたい](request-temperature.md)

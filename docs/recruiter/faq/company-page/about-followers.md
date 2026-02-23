@@ -1,6 +1,6 @@
 # :material-account-heart-outline: カンパニーページのフォロワーについて知りたい
 
-## フォロワーに対してできること
+## :material-check-circle-outline: フォロワーに対してできること
 
 カンパニーページのフォロワーには、つながりの範囲に関係なく、
 
@@ -12,9 +12,9 @@
 
 また、カンパニーページのフォロワーは自社に興味を持っている可能性が高く、スカウトの返信率も高くなる傾向があります。
 
-## フォロワーの増やし方
+## :material-trending-up: フォロワーの増やし方
 
-### YOUTRUSTサービス内での導線を利用する
+### :material-link-variant: YOUTRUSTサービス内での導線を利用する
 
 サービス内でのカンパニーページへのフォロー導線を随時強化しております。
 
@@ -22,7 +22,7 @@ PC web、アプリ共に募集からのカンパニーページフォローの�
 
 ![主なフォロー導線](images/web-follower-sources.png)
 
-### 他SNSでカンパニーページURLを拡散する
+### :material-share-variant-outline: 他SNSでカンパニーページURLを拡散する
 
 カンパニーページのOGPは各企業のカバー画像が表示されます。
 

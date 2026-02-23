@@ -4,7 +4,7 @@
 
 ---
 
-## このセクションの記事
+## :material-format-list-bulleted: このセクションの記事
 
-- [タレントピックとは何か知りたい](about.md)
-- [タレントピックを3人以上閲覧したい](view-more.md)
+- [:material-lightbulb-outline: タレントピックとは何か知りたい](about.md)
+- [:material-account-multiple-plus: タレントピックを3人以上閲覧したい](view-more.md)

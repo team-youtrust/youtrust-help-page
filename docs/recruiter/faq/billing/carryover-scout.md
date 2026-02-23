@@ -6,4 +6,4 @@
 
 また、契約を一度解約した後に再契約した場合、前契約で購入したスカウトは持ち越しできません。
 
-[送付可能なスカウト通数を確認したい](../billing/check-scout-count.md)
+[:material-counter: 送付可能なスカウト通数を確認したい](../billing/check-scout-count.md)
