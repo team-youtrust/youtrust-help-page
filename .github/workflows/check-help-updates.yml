@@ -71,6 +71,7 @@ jobs:
         uses: actions/ai-inference@v2
         with:
           model: openai/gpt-4o
+          max-tokens: 4000
           prompt: |
             あなたはYOUTRUSTのヘルプページ管理アシスタントです。
             PRの変更内容を分析し、ヘルプページの更新が必要かどうかを判定してください。
@@ -113,8 +114,10 @@ jobs:
       - name: Save AI response
         if: steps.combine.outputs.total != '0'
         id: save
+        env:
+          AI_RESPONSE: ${{ steps.ai-analysis.outputs.response }}
         run: |
-          echo '${{ steps.ai-analysis.outputs.response }}' > ai_response.json
+          echo "$AI_RESPONSE" > ai_response.json
           # JSONを抽出（マークダウンコードブロックが含まれる場合に対応）
           if grep -q '```json' ai_response.json; then
             sed -n '/```json/,/```/p' ai_response.json | sed '1d;$d' > ai_response_clean.json
