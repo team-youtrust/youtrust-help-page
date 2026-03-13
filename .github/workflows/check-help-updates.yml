@@ -27,7 +27,7 @@ jobs:
             --state merged \
             --limit 100 \
             --json number,title,body,mergedAt,url,labels \
-            | jq --arg since "$SINCE" '[.[] | select(.mergedAt >= $since) | {number, title, url, labels: [.labels[].name], body: (.body | split("\n")[0:5] | join("\n") | .[0:200])}]' \
+            | jq --arg since "$SINCE" '[.[] | select(.mergedAt >= $since) | {number, title, url, repo: "webapp", labels: [.labels[].name], body: (.body | split("\n")[0:5] | join("\n") | .[0:300])}]' \
             > webapp_prs.json
           echo "count=$(jq length webapp_prs.json)" >> $GITHUB_OUTPUT
 
@@ -41,88 +41,144 @@ jobs:
             --state merged \
             --limit 100 \
             --json number,title,body,mergedAt,url,labels \
-            | jq --arg since "$SINCE" '[.[] | select(.mergedAt >= $since) | {number, title, url, labels: [.labels[].name], body: (.body | split("\n")[0:5] | join("\n") | .[0:200])}]' \
+            | jq --arg since "$SINCE" '[.[] | select(.mergedAt >= $since) | {number, title, url, repo: "nativeapp", labels: [.labels[].name], body: (.body | split("\n")[0:5] | join("\n") | .[0:300])}]' \
             > nativeapp_prs.json
           echo "count=$(jq length nativeapp_prs.json)" >> $GITHUB_OUTPUT
 
-      - name: Combine PR data
+      - name: Combine and split PR data into batches
         id: combine
         run: |
-          jq -s '{webapp: .[0], nativeapp: .[1], total_count: ((.[0] | length) + (.[1] | length))}' webapp_prs.json nativeapp_prs.json > combined_prs.json
-          echo "total=$(jq '.total_count' combined_prs.json)" >> $GITHUB_OUTPUT
-          echo "pr_data=$(cat combined_prs.json | jq -c .)" >> $GITHUB_OUTPUT
+          # 全PRを結合
+          jq -s 'add' webapp_prs.json nativeapp_prs.json > all_prs.json
+          TOTAL=$(jq length all_prs.json)
+          echo "total=$TOTAL" >> $GITHUB_OUTPUT
+
+          # 5件ずつバッチに分割
+          mkdir -p batches
+          jq -c '[_nwise(5)]' all_prs.json | jq -c '.[]' | nl -v 0 | while read idx batch; do
+            echo "$batch" > "batches/batch_$idx.json"
+          done
+          BATCH_COUNT=$(ls batches/*.json 2>/dev/null | wc -l | tr -d ' ')
+          echo "batch_count=$BATCH_COUNT" >> $GITHUB_OUTPUT
+
+      - name: Extract help page structure from mkdocs.yml
+        if: steps.combine.outputs.total != '0'
+        id: structure
+        run: |
+          # navセクションを抽出
+          sed -n '/^nav:/,/^[a-z]/p' mkdocs.yml | head -n -1 > help_structure.txt
+          echo "structure<<EOF" >> $GITHUB_OUTPUT
+          cat help_structure.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Skip if no PRs
         if: steps.combine.outputs.total == '0'
         run: echo "No merged PRs in the last 24 hours. Skipping."
 
-      - name: Read analysis prompt
+      - name: Analyze PRs with AI (batch processing)
         if: steps.combine.outputs.total != '0'
-        id: prompt
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
+          # 判断基準を読み込み
           CRITERIA=$(cat .github/prompts/help-criteria.md)
-          echo "criteria<<EOF" >> $GITHUB_OUTPUT
-          echo "$CRITERIA" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          STRUCTURE="${{ steps.structure.outputs.structure }}"
 
-      - name: Analyze PRs with AI
-        if: steps.combine.outputs.total != '0'
-        id: ai-analysis
-        uses: actions/ai-inference@v2
-        with:
-          model: openai/gpt-4o
-          max-tokens: 4000
-          prompt: |
-            あなたはYOUTRUSTのヘルプページ管理アシスタントです。
-            PRの変更内容を分析し、ヘルプページの更新が必要かどうかを判定してください。
+          # 結果を格納する配列を初期化
+          echo '{"has_impact": false, "items": [], "skipped_prs": []}' > final_result.json
 
-            ## 判断基準
-            ${{ steps.prompt.outputs.criteria }}
+          # 各バッチを処理
+          for batch_file in batches/batch_*.json; do
+            echo "Processing $batch_file..."
+            BATCH_DATA=$(cat "$batch_file")
 
-            ## 分析対象のPR情報
-            ${{ steps.combine.outputs.pr_data }}
+            # プロンプトを構築
+            PROMPT=$(cat <<PROMPT_EOF
+          あなたはYOUTRUSTのヘルプページ管理アシスタントです。
+          PRの変更内容を分析し、ヘルプページの更新が必要かどうかを判定してください。
 
-            ## 出力形式
-            必ずJSON形式のみで出力してください。説明文は不要です。
+          ## 現在のヘルプページ構成
+          $STRUCTURE
 
-            {
-              "has_impact": true または false,
-              "items": [
-                {
-                  "action": "add" または "update" または "delete",
-                  "labels": ["help:add"] など,
-                  "target_path": "user/account/xxx.md",
-                  "target_section": "一般ユーザー向け または 公式リクルーター向け",
-                  "pr_title": "元PRのタイトル",
-                  "pr_number": 123,
-                  "pr_repo": "webapp または nativeapp",
-                  "pr_url": "https://github.com/...",
-                  "reason": "なぜ更新が必要か（日本語）",
-                  "suggestion": "具体的な追記内容（コードは絶対に含めない）"
-                }
-              ],
-              "skipped_prs": [
-                {
-                  "pr_title": "スキップしたPRのタイトル",
-                  "pr_number": 123,
-                  "pr_repo": "webapp",
-                  "reason": "スキップ理由"
-                }
-              ]
-            }
+          ## 判断基準
+          $CRITERIA
 
-      - name: Save AI response
+          ## 分析対象のPR情報
+          $BATCH_DATA
+
+          ## 出力形式
+          必ずJSON形式のみで出力してください。説明文は不要です。
+          {
+            "has_impact": true または false,
+            "items": [
+              {
+                "action": "add" または "update" または "delete",
+                "labels": ["help:add"] など,
+                "target_path": "user/account/xxx.md",
+                "target_section": "一般ユーザー向け または 公式リクルーター向け",
+                "pr_title": "元PRのタイトル",
+                "pr_number": 123,
+                "pr_repo": "webapp または nativeapp",
+                "pr_url": "https://github.com/...",
+                "reason": "なぜ更新が必要か（日本語）",
+                "suggestion": "具体的な追記内容（コードは絶対に含めない）"
+              }
+            ],
+            "skipped_prs": [
+              {
+                "pr_title": "スキップしたPRのタイトル",
+                "pr_number": 123,
+                "pr_repo": "webapp",
+                "reason": "スキップ理由"
+              }
+            ]
+          }
+          PROMPT_EOF
+          )
+
+            # GitHub Models APIを呼び出し
+            RESPONSE=$(curl -s -X POST "https://models.github.ai/inference/chat/completions" \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Content-Type: application/json" \
+              -d "$(jq -n --arg prompt "$PROMPT" '{
+                "model": "openai/gpt-4o",
+                "messages": [{"role": "user", "content": $prompt}],
+                "max_tokens": 2000
+              }')")
+
+            # レスポンスからJSONを抽出
+            CONTENT=$(echo "$RESPONSE" | jq -r '.choices[0].message.content // empty')
+            if [ -z "$CONTENT" ]; then
+              echo "Warning: Empty response for $batch_file"
+              continue
+            fi
+
+            # マークダウンコードブロックを除去
+            CLEAN_JSON=$(echo "$CONTENT" | sed -n '/```json/,/```/p' | sed '1d;$d')
+            if [ -z "$CLEAN_JSON" ]; then
+              CLEAN_JSON="$CONTENT"
+            fi
+
+            # 結果をマージ
+            echo "$CLEAN_JSON" > batch_result.json
+            if jq -e . batch_result.json > /dev/null 2>&1; then
+              # has_impactがtrueならfinal_resultもtrueに
+              if [ "$(jq -r '.has_impact' batch_result.json)" = "true" ]; then
+                jq '.has_impact = true' final_result.json > tmp.json && mv tmp.json final_result.json
+              fi
+              # itemsをマージ
+              jq -s '.[0].items += (.[1].items // []) | .[0].skipped_prs += (.[1].skipped_prs // []) | .[0]' final_result.json batch_result.json > tmp.json && mv tmp.json final_result.json
+            fi
+          done
+
+          # 最終結果を保存
+          cp final_result.json ai_response.json
+
+      - name: Check AI response
         if: steps.combine.outputs.total != '0'
         id: save
-        env:
-          AI_RESPONSE: ${{ steps.ai-analysis.outputs.response }}
         run: |
-          echo "$AI_RESPONSE" > ai_response.json
-          # JSONを抽出（マークダウンコードブロックが含まれる場合に対応）
-          if grep -q '```json' ai_response.json; then
-            sed -n '/```json/,/```/p' ai_response.json | sed '1d;$d' > ai_response_clean.json
-            mv ai_response_clean.json ai_response.json
-          fi
+          cat ai_response.json
           HAS_IMPACT=$(jq -r '.has_impact // false' ai_response.json)
           echo "has_impact=$HAS_IMPACT" >> $GITHUB_OUTPUT
 
@@ -188,4 +244,5 @@ jobs:
           echo "- webapp PRs: ${{ steps.webapp-prs.outputs.count || 0 }}" >> $GITHUB_STEP_SUMMARY
           echo "- nativeapp PRs: ${{ steps.nativeapp-prs.outputs.count || 0 }}" >> $GITHUB_STEP_SUMMARY
           echo "- Total: ${{ steps.combine.outputs.total || 0 }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Batches: ${{ steps.combine.outputs.batch_count || 0 }}" >> $GITHUB_STEP_SUMMARY
           echo "- Has impact: ${{ steps.save.outputs.has_impact || 'N/A' }}" >> $GITHUB_STEP_SUMMARY
