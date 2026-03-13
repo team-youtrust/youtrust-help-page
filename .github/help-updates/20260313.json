@@ -1,0 +1,211 @@
+{
+  "has_impact": true,
+  "items": [
+    {
+      "action": "update",
+      "labels": [
+        "help:update"
+      ],
+      "target_path": "user/account/delete.md",
+      "target_section": "一般ユーザー向け",
+      "pr_title": "[FE]退会理由を保存できるようにする",
+      "pr_number": 29052,
+      "pr_repo": "webapp",
+      "pr_url": "https://github.com/team-youtrust/youtrust-webapp/pull/29052",
+      "reason": "退会時に退会理由を保存する機能が追加され、ユーザーが操作できる新要素がヘルプ内容と異なる可能性があるため。",
+      "suggestion": "退会理由保存機能の追加を反映させるため、以下の修正をしてください。『退会時の注意事項』セクションに「退会時に退会理由を登録する画面が表示されます。任意でご回答ください。」と追記してください。"
+    },
+    {
+      "action": "update",
+      "labels": [
+        "help:update"
+      ],
+      "target_path": "recruiter/faq/notification/slack-integration.md",
+      "target_section": "公式リクルーター向け",
+      "pr_title": "セールス・ヘッドハンターのSlack返信通知にコメント表示機能を追加",
+      "pr_number": 29050,
+      "pr_repo": "webapp",
+      "pr_url": "https://github.com/team-youtrust/youtrust-webapp/pull/29050",
+      "reason": "Slack返信通知機能に新しい要素（コメント表示）が追加され、操作可能な範囲が拡張されたため。",
+      "suggestion": "セクション’募集への「話を聞きたい」’に、コメント表示機能に関する内容を追記してください。コメントがSlack通知内に表示されることを明記し、通知の例に表示イメージを追加してください。また、新たに操作可能となる範囲を詳細に記載してください。"
+    },
+    {
+      "action": "add",
+      "labels": [
+        "help:add"
+      ],
+      "target_path": "recruiter/faq/company-page/deep-link.md",
+      "target_section": "公式リクルーター向け",
+      "pr_title": "feat: 企業名義投稿のディープリンクを追加",
+      "pr_number": 13131,
+      "pr_repo": "nativeapp",
+      "pr_url": "https://github.com/team-youtrust/youtrust-nativeapp/pull/13131",
+      "reason": "企業名義投稿のディープリンク機能が新たに追加され、ユーザーが特定の投稿にアクセス可能となったため。",
+      "suggestion": "企業名義投稿へのディープリンクの利用方法や、リンク先で表示される情報について新しいヘルプページを作成してください。"
+    }
+  ],
+  "skipped_prs": [
+    {
+      "pr_title": "SortPopulationUserIdsQuery の COUNT クエリをバッチ分割",
+      "pr_number": 29149,
+      "pr_repo": "webapp",
+      "reason": "DB関連のパフォーマンス改善であり、ユーザー向けの機能変更が含まれていないため"
+    },
+    {
+      "pr_title": "[BE] メンション候補取得APIの向き先をRedisに変更",
+      "pr_number": 29141,
+      "pr_repo": "webapp",
+      "reason": "内部のAPIデータ取得先の変更であり、ユーザー向けの機能変更が含まれていないため"
+    },
+    {
+      "pr_title": "[BE] backend_admin の TalentListAutoGenerationTaskLogic に preload(:user) を追加",
+      "pr_number": 29138,
+      "pr_repo": "webapp",
+      "reason": "バックエンドのコード改善であり、ユーザー向けの機能変更が含まれていないため"
+    },
+    {
+      "pr_title": "fix: JudgePopulationUserUseCase の with_lock 直後の冗長な reload を削除",
+      "pr_number": 29135,
+      "pr_repo": "webapp",
+      "reason": "DB負荷軽減のための内部最適化コード変更であり、ユーザー向けの機能変更が含まれていないため"
+    },
+    {
+      "pr_title": "build(deps-dev): bump lefthook from 2.1.3 to 2.1.4",
+      "pr_number": 29132,
+      "pr_repo": "webapp",
+      "reason": "開発環境の依存パッケージ更新に関するものでユーザー向けの機能変更が含まれていないため"
+    },
+    {
+      "pr_title": "build(deps): bump dayjs from 1.11.19 to 1.11.20",
+      "pr_number": 29131,
+      "pr_repo": "webapp",
+      "reason": "依存関係の更新であり、ユーザー向けの機能変更が含まれていないため"
+    },
+    {
+      "pr_title": "build(deps): bump aws-sdk-s3 from 1.215.0 to 1.216.0",
+      "pr_number": 29130,
+      "pr_repo": "webapp",
+      "reason": "依存関係の更新であり、ユーザー向けの機能変更が含まれていないため"
+    },
+    {
+      "pr_title": "特定ユーザーを退会から復旧させるrakeタスク",
+      "pr_number": 29128,
+      "pr_repo": "webapp",
+      "reason": "内部ツールまたは管理者向けであり、ユーザー向けの機能変更が含まれていないため"
+    },
+    {
+      "pr_title": "feat: sandbox/production環境にプライベート画像プロキシ用の環境変数を追加",
+      "pr_number": 29127,
+      "pr_repo": "webapp",
+      "reason": "環境設定の変更であり、直接的なユーザー向けの機能変更が含まれていないため"
+    },
+    {
+      "pr_title": "fix: auto-correct-backのpushでCIがトリガーされるようにする",
+      "pr_number": 29125,
+      "pr_repo": "webapp",
+      "reason": "CIの挙動に関する修正であり、ユーザー向けの機能変更が含まれていないため"
+    },
+    {
+      "pr_title": "[gem] 未使用の material_icons gem を削除",
+      "pr_number": 29124,
+      "pr_repo": "webapp",
+      "reason": "コードの変更に関するものであり、ユーザーが画面から見える機能やUIに影響を与えないため"
+    },
+    {
+      "pr_title": "[BE] SortPopulationUserIdsQuery の friend_candidates/user_friends 全レコード取得を解消",
+      "pr_number": 29123,
+      "pr_repo": "webapp",
+      "reason": "バックエンドのパフォーマンス改善に関する変更であり、ユーザーが画面から確認・操作できる内容ではないため"
+    },
+    {
+      "pr_title": "Add PR creation rules for Claude Code",
+      "pr_number": 29119,
+      "pr_repo": "webapp",
+      "reason": "PRプロセスに関する開発者向けの内部ルールであり、ユーザーに直接影響を与えないため"
+    },
+    {
+      "pr_title": "AIスカウトメッセージのアバターサイズを修正",
+      "pr_number": 29116,
+      "pr_repo": "webapp",
+      "reason": "軽微なUI調整（余白と表示に関する修正）のみで、ヘルプページの更新が必要な変更を伴わないため"
+    },
+    {
+      "pr_title": "「あなたを気になっている会社」から非表示企業を除外",
+      "pr_number": 29108,
+      "pr_repo": "webapp",
+      "reason": "バックエンドクエリの調整に関する変更であり、画面のUIや機能には直接影響がないため"
+    },
+    {
+      "pr_title": "[log]退会ダイアログのSeriesログ実装",
+      "pr_number": 29089,
+      "pr_repo": "webapp",
+      "reason": "このPRはログ送信に関する実装を追加する内容であり、ユーザーの操作やUIに変更を加えないため、ヘルプページの更新は不要です。"
+    },
+    {
+      "pr_title": "[log]退会理由のログ設計",
+      "pr_number": 29078,
+      "pr_repo": "webapp",
+      "reason": "このPRはバックエンドログに関する設計であり、ユーザーが直接利用する機能やUI変更は含まれていないため、ヘルプページの更新は不要です。"
+    },
+    {
+      "pr_title": "[セールステック予約送信]データ層・ロジック準備（本番影響なし）",
+      "pr_number": 29065,
+      "pr_repo": "webapp",
+      "reason": "このPRは本番影響がなく、データ層およびロジックの準備段階であり、ユーザー向け機能の変更がないため、ヘルプページの更新は不要です。"
+    },
+    {
+      "pr_title": "[セールステック予約送信]リマインド予約サイドペインの作成",
+      "pr_number": 29062,
+      "pr_repo": "webapp",
+      "reason": "このPRは特定企業向けのカスタム機能に関する実装である可能性があり、全ユーザー向け機能ではないため、ヘルプページの更新は不要です。"
+    },
+    {
+      "pr_title": "[セールステック予約送信]リマインド予約ダイアログの作成",
+      "pr_number": 29061,
+      "pr_repo": "webapp",
+      "reason": "このPRも特定企業向けのカスタム機能に関する実装である可能性があり、全ユーザー向け機能ではないため、ヘルプページの更新は不要です。"
+    },
+    {
+      "pr_title": "[ユースタ] Update aspect ratio for studio article feature thumbnail",
+      "pr_number": 13134,
+      "pr_repo": "nativeapp",
+      "reason": "軽微なUI調整（画像の比率修正）のみを含んでおり、ヘルプページの内容に影響がないため。"
+    },
+    {
+      "pr_title": "[ユースタ] Enable to toggle like state for studio articles",
+      "pr_number": 13133,
+      "pr_repo": "nativeapp",
+      "reason": "新しい機能がすべてのユーザーにリリースされたという情報がないため。"
+    },
+    {
+      "pr_title": "improve: チャットルーム一覧のフィルター上下に余白を追加",
+      "pr_number": 13130,
+      "pr_repo": "nativeapp",
+      "reason": "軽微なUI調整（余白の変更）はヘルプページには反映しない対象であるため。"
+    },
+    {
+      "pr_title": "improve: フィードバナーをPageView化し左右チラ見せ+スナップ表示に変更",
+      "pr_number": 13128,
+      "pr_repo": "nativeapp",
+      "reason": "詳細画面のデザイン変更は、利用方法や機能に大きな変更がない限りヘルプページの更新が不要なため。"
+    },
+    {
+      "pr_title": "refactor: _SurroundingSectionの表示をcareerStageのswitchで分岐",
+      "pr_number": 13124,
+      "pr_repo": "nativeapp",
+      "reason": "リファクタリングであり、ユーザーが画面上で確認・操作する機能に影響がないため。"
+    },
+    {
+      "pr_title": "[ユースタ] Enable to show like count on studio article detail",
+      "pr_number": 13111,
+      "pr_repo": "nativeapp",
+      "reason": "`studio article detail`に関するPRであるが、一般のユーザー向けのUIが関連するものの、新しい操作方法や項目が追加されるわけではないため。"
+    },
+    {
+      "pr_title": "[エントランス] Renew EntranceScreen with carousel overlay UI and connect tracking",
+      "pr_number": 13088,
+      "pr_repo": "nativeapp",
+      "reason": "エントランス画面のデザイン変更が中心であり、操作方法やヘルプに記載すべき内容の影響がないため。"
+    }
+  ]
+}
