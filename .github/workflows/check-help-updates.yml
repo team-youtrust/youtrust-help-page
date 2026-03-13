@@ -70,7 +70,7 @@ jobs:
         id: ai-analysis
         uses: actions/ai-inference@v2
         with:
-          model: gpt-4o
+          model: openai/gpt-4o
           prompt: |
             あなたはYOUTRUSTのヘルプページ管理アシスタントです。
             PRの変更内容を分析し、ヘルプページの更新が必要かどうかを判定してください。
