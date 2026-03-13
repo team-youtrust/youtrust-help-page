@@ -1,0 +1,192 @@
+name: Check Help Page Updates
+
+on:
+  schedule:
+    - cron: '0 0 * * 1-5'  # 平日 09:00 JST (00:00 UTC)
+  workflow_dispatch:  # 手動実行用
+
+permissions:
+  models: read
+  contents: write
+  pull-requests: write
+
+jobs:
+  check-updates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout help-page repository
+        uses: actions/checkout@v4
+
+      - name: Get merged PRs from youtrust-webapp (last 24h)
+        id: webapp-prs
+        env:
+          GH_TOKEN: ${{ secrets.PAT_GITHUB }}
+        run: |
+          SINCE=$(date -u -d '24 hours ago' '+%Y-%m-%dT%H:%M:%SZ')
+          gh pr list --repo team-youtrust/youtrust-webapp \
+            --state merged \
+            --search "merged:>=$SINCE" \
+            --limit 100 \
+            --json number,title,body,mergedAt,url,labels,files \
+            > webapp_prs.json
+          echo "count=$(jq length webapp_prs.json)" >> $GITHUB_OUTPUT
+
+      - name: Get merged PRs from youtrust-nativeapp (last 24h)
+        id: nativeapp-prs
+        env:
+          GH_TOKEN: ${{ secrets.PAT_GITHUB }}
+        run: |
+          SINCE=$(date -u -d '24 hours ago' '+%Y-%m-%dT%H:%M:%SZ')
+          gh pr list --repo team-youtrust/youtrust-nativeapp \
+            --state merged \
+            --search "merged:>=$SINCE" \
+            --limit 100 \
+            --json number,title,body,mergedAt,url,labels,files \
+            > nativeapp_prs.json
+          echo "count=$(jq length nativeapp_prs.json)" >> $GITHUB_OUTPUT
+
+      - name: Combine PR data
+        id: combine
+        run: |
+          jq -s '{
+            webapp: .[0],
+            nativeapp: .[1],
+            total_count: (.[0] | length) + (.[1] | length)
+          }' webapp_prs.json nativeapp_prs.json > combined_prs.json
+          echo "total=$(jq '.total_count' combined_prs.json)" >> $GITHUB_OUTPUT
+          echo "pr_data=$(cat combined_prs.json | jq -c .)" >> $GITHUB_OUTPUT
+
+      - name: Skip if no PRs
+        if: steps.combine.outputs.total == '0'
+        run: echo "No merged PRs in the last 24 hours. Skipping."
+
+      - name: Read analysis prompt
+        if: steps.combine.outputs.total != '0'
+        id: prompt
+        run: |
+          CRITERIA=$(cat .github/prompts/help-criteria.md)
+          echo "criteria<<EOF" >> $GITHUB_OUTPUT
+          echo "$CRITERIA" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Analyze PRs with AI
+        if: steps.combine.outputs.total != '0'
+        id: ai-analysis
+        uses: actions/ai-inference@v2
+        with:
+          model: gpt-4o
+          prompt: |
+            あなたはYOUTRUSTのヘルプページ管理アシスタントです。
+            PRの変更内容を分析し、ヘルプページの更新が必要かどうかを判定してください。
+
+            ## 判断基準
+            ${{ steps.prompt.outputs.criteria }}
+
+            ## 分析対象のPR情報
+            ${{ steps.combine.outputs.pr_data }}
+
+            ## 出力形式
+            必ずJSON形式のみで出力してください。説明文は不要です。
+
+            {
+              "has_impact": true または false,
+              "items": [
+                {
+                  "action": "add" または "update" または "delete",
+                  "labels": ["help:add"] など,
+                  "target_path": "user/account/xxx.md",
+                  "target_section": "一般ユーザー向け または 公式リクルーター向け",
+                  "pr_title": "元PRのタイトル",
+                  "pr_number": 123,
+                  "pr_repo": "webapp または nativeapp",
+                  "pr_url": "https://github.com/...",
+                  "reason": "なぜ更新が必要か（日本語）",
+                  "suggestion": "具体的な追記内容（コードは絶対に含めない）"
+                }
+              ],
+              "skipped_prs": [
+                {
+                  "pr_title": "スキップしたPRのタイトル",
+                  "pr_number": 123,
+                  "pr_repo": "webapp",
+                  "reason": "スキップ理由"
+                }
+              ]
+            }
+
+      - name: Save AI response
+        if: steps.combine.outputs.total != '0'
+        id: save
+        run: |
+          echo '${{ steps.ai-analysis.outputs.response }}' > ai_response.json
+          # JSONを抽出（マークダウンコードブロックが含まれる場合に対応）
+          if grep -q '```json' ai_response.json; then
+            sed -n '/```json/,/```/p' ai_response.json | sed '1d;$d' > ai_response_clean.json
+            mv ai_response_clean.json ai_response.json
+          fi
+          HAS_IMPACT=$(jq -r '.has_impact // false' ai_response.json)
+          echo "has_impact=$HAS_IMPACT" >> $GITHUB_OUTPUT
+
+      - name: Create branch and PR if impact detected
+        if: steps.save.outputs.has_impact == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.PAT_GITHUB }}
+        run: |
+          # ブランチ作成
+          DATE=$(date '+%Y%m%d')
+          BRANCH="auto/help-update-$DATE"
+          git checkout -b $BRANCH
+
+          # AI分析結果をファイルに保存
+          mkdir -p .github/help-updates
+          cp ai_response.json .github/help-updates/$DATE.json
+
+          # コミット
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .github/help-updates/
+          git commit -m "Add help page update suggestions for $DATE"
+          git push origin $BRANCH
+
+          # ラベルを抽出
+          LABELS=$(jq -r '[.items[].labels[]] | unique | join(",")' ai_response.json)
+          if [ -z "$LABELS" ]; then
+            LABELS="help:review"
+          fi
+
+          # PR本文を生成
+          {
+            echo "## AI分析によるヘルプページ更新提案"
+            echo ""
+            echo "以下のPRがヘルプページに影響する可能性があります。"
+            echo ""
+            echo "### 更新が必要な項目"
+            echo ""
+            jq -r '.items[] | "#### [\(.pr_repo)#\(.pr_number)](\(.pr_url)): \(.pr_title)\n- **アクション**: `\(.action)`\n- **対象**: `\(.target_path)` (\(.target_section))\n- **理由**: \(.reason)\n- **提案内容**:\n  > \(.suggestion)\n"' ai_response.json
+            echo ""
+            echo "### スキップしたPR"
+            echo ""
+            jq -r '.skipped_prs[]? | "- [\(.pr_repo)#\(.pr_number)] \(.pr_title): \(.reason)"' ai_response.json
+            echo ""
+            echo "---"
+            echo "このPRはAIによる自動分析で作成されました。"
+            echo "内容を確認し、必要に応じてヘルプページを手動で編集してください。"
+          } > pr_body.md
+
+          # PR作成
+          gh pr create \
+            --title "ヘルプページ更新提案 ($DATE)" \
+            --body-file pr_body.md \
+            --label "$LABELS" \
+            --base main \
+            --head $BRANCH
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Check Help Updates Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- webapp PRs: ${{ steps.webapp-prs.outputs.count || 0 }}" >> $GITHUB_STEP_SUMMARY
+          echo "- nativeapp PRs: ${{ steps.nativeapp-prs.outputs.count || 0 }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Total: ${{ steps.combine.outputs.total || 0 }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Has impact: ${{ steps.save.outputs.has_impact || 'N/A' }}" >> $GITHUB_STEP_SUMMARY
