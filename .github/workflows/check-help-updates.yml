@@ -25,9 +25,9 @@ jobs:
           SINCE=$(date -u -d '24 hours ago' '+%Y-%m-%dT%H:%M:%SZ')
           gh pr list --repo team-youtrust/youtrust-webapp \
             --state merged \
-            --search "merged:>=$SINCE" \
             --limit 100 \
             --json number,title,body,mergedAt,url,labels,files \
+            | jq --arg since "$SINCE" '[.[] | select(.mergedAt >= $since)]' \
             > webapp_prs.json
           echo "count=$(jq length webapp_prs.json)" >> $GITHUB_OUTPUT
 
@@ -39,9 +39,9 @@ jobs:
           SINCE=$(date -u -d '24 hours ago' '+%Y-%m-%dT%H:%M:%SZ')
           gh pr list --repo team-youtrust/youtrust-nativeapp \
             --state merged \
-            --search "merged:>=$SINCE" \
             --limit 100 \
             --json number,title,body,mergedAt,url,labels,files \
+            | jq --arg since "$SINCE" '[.[] | select(.mergedAt >= $since)]' \
             > nativeapp_prs.json
           echo "count=$(jq length nativeapp_prs.json)" >> $GITHUB_OUTPUT
 
