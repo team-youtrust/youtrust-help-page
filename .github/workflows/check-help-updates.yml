@@ -26,8 +26,8 @@ jobs:
           gh pr list --repo team-youtrust/youtrust-webapp \
             --state merged \
             --limit 100 \
-            --json number,title,body,mergedAt,url,labels,files \
-            | jq --arg since "$SINCE" '[.[] | select(.mergedAt >= $since)]' \
+            --json number,title,body,mergedAt,url,labels \
+            | jq --arg since "$SINCE" '[.[] | select(.mergedAt >= $since) | {number, title, url, labels: [.labels[].name], body: (.body | split("\n")[0:5] | join("\n") | .[0:200])}]' \
             > webapp_prs.json
           echo "count=$(jq length webapp_prs.json)" >> $GITHUB_OUTPUT
 
@@ -40,8 +40,8 @@ jobs:
           gh pr list --repo team-youtrust/youtrust-nativeapp \
             --state merged \
             --limit 100 \
-            --json number,title,body,mergedAt,url,labels,files \
-            | jq --arg since "$SINCE" '[.[] | select(.mergedAt >= $since)]' \
+            --json number,title,body,mergedAt,url,labels \
+            | jq --arg since "$SINCE" '[.[] | select(.mergedAt >= $since) | {number, title, url, labels: [.labels[].name], body: (.body | split("\n")[0:5] | join("\n") | .[0:200])}]' \
             > nativeapp_prs.json
           echo "count=$(jq length nativeapp_prs.json)" >> $GITHUB_OUTPUT
 
