@@ -48,11 +48,7 @@ jobs:
       - name: Combine PR data
         id: combine
         run: |
-          jq -s '{
-            webapp: .[0],
-            nativeapp: .[1],
-            total_count: (.[0] | length) + (.[1] | length)
-          }' webapp_prs.json nativeapp_prs.json > combined_prs.json
+          jq -s '{webapp: .[0], nativeapp: .[1], total_count: ((.[0] | length) + (.[1] | length))}' webapp_prs.json nativeapp_prs.json > combined_prs.json
           echo "total=$(jq '.total_count' combined_prs.json)" >> $GITHUB_OUTPUT
           echo "pr_data=$(cat combined_prs.json | jq -c .)" >> $GITHUB_OUTPUT
 
