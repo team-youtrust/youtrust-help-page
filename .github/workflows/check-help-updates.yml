@@ -319,21 +319,72 @@ jobs:
 
           # PR本文を生成
           {
+            # サマリを生成
+            WEBAPP_ITEMS=$(jq '[.items[] | select(.pr_repo == "webapp")] | length' ai_response.json)
+            NATIVEAPP_ITEMS=$(jq '[.items[] | select(.pr_repo == "nativeapp")] | length' ai_response.json)
+            WEBAPP_SKIPPED=$(jq '[.skipped_prs[] | select(.pr_repo == "webapp")] | length' ai_response.json)
+            NATIVEAPP_SKIPPED=$(jq '[.skipped_prs[] | select(.pr_repo == "nativeapp")] | length' ai_response.json)
+            TOTAL_ITEMS=$((WEBAPP_ITEMS + NATIVEAPP_ITEMS))
+            TOTAL_SKIPPED=$((WEBAPP_SKIPPED + NATIVEAPP_SKIPPED))
+
             echo "## AI分析によるヘルプページ更新提案"
             echo ""
-            echo "以下のPRがヘルプページに影響する可能性があります。"
+            echo "### サマリ"
             echo ""
-            echo "### 更新が必要な項目"
+            echo "| リポジトリ | 更新が必要 | スキップ |"
+            echo "|-----------|-----------|---------|"
+            echo "| webapp | $WEBAPP_ITEMS 件 | $WEBAPP_SKIPPED 件 |"
+            echo "| nativeapp | $NATIVEAPP_ITEMS 件 | $NATIVEAPP_SKIPPED 件 |"
+            echo "| **合計** | **$TOTAL_ITEMS 件** | **$TOTAL_SKIPPED 件** |"
             echo ""
-            jq -r '.items[] | "#### [\(.pr_repo)#\(.pr_number)](\(.pr_url)): \(.pr_title)\n- **アクション**: `\(.action)`\n- **対象**: `\(.target_path)` (\(.target_section))\n- **理由**: \(.reason)\n- **提案内容**:\n  > \(.suggestion)\n"' ai_response.json
+
+            # 更新が必要な項目（webapp）
+            if [ "$WEBAPP_ITEMS" -gt 0 ]; then
+              echo "---"
+              echo ""
+              echo "## :octocat: webapp - 更新が必要な項目"
+              echo ""
+              jq -r '.items[] | select(.pr_repo == "webapp") | "### [\(.pr_repo)#\(.pr_number)](\(.pr_url)): \(.pr_title)\n- **アクション**: `\(.action)`\n- **対象**: `\(.target_path)` (\(.target_section))\n- **理由**: \(.reason)\n- **提案内容**:\n  > \(.suggestion)\n"' ai_response.json
+            fi
+
+            # 更新が必要な項目（nativeapp）
+            if [ "$NATIVEAPP_ITEMS" -gt 0 ]; then
+              echo "---"
+              echo ""
+              echo "## :iphone: nativeapp - 更新が必要な項目"
+              echo ""
+              jq -r '.items[] | select(.pr_repo == "nativeapp") | "### [\(.pr_repo)#\(.pr_number)](\(.pr_url)): \(.pr_title)\n- **アクション**: `\(.action)`\n- **対象**: `\(.target_path)` (\(.target_section))\n- **理由**: \(.reason)\n- **提案内容**:\n  > \(.suggestion)\n"' ai_response.json
+            fi
+
+            echo "---"
             echo ""
-            echo "### スキップしたPR"
+            echo "<details>"
+            echo "<summary>スキップしたPR（$TOTAL_SKIPPED 件）</summary>"
             echo ""
-            jq -r '.skipped_prs[]? | "- [\(.pr_repo)#\(.pr_number)] \(.pr_title): \(.reason)"' ai_response.json
+
+            # スキップしたPR（webapp）
+            if [ "$WEBAPP_SKIPPED" -gt 0 ]; then
+              echo "### webapp"
+              echo ""
+              jq -r '.skipped_prs[] | select(.pr_repo == "webapp") | "- [\\(.pr_repo)#\\(.pr_number)](https://github.com/team-youtrust/youtrust-webapp/pull/\\(.pr_number)) \\(.pr_title): \\(.reason)"' ai_response.json
+              echo ""
+            fi
+
+            # スキップしたPR（nativeapp）
+            if [ "$NATIVEAPP_SKIPPED" -gt 0 ]; then
+              echo "### nativeapp"
+              echo ""
+              jq -r '.skipped_prs[] | select(.pr_repo == "nativeapp") | "- [\\(.pr_repo)#\\(.pr_number)](https://github.com/team-youtrust/youtrust-nativeapp/pull/\\(.pr_number)) \\(.pr_title): \\(.reason)"' ai_response.json
+              echo ""
+            fi
+
+            echo "</details>"
             echo ""
             echo "---"
-            echo "このPRはAIによる自動分析で作成されました。"
-            echo "内容を確認し、必要に応じてヘルプページを手動で編集してください。"
+            echo ""
+            echo "> [!NOTE]"
+            echo "> このPRはAIによる自動分析で作成されました。"
+            echo "> 内容を確認し、必要に応じてヘルプページを手動で編集してください。"
           } > pr_body.md
 
           # PR作成
