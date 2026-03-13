@@ -366,7 +366,7 @@ jobs:
             if [ "$WEBAPP_SKIPPED" -gt 0 ]; then
               echo "### webapp"
               echo ""
-              jq -r '.skipped_prs[] | select(.pr_repo == "webapp") | "- [\\(.pr_repo)#\\(.pr_number)](https://github.com/team-youtrust/youtrust-webapp/pull/\\(.pr_number)) \\(.pr_title): \\(.reason)"' ai_response.json
+              jq -r '.skipped_prs[] | select(.pr_repo == "webapp") | "- [\(.pr_repo)#\(.pr_number)](https://github.com/team-youtrust/youtrust-webapp/pull/\(.pr_number)) \(.pr_title): \(.reason)"' ai_response.json
               echo ""
             fi
 
@@ -374,7 +374,7 @@ jobs:
             if [ "$NATIVEAPP_SKIPPED" -gt 0 ]; then
               echo "### nativeapp"
               echo ""
-              jq -r '.skipped_prs[] | select(.pr_repo == "nativeapp") | "- [\\(.pr_repo)#\\(.pr_number)](https://github.com/team-youtrust/youtrust-nativeapp/pull/\\(.pr_number)) \\(.pr_title): \\(.reason)"' ai_response.json
+              jq -r '.skipped_prs[] | select(.pr_repo == "nativeapp") | "- [\(.pr_repo)#\(.pr_number)](https://github.com/team-youtrust/youtrust-nativeapp/pull/\(.pr_number)) \(.pr_title): \(.reason)"' ai_response.json
               echo ""
             fi
 
