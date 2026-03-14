@@ -320,41 +320,43 @@ jobs:
 
           # PR本文を生成
           {
-            # サマリを生成
-            WEBAPP_ITEMS=$(jq '[.items[] | select(.pr_repo == "webapp")] | length' ai_response.json)
-            NATIVEAPP_ITEMS=$(jq '[.items[] | select(.pr_repo == "nativeapp")] | length' ai_response.json)
+            # サービス別のサマリを生成
+            SNS_ITEMS=$(jq '[.items[] | select(.target_section == "一般ユーザー向け")] | length' ai_response.json)
+            CLWEB_ITEMS=$(jq '[.items[] | select(.target_section == "公式リクルーター向け")] | length' ai_response.json)
             WEBAPP_SKIPPED=$(jq '[.skipped_prs[] | select(.pr_repo == "webapp")] | length' ai_response.json)
             NATIVEAPP_SKIPPED=$(jq '[.skipped_prs[] | select(.pr_repo == "nativeapp")] | length' ai_response.json)
-            TOTAL_ITEMS=$((WEBAPP_ITEMS + NATIVEAPP_ITEMS))
+            TOTAL_ITEMS=$((SNS_ITEMS + CLWEB_ITEMS))
             TOTAL_SKIPPED=$((WEBAPP_SKIPPED + NATIVEAPP_SKIPPED))
 
             echo "## AI分析によるヘルプページ更新提案"
             echo ""
             echo "### サマリ"
             echo ""
-            echo "| リポジトリ | 更新が必要 | スキップ |"
-            echo "|-----------|-----------|---------|"
-            echo "| webapp | $WEBAPP_ITEMS 件 | $WEBAPP_SKIPPED 件 |"
-            echo "| nativeapp | $NATIVEAPP_ITEMS 件 | $NATIVEAPP_SKIPPED 件 |"
-            echo "| **合計** | **$TOTAL_ITEMS 件** | **$TOTAL_SKIPPED 件** |"
+            echo "| サービス | 更新が必要 |"
+            echo "|---------|-----------|"
+            echo "| SNS (ユーザー向け) | $SNS_ITEMS 件 |"
+            echo "| CLWeb (リクルーター向け) | $CLWEB_ITEMS 件 |"
+            echo "| **合計** | **$TOTAL_ITEMS 件** |"
+            echo ""
+            echo "> スキップ: $TOTAL_SKIPPED 件（詳細は下部参照）"
             echo ""
 
-            # 更新が必要な項目（webapp）
-            if [ "$WEBAPP_ITEMS" -gt 0 ]; then
+            # 更新が必要な項目（SNS）
+            if [ "$SNS_ITEMS" -gt 0 ]; then
               echo "---"
               echo ""
-              echo "## :octocat: webapp - 更新が必要な項目"
+              echo "## 📱 SNS (ユーザー向け)"
               echo ""
-              jq -r '.items[] | select(.pr_repo == "webapp") | "### [\(.pr_repo)#\(.pr_number)](\(.pr_url)): \(.pr_title)\n- **アクション**: `\(.action)`\n- **対象**: `\(.target_path)` (\(.target_section))\n- **理由**: \(.reason)\n- **提案内容**:\n  > \(.suggestion)\n"' ai_response.json
+              jq -r '.items[] | select(.target_section == "一般ユーザー向け") | "### [\(.pr_repo)#\(.pr_number)](\(.pr_url)): \(.pr_title)\n- **アクション**: `\(.action)`\n- **対象**: `\(.target_path)`\n- **理由**: \(.reason)\n- **提案内容**:\n  > \(.suggestion)\n"' ai_response.json
             fi
 
-            # 更新が必要な項目（nativeapp）
-            if [ "$NATIVEAPP_ITEMS" -gt 0 ]; then
+            # 更新が必要な項目（CLWeb）
+            if [ "$CLWEB_ITEMS" -gt 0 ]; then
               echo "---"
               echo ""
-              echo "## :iphone: nativeapp - 更新が必要な項目"
+              echo "## 💼 CLWeb (リクルーター向け)"
               echo ""
-              jq -r '.items[] | select(.pr_repo == "nativeapp") | "### [\(.pr_repo)#\(.pr_number)](\(.pr_url)): \(.pr_title)\n- **アクション**: `\(.action)`\n- **対象**: `\(.target_path)` (\(.target_section))\n- **理由**: \(.reason)\n- **提案内容**:\n  > \(.suggestion)\n"' ai_response.json
+              jq -r '.items[] | select(.target_section == "公式リクルーター向け") | "### [\(.pr_repo)#\(.pr_number)](\(.pr_url)): \(.pr_title)\n- **アクション**: `\(.action)`\n- **対象**: `\(.target_path)`\n- **理由**: \(.reason)\n- **提案内容**:\n  > \(.suggestion)\n"' ai_response.json
             fi
 
             echo "---"
@@ -397,8 +399,8 @@ jobs:
             --head $BRANCH)
           echo "pr_url=$PR_URL" >> $GITHUB_OUTPUT
           echo "pr_title=ヘルプページ更新提案 ($DATE)" >> $GITHUB_OUTPUT
-          echo "webapp_items=$WEBAPP_ITEMS" >> $GITHUB_OUTPUT
-          echo "nativeapp_items=$NATIVEAPP_ITEMS" >> $GITHUB_OUTPUT
+          echo "sns_items=$SNS_ITEMS" >> $GITHUB_OUTPUT
+          echo "clweb_items=$CLWEB_ITEMS" >> $GITHUB_OUTPUT
           echo "total_skipped=$TOTAL_SKIPPED" >> $GITHUB_OUTPUT
 
       - name: Send Slack notification
@@ -409,13 +411,15 @@ jobs:
         run: |
           # 変数を設定
           PR_URL="${{ steps.create-pr.outputs.pr_url }}"
-          WEBAPP_ITEMS="${{ steps.create-pr.outputs.webapp_items }}"
-          NATIVEAPP_ITEMS="${{ steps.create-pr.outputs.nativeapp_items }}"
           TOTAL_SKIPPED="${{ steps.create-pr.outputs.total_skipped }}"
-          TOTAL_ITEMS=$((WEBAPP_ITEMS + NATIVEAPP_ITEMS))
 
-          # 更新項目のサマリを生成（PRリンク付き）
-          ITEMS_SUMMARY=$(jq -r '.items[] | "• <\(.pr_url)|\(.pr_repo)#\(.pr_number)> \(.pr_title) → `\(.target_path)`"' ai_response.json | head -5)
+          # サービス別の件数を計算（target_sectionで判定）
+          SNS_ITEMS=$(jq '[.items[] | select(.target_section == "一般ユーザー向け")] | length' ai_response.json)
+          CLWEB_ITEMS=$(jq '[.items[] | select(.target_section == "公式リクルーター向け")] | length' ai_response.json)
+          TOTAL_ITEMS=$((SNS_ITEMS + CLWEB_ITEMS))
+
+          # 更新項目のサマリを生成（サービス名 + PRリンク付き）
+          ITEMS_SUMMARY=$(jq -r '.items[] | "• [" + (if .target_section == "一般ユーザー向け" then "SNS" else "CLWeb" end) + "] <\(.pr_url)|\(.pr_repo)#\(.pr_number)> \(.pr_title | .[0:30]) → `\(.target_path)`"' ai_response.json | head -5)
 
           # Slack APIで通知を送信
           curl -X POST "https://slack.com/api/chat.postMessage" \
@@ -446,11 +450,11 @@ jobs:
                   },
                   {
                     "type": "mrkdwn",
-                    "text": "*webapp:*\n${WEBAPP_ITEMS}件"
+                    "text": "*SNS (ユーザー向け):*\n${SNS_ITEMS}件"
                   },
                   {
                     "type": "mrkdwn",
-                    "text": "*nativeapp:*\n${NATIVEAPP_ITEMS}件"
+                    "text": "*CLWeb (リクルーター向け):*\n${CLWEB_ITEMS}件"
                   }
                 ]
               },
