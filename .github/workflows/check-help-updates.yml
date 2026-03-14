@@ -645,6 +645,72 @@ jobs:
           EOF
           )"
 
+      # 更新が不要な場合の通知（どちらかのチャンネルに送信）
+      - name: Send no-update Slack notification
+        if: steps.combine.outputs.total != '0' && steps.save.outputs.has_impact != 'true'
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID_SNS }}
+        run: |
+          TOTAL_PRS="${{ steps.combine.outputs.total }}"
+          WEBAPP_PRS="${{ steps.webapp-prs.outputs.count }}"
+          NATIVEAPP_PRS="${{ steps.nativeapp-prs.outputs.count }}"
+
+          # スキップされたPR数を取得
+          SKIPPED_COUNT=0
+          if [ -f ai_response.json ]; then
+            SKIPPED_COUNT=$(jq '.skipped_prs | length' ai_response.json 2>/dev/null || echo "0")
+          fi
+
+          # Slack APIで通知を送信
+          curl -X POST "https://slack.com/api/chat.postMessage" \
+            -H "Authorization: Bearer $SLACK_BOT_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "$(cat <<EOF
+          {
+            "channel": "$SLACK_CHANNEL_ID",
+            "blocks": [
+              {
+                "type": "header",
+                "text": {
+                  "type": "plain_text",
+                  "text": "✅ ヘルプページ更新チェック完了",
+                  "emoji": true
+                }
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "本日のPRを確認しましたが、ヘルプページの更新が必要な変更はありませんでした。"
+                }
+              },
+              {
+                "type": "section",
+                "fields": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "*分析したPR:*\n${TOTAL_PRS}件"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*スキップ:*\n${SKIPPED_COUNT}件"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*webapp:*\n${WEBAPP_PRS}件"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*nativeapp:*\n${NATIVEAPP_PRS}件"
+                  }
+                ]
+              }
+            ]
+          }
+          EOF
+          )"
+
       - name: Summary
         if: always()
         run: |
