@@ -274,9 +274,9 @@ jobs:
               }')")
 
             # レスポンスからJSONを抽出
-            CONTENT=$(echo "$RESPONSE" | jq -r '.choices[0].message.content // empty')
+            CONTENT=$(echo "$RESPONSE" | jq -r '.choices[0].message.content // empty' 2>/dev/null || echo "")
             if [ -z "$CONTENT" ]; then
-              echo "Warning: Empty response for $TARGET_PATH"
+              echo "Warning: Empty or invalid response for $TARGET_PATH"
               continue
             fi
 
@@ -287,7 +287,7 @@ jobs:
             fi
 
             # refined_suggestionを抽出
-            REFINED=$(echo "$CLEAN_JSON" | jq -r '.refined_suggestion // empty')
+            REFINED=$(echo "$CLEAN_JSON" | jq -r '.refined_suggestion // empty' 2>/dev/null || echo "")
             if [ -n "$REFINED" ]; then
               # ai_response.jsonの該当アイテムのsuggestionを更新
               jq --arg path "$TARGET_PATH" --arg pr "$PR_NUMBER" --arg refined "$REFINED" \
