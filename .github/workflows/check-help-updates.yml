@@ -414,8 +414,8 @@ jobs:
           TOTAL_SKIPPED="${{ steps.create-pr.outputs.total_skipped }}"
           TOTAL_ITEMS=$((WEBAPP_ITEMS + NATIVEAPP_ITEMS))
 
-          # 更新項目のサマリを生成
-          ITEMS_SUMMARY=$(jq -r '.items[] | "• [\(.pr_repo)#\(.pr_number)] \(.pr_title) → `\(.target_path)`"' ai_response.json | head -5)
+          # 更新項目のサマリを生成（PRリンク付き）
+          ITEMS_SUMMARY=$(jq -r '.items[] | "• <\(.pr_url)|\(.pr_repo)#\(.pr_number)> \(.pr_title) → `\(.target_path)`"' ai_response.json | head -5)
 
           # Slack APIで通知を送信
           curl -X POST "https://slack.com/api/chat.postMessage" \
