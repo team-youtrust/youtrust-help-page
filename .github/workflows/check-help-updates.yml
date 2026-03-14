@@ -169,7 +169,13 @@ jobs:
                 jq '.has_impact = true' final_result.json > tmp.json && mv tmp.json final_result.json
               fi
               # itemsをマージ
-              jq -s '.[0].items += (.[1].items // []) | .[0].skipped_prs += (.[1].skipped_prs // []) | .[0]' final_result.json batch_result.json > tmp.json && mv tmp.json final_result.json
+              if jq -s '.[0].items += (.[1].items // []) | .[0].skipped_prs += (.[1].skipped_prs // []) | .[0]' final_result.json batch_result.json > tmp.json 2>/dev/null; then
+                mv tmp.json final_result.json
+              else
+                echo "Warning: Failed to merge $batch_file, skipping..."
+              fi
+            else
+              echo "Warning: Invalid JSON in $batch_file, skipping..."
             fi
           done
 
