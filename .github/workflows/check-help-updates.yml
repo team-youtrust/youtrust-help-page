@@ -165,8 +165,9 @@ jobs:
             echo "$CLEAN_JSON" > batch_result.json
             if jq -e . batch_result.json > /dev/null 2>&1; then
               # has_impactがtrueならfinal_resultもtrueに
-              if [ "$(jq -r '.has_impact' batch_result.json)" = "true" ]; then
-                jq '.has_impact = true' final_result.json > tmp.json && mv tmp.json final_result.json
+              HAS_IMPACT=$(jq -r '.has_impact // false' batch_result.json 2>/dev/null || echo "false")
+              if [ "$HAS_IMPACT" = "true" ]; then
+                jq '.has_impact = true' final_result.json > tmp.json 2>/dev/null && mv tmp.json final_result.json
               fi
               # itemsをマージ
               if jq -s '.[0].items += (.[1].items // []) | .[0].skipped_prs += (.[1].skipped_prs // []) | .[0]' final_result.json batch_result.json > tmp.json 2>/dev/null; then
