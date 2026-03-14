@@ -89,10 +89,10 @@ jobs:
           # 結果を格納する配列を初期化
           echo '{"has_impact": false, "items": [], "skipped_prs": []}' > final_result.json
 
-          # 各バッチを処理（レート制限対策で2秒待機）
+          # 各バッチを処理（レート制限対策で5秒待機）
           for batch_file in batches/batch_*.json; do
             echo "Processing $batch_file..."
-            sleep 2
+            sleep 5
             BATCH_DATA=$(cat "$batch_file")
 
             # プロンプトを構築
@@ -714,6 +714,57 @@ jobs:
                   {
                     "type": "mrkdwn",
                     "text": "*nativeapp:*\n${NATIVEAPP_PRS}件"
+                  }
+                ]
+              }
+            ]
+          }
+          EOF
+          )"
+
+      # エラー発生時の通知
+      - name: Send error Slack notification
+        if: failure()
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID_SNS }}
+        run: |
+          RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+          curl -X POST "https://slack.com/api/chat.postMessage" \
+            -H "Authorization: Bearer $SLACK_BOT_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "$(cat <<EOF
+          {
+            "channel": "$SLACK_CHANNEL_ID",
+            "blocks": [
+              {
+                "type": "header",
+                "text": {
+                  "type": "plain_text",
+                  "text": "❌ ヘルプページ更新チェック失敗",
+                  "emoji": true
+                }
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "ワークフローの実行中にエラーが発生しました。\n詳細はGitHub Actionsのログを確認してください。"
+                }
+              },
+              {
+                "type": "actions",
+                "elements": [
+                  {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "ログを確認",
+                      "emoji": true
+                    },
+                    "url": "${RUN_URL}",
+                    "style": "danger"
                   }
                 ]
               }
