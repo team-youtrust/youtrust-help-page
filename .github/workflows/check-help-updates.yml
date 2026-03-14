@@ -17,12 +17,13 @@ jobs:
       - name: Checkout help-page repository
         uses: actions/checkout@v4
 
+      # TODO: テスト後に '24 hours ago' に戻す
       - name: Get merged PRs from youtrust-webapp (last 24h)
         id: webapp-prs
         env:
           GH_TOKEN: ${{ secrets.PAT_GITHUB }}
         run: |
-          SINCE=$(date -u -d '24 hours ago' '+%Y-%m-%dT%H:%M:%SZ')
+          SINCE=$(date -u -d '120 hours ago' '+%Y-%m-%dT%H:%M:%SZ')
           gh pr list --repo team-youtrust/youtrust-webapp \
             --state merged \
             --limit 100 \
@@ -31,12 +32,13 @@ jobs:
             > webapp_prs.json
           echo "count=$(jq length webapp_prs.json)" >> $GITHUB_OUTPUT
 
+      # TODO: テスト後に '24 hours ago' に戻す
       - name: Get merged PRs from youtrust-nativeapp (last 24h)
         id: nativeapp-prs
         env:
           GH_TOKEN: ${{ secrets.PAT_GITHUB }}
         run: |
-          SINCE=$(date -u -d '24 hours ago' '+%Y-%m-%dT%H:%M:%SZ')
+          SINCE=$(date -u -d '120 hours ago' '+%Y-%m-%dT%H:%M:%SZ')
           gh pr list --repo team-youtrust/youtrust-nativeapp \
             --state merged \
             --limit 100 \
