@@ -10,6 +10,11 @@ permissions:
   contents: write
   pull-requests: write
 
+env:
+  # 確認期間（変更する場合はここと下のSINCE計算の両方を更新）
+  CHECK_PERIOD_HOURS: "48"
+  CHECK_PERIOD_LABEL: "2日間"
+
 jobs:
   check-updates:
     runs-on: ubuntu-latest
@@ -360,10 +365,13 @@ jobs:
 
           SNS_ITEMS="${{ steps.prepare-data.outputs.sns_items }}"
           TOTAL_SKIPPED="${{ steps.prepare-data.outputs.total_skipped }}"
+          CHECK_PERIOD="${{ env.CHECK_PERIOD_LABEL }}"
 
           # PR本文を生成
           {
             echo "## 📱 SNS ヘルプページ更新提案"
+            echo ""
+            echo "> 確認期間: **$CHECK_PERIOD**"
             echo ""
             echo "### サマリ"
             echo ""
@@ -452,10 +460,13 @@ jobs:
 
           CLWEB_ITEMS="${{ steps.prepare-data.outputs.clweb_items }}"
           TOTAL_SKIPPED="${{ steps.prepare-data.outputs.total_skipped }}"
+          CHECK_PERIOD="${{ env.CHECK_PERIOD_LABEL }}"
 
           # PR本文を生成
           {
             echo "## 💼 CLWeb ヘルプページ更新提案"
+            echo ""
+            echo "> 確認期間: **$CHECK_PERIOD**"
             echo ""
             echo "### サマリ"
             echo ""
@@ -516,6 +527,7 @@ jobs:
           PR_URL="${{ steps.create-sns-pr.outputs.pr_url }}"
           SNS_ITEMS="${{ steps.prepare-data.outputs.sns_items }}"
           TOTAL_SKIPPED="${{ steps.prepare-data.outputs.total_skipped }}"
+          CHECK_PERIOD="${{ env.CHECK_PERIOD_LABEL }}"
 
           # 更新項目のサマリを生成（PRリンク付き）
           ITEMS_SUMMARY=$(jq -r '.items[] | "• <\(.pr_url)|\(.pr_repo)#\(.pr_number)> \(.pr_title | .[0:30]) → `\(.target_path)`"' sns_response.json | head -5)
@@ -532,7 +544,7 @@ jobs:
                 "type": "header",
                 "text": {
                   "type": "plain_text",
-                  "text": "📱 SNS ヘルプページ更新提案",
+                  "text": "📱 SNS ヘルプページ更新提案（${CHECK_PERIOD}）",
                   "emoji": true
                 }
               },
@@ -596,6 +608,7 @@ jobs:
           PR_URL="${{ steps.create-clweb-pr.outputs.pr_url }}"
           CLWEB_ITEMS="${{ steps.prepare-data.outputs.clweb_items }}"
           TOTAL_SKIPPED="${{ steps.prepare-data.outputs.total_skipped }}"
+          CHECK_PERIOD="${{ env.CHECK_PERIOD_LABEL }}"
 
           # 更新項目のサマリを生成（PRリンク付き）
           ITEMS_SUMMARY=$(jq -r '.items[] | "• <\(.pr_url)|\(.pr_repo)#\(.pr_number)> \(.pr_title | .[0:30]) → `\(.target_path)`"' clweb_response.json | head -5)
@@ -612,7 +625,7 @@ jobs:
                 "type": "header",
                 "text": {
                   "type": "plain_text",
-                  "text": "💼 CLWeb ヘルプページ更新提案",
+                  "text": "💼 CLWeb ヘルプページ更新提案（${CHECK_PERIOD}）",
                   "emoji": true
                 }
               },
@@ -678,6 +691,7 @@ jobs:
           NATIVEAPP_PRS="${{ steps.nativeapp-prs.outputs.count }}"
           API_ERROR_COUNT="${{ steps.analyze.outputs.api_error_count || 0 }}"
           PROCESSED_COUNT="${{ steps.analyze.outputs.processed_count || 0 }}"
+          CHECK_PERIOD="${{ env.CHECK_PERIOD_LABEL }}"
           RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
           # スキップされたPR数を取得
@@ -688,14 +702,14 @@ jobs:
 
           # APIエラーがある場合は警告メッセージに変更
           if [ "$API_ERROR_COUNT" -gt 0 ] && [ "$API_ERROR_COUNT" = "$PROCESSED_COUNT" ]; then
-            HEADER="⚠️ ヘルプページ更新チェック失敗（レート制限）"
+            HEADER="⚠️ ヘルプページ更新チェック失敗（${CHECK_PERIOD}）"
             MESSAGE="APIレート制限により全てのバッチ処理が失敗しました。\n時間をおいて再実行してください。"
           elif [ "$API_ERROR_COUNT" -gt 0 ]; then
-            HEADER="⚠️ ヘルプページ更新チェック（一部エラー）"
+            HEADER="⚠️ ヘルプページ更新チェック（${CHECK_PERIOD}・一部エラー）"
             MESSAGE="一部のバッチでAPIエラーが発生しました（${API_ERROR_COUNT}/${PROCESSED_COUNT}件）。\n正常に処理されたPRの中には更新が必要な変更はありませんでした。"
           else
-            HEADER="✅ ヘルプページ更新チェック完了"
-            MESSAGE="本日のPRを確認しましたが、ヘルプページの更新が必要な変更はありませんでした。"
+            HEADER="✅ ヘルプページ更新チェック完了（${CHECK_PERIOD}）"
+            MESSAGE="PRを確認しましたが、ヘルプページの更新が必要な変更はありませんでした。"
           fi
 
           # Slack APIで通知を送信
