@@ -23,7 +23,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.PAT_GITHUB }}
         run: |
-          SINCE=$(date -u -d '120 hours ago' '+%Y-%m-%dT%H:%M:%SZ')
+          SINCE=$(date -u -d '72 hours ago' '+%Y-%m-%dT%H:%M:%SZ')
           gh pr list --repo team-youtrust/youtrust-webapp \
             --state merged \
             --limit 100 \
@@ -38,7 +38,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.PAT_GITHUB }}
         run: |
-          SINCE=$(date -u -d '120 hours ago' '+%Y-%m-%dT%H:%M:%SZ')
+          SINCE=$(date -u -d '72 hours ago' '+%Y-%m-%dT%H:%M:%SZ')
           gh pr list --repo team-youtrust/youtrust-nativeapp \
             --state merged \
             --limit 100 \
@@ -89,9 +89,10 @@ jobs:
           # 結果を格納する配列を初期化
           echo '{"has_impact": false, "items": [], "skipped_prs": []}' > final_result.json
 
-          # 各バッチを処理
+          # 各バッチを処理（レート制限対策で2秒待機）
           for batch_file in batches/batch_*.json; do
             echo "Processing $batch_file..."
+            sleep 2
             BATCH_DATA=$(cat "$batch_file")
 
             # プロンプトを構築
