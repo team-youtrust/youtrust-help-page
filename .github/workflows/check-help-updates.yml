@@ -22,7 +22,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.PAT_GITHUB }}
         run: |
-          SINCE=$(date -u -d '24 hours ago' '+%Y-%m-%dT%H:%M:%SZ')
+          SINCE=$(date -u -d '48 hours ago' '+%Y-%m-%dT%H:%M:%SZ')
           gh pr list --repo team-youtrust/youtrust-webapp \
             --state merged \
             --limit 100 \
@@ -36,7 +36,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.PAT_GITHUB }}
         run: |
-          SINCE=$(date -u -d '24 hours ago' '+%Y-%m-%dT%H:%M:%SZ')
+          SINCE=$(date -u -d '48 hours ago' '+%Y-%m-%dT%H:%M:%SZ')
           gh pr list --repo team-youtrust/youtrust-nativeapp \
             --state merged \
             --limit 100 \
@@ -76,6 +76,7 @@ jobs:
         run: echo "No merged PRs in the last 24 hours. Skipping."
 
       - name: Analyze PRs with AI (batch processing)
+        id: analyze
         if: steps.combine.outputs.total != '0'
         env:
           GH_TOKEN: ${{ github.token }}
@@ -87,10 +88,15 @@ jobs:
           # 結果を格納する配列を初期化
           echo '{"has_impact": false, "items": [], "skipped_prs": []}' > final_result.json
 
+          # エラーカウンター初期化
+          API_ERROR_COUNT=0
+          PROCESSED_COUNT=0
+
           # 各バッチを処理（レート制限対策で5秒待機）
           for batch_file in batches/batch_*.json; do
             echo "Processing $batch_file..."
             sleep 5
+            PROCESSED_COUNT=$((PROCESSED_COUNT + 1))
             BATCH_DATA=$(cat "$batch_file")
 
             # プロンプトを構築
@@ -152,6 +158,7 @@ jobs:
             if [ -z "$CONTENT" ]; then
               echo "Warning: Empty or invalid response for $batch_file"
               echo "Response: $(echo "$RESPONSE" | head -c 200)"
+              API_ERROR_COUNT=$((API_ERROR_COUNT + 1))
               continue
             fi
 
@@ -182,6 +189,11 @@ jobs:
 
           # 最終結果を保存
           cp final_result.json ai_response.json
+
+          # エラー情報を保存
+          echo "api_error_count=$API_ERROR_COUNT" >> $GITHUB_OUTPUT
+          echo "processed_count=$PROCESSED_COUNT" >> $GITHUB_OUTPUT
+          echo "API errors: $API_ERROR_COUNT / $PROCESSED_COUNT batches"
 
       - name: Check AI response
         if: steps.combine.outputs.total != '0'
@@ -664,11 +676,26 @@ jobs:
           TOTAL_PRS="${{ steps.combine.outputs.total }}"
           WEBAPP_PRS="${{ steps.webapp-prs.outputs.count }}"
           NATIVEAPP_PRS="${{ steps.nativeapp-prs.outputs.count }}"
+          API_ERROR_COUNT="${{ steps.analyze.outputs.api_error_count || 0 }}"
+          PROCESSED_COUNT="${{ steps.analyze.outputs.processed_count || 0 }}"
+          RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
           # スキップされたPR数を取得
           SKIPPED_COUNT=0
           if [ -f ai_response.json ]; then
             SKIPPED_COUNT=$(jq '.skipped_prs | length' ai_response.json 2>/dev/null || echo "0")
+          fi
+
+          # APIエラーがある場合は警告メッセージに変更
+          if [ "$API_ERROR_COUNT" -gt 0 ] && [ "$API_ERROR_COUNT" = "$PROCESSED_COUNT" ]; then
+            HEADER="⚠️ ヘルプページ更新チェック失敗（レート制限）"
+            MESSAGE="APIレート制限により全てのバッチ処理が失敗しました。\n時間をおいて再実行してください。"
+          elif [ "$API_ERROR_COUNT" -gt 0 ]; then
+            HEADER="⚠️ ヘルプページ更新チェック（一部エラー）"
+            MESSAGE="一部のバッチでAPIエラーが発生しました（${API_ERROR_COUNT}/${PROCESSED_COUNT}件）。\n正常に処理されたPRの中には更新が必要な変更はありませんでした。"
+          else
+            HEADER="✅ ヘルプページ更新チェック完了"
+            MESSAGE="本日のPRを確認しましたが、ヘルプページの更新が必要な変更はありませんでした。"
           fi
 
           # Slack APIで通知を送信
@@ -683,7 +710,7 @@ jobs:
                 "type": "header",
                 "text": {
                   "type": "plain_text",
-                  "text": "✅ ヘルプページ更新チェック完了",
+                  "text": "${HEADER}",
                   "emoji": true
                 }
               },
@@ -691,7 +718,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "本日のPRを確認しましたが、ヘルプページの更新が必要な変更はありませんでした。"
+                  "text": "${MESSAGE}"
                 }
               },
               {
@@ -703,7 +730,7 @@ jobs:
                   },
                   {
                     "type": "mrkdwn",
-                    "text": "*スキップ:*\n${SKIPPED_COUNT}件"
+                    "text": "*APIエラー:*\n${API_ERROR_COUNT}/${PROCESSED_COUNT}バッチ"
                   },
                   {
                     "type": "mrkdwn",
@@ -712,6 +739,20 @@ jobs:
                   {
                     "type": "mrkdwn",
                     "text": "*nativeapp:*\n${NATIVEAPP_PRS}件"
+                  }
+                ]
+              },
+              {
+                "type": "actions",
+                "elements": [
+                  {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "ログを確認",
+                      "emoji": true
+                    },
+                    "url": "${RUN_URL}"
                   }
                 ]
               }
