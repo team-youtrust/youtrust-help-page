@@ -149,9 +149,10 @@ jobs:
               }')")
 
             # レスポンスからJSONを抽出
-            CONTENT=$(echo "$RESPONSE" | jq -r '.choices[0].message.content // empty')
+            CONTENT=$(echo "$RESPONSE" | jq -r '.choices[0].message.content // empty' 2>/dev/null || echo "")
             if [ -z "$CONTENT" ]; then
-              echo "Warning: Empty response for $batch_file"
+              echo "Warning: Empty or invalid response for $batch_file"
+              echo "Response: $(echo "$RESPONSE" | head -c 200)"
               continue
             fi
 
