@@ -290,74 +290,72 @@ jobs:
           echo "Refinement complete."
           cat ai_response.json
 
-      - name: Create branch and PR if impact detected
-        id: create-pr
+      - name: Prepare service-specific data
+        id: prepare-data
         if: steps.save.outputs.has_impact == 'true'
+        run: |
+          # サービス別の件数を計算
+          SNS_ITEMS=$(jq '[.items[] | select(.target_section == "一般ユーザー向け")] | length' ai_response.json)
+          CLWEB_ITEMS=$(jq '[.items[] | select(.target_section == "公式リクルーター向け")] | length' ai_response.json)
+          WEBAPP_SKIPPED=$(jq '[.skipped_prs[] | select(.pr_repo == "webapp")] | length' ai_response.json)
+          NATIVEAPP_SKIPPED=$(jq '[.skipped_prs[] | select(.pr_repo == "nativeapp")] | length' ai_response.json)
+          TOTAL_SKIPPED=$((WEBAPP_SKIPPED + NATIVEAPP_SKIPPED))
+
+          echo "sns_items=$SNS_ITEMS" >> $GITHUB_OUTPUT
+          echo "clweb_items=$CLWEB_ITEMS" >> $GITHUB_OUTPUT
+          echo "total_skipped=$TOTAL_SKIPPED" >> $GITHUB_OUTPUT
+
+          # サービス別のJSONを作成
+          jq '{has_impact: true, items: [.items[] | select(.target_section == "一般ユーザー向け")], skipped_prs: .skipped_prs}' ai_response.json > sns_response.json
+          jq '{has_impact: true, items: [.items[] | select(.target_section == "公式リクルーター向け")], skipped_prs: .skipped_prs}' ai_response.json > clweb_response.json
+
+      - name: Create SNS PR if items exist
+        id: create-sns-pr
+        if: steps.prepare-data.outputs.sns_items != '0'
         env:
           GH_TOKEN: ${{ secrets.PAT_GITHUB }}
         run: |
           # ブランチ作成
           DATE=$(date '+%Y%m%d')
-          BRANCH="auto/help-update-$DATE"
+          BRANCH="auto/help-update-sns-$DATE"
           git checkout -b $BRANCH
 
           # AI分析結果をファイルに保存
           mkdir -p .github/help-updates
-          cp ai_response.json .github/help-updates/$DATE.json
+          cp sns_response.json .github/help-updates/sns-$DATE.json
 
           # コミット
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .github/help-updates/
-          git commit -m "Add help page update suggestions for $DATE"
+          git commit -m "Add SNS help page update suggestions for $DATE"
           git push origin $BRANCH
 
           # ラベルを抽出
-          LABELS=$(jq -r '[.items[].labels[]] | unique | join(",")' ai_response.json)
+          LABELS=$(jq -r '[.items[].labels[]] | unique | join(",")' sns_response.json)
           if [ -z "$LABELS" ]; then
             LABELS="help:review"
           fi
 
+          SNS_ITEMS="${{ steps.prepare-data.outputs.sns_items }}"
+          TOTAL_SKIPPED="${{ steps.prepare-data.outputs.total_skipped }}"
+
           # PR本文を生成
           {
-            # サービス別のサマリを生成
-            SNS_ITEMS=$(jq '[.items[] | select(.target_section == "一般ユーザー向け")] | length' ai_response.json)
-            CLWEB_ITEMS=$(jq '[.items[] | select(.target_section == "公式リクルーター向け")] | length' ai_response.json)
-            WEBAPP_SKIPPED=$(jq '[.skipped_prs[] | select(.pr_repo == "webapp")] | length' ai_response.json)
-            NATIVEAPP_SKIPPED=$(jq '[.skipped_prs[] | select(.pr_repo == "nativeapp")] | length' ai_response.json)
-            TOTAL_ITEMS=$((SNS_ITEMS + CLWEB_ITEMS))
-            TOTAL_SKIPPED=$((WEBAPP_SKIPPED + NATIVEAPP_SKIPPED))
-
-            echo "## AI分析によるヘルプページ更新提案"
+            echo "## 📱 SNS ヘルプページ更新提案"
             echo ""
             echo "### サマリ"
             echo ""
-            echo "| サービス | 更新が必要 |"
-            echo "|---------|-----------|"
-            echo "| SNS (ユーザー向け) | $SNS_ITEMS 件 |"
-            echo "| CLWeb (リクルーター向け) | $CLWEB_ITEMS 件 |"
-            echo "| **合計** | **$TOTAL_ITEMS 件** |"
+            echo "| 項目 | 件数 |"
+            echo "|------|------|"
+            echo "| 更新が必要 | $SNS_ITEMS 件 |"
+            echo "| スキップ | $TOTAL_SKIPPED 件 |"
             echo ""
-            echo "> スキップ: $TOTAL_SKIPPED 件（詳細は下部参照）"
+            echo "---"
             echo ""
-
-            # 更新が必要な項目（SNS）
-            if [ "$SNS_ITEMS" -gt 0 ]; then
-              echo "---"
-              echo ""
-              echo "## 📱 SNS (ユーザー向け)"
-              echo ""
-              jq -r '.items[] | select(.target_section == "一般ユーザー向け") | "### [\(.pr_repo)#\(.pr_number)](\(.pr_url)): \(.pr_title)\n- **アクション**: `\(.action)`\n- **対象**: `\(.target_path)`\n- **理由**: \(.reason)\n- **提案内容**:\n  > \(.suggestion)\n"' ai_response.json
-            fi
-
-            # 更新が必要な項目（CLWeb）
-            if [ "$CLWEB_ITEMS" -gt 0 ]; then
-              echo "---"
-              echo ""
-              echo "## 💼 CLWeb (リクルーター向け)"
-              echo ""
-              jq -r '.items[] | select(.target_section == "公式リクルーター向け") | "### [\(.pr_repo)#\(.pr_number)](\(.pr_url)): \(.pr_title)\n- **アクション**: `\(.action)`\n- **対象**: `\(.target_path)`\n- **理由**: \(.reason)\n- **提案内容**:\n  > \(.suggestion)\n"' ai_response.json
-            fi
+            echo "## 更新項目"
+            echo ""
+            jq -r '.items[] | "### [\(.pr_repo)#\(.pr_number)](\(.pr_url)): \(.pr_title)\n- **アクション**: `\(.action)`\n- **対象**: `\(.target_path)`\n- **理由**: \(.reason)\n- **提案内容**:\n  > \(.suggestion)\n"' sns_response.json
 
             echo "---"
             echo ""
@@ -365,19 +363,20 @@ jobs:
             echo "<summary>スキップしたPR（$TOTAL_SKIPPED 件）</summary>"
             echo ""
 
-            # スキップしたPR（webapp）
+            WEBAPP_SKIPPED=$(jq '[.skipped_prs[] | select(.pr_repo == "webapp")] | length' sns_response.json)
+            NATIVEAPP_SKIPPED=$(jq '[.skipped_prs[] | select(.pr_repo == "nativeapp")] | length' sns_response.json)
+
             if [ "$WEBAPP_SKIPPED" -gt 0 ]; then
               echo "### webapp"
               echo ""
-              jq -r '.skipped_prs[] | select(.pr_repo == "webapp") | "- [\(.pr_repo)#\(.pr_number)](https://github.com/team-youtrust/youtrust-webapp/pull/\(.pr_number)) \(.pr_title): \(.reason)"' ai_response.json
+              jq -r '.skipped_prs[] | select(.pr_repo == "webapp") | "- [\(.pr_repo)#\(.pr_number)](https://github.com/team-youtrust/youtrust-webapp/pull/\(.pr_number)) \(.pr_title): \(.reason)"' sns_response.json
               echo ""
             fi
 
-            # スキップしたPR（nativeapp）
             if [ "$NATIVEAPP_SKIPPED" -gt 0 ]; then
               echo "### nativeapp"
               echo ""
-              jq -r '.skipped_prs[] | select(.pr_repo == "nativeapp") | "- [\(.pr_repo)#\(.pr_number)](https://github.com/team-youtrust/youtrust-nativeapp/pull/\(.pr_number)) \(.pr_title): \(.reason)"' ai_response.json
+              jq -r '.skipped_prs[] | select(.pr_repo == "nativeapp") | "- [\(.pr_repo)#\(.pr_number)](https://github.com/team-youtrust/youtrust-nativeapp/pull/\(.pr_number)) \(.pr_title): \(.reason)"' sns_response.json
               echo ""
             fi
 
@@ -386,40 +385,119 @@ jobs:
             echo "---"
             echo ""
             echo "> [!NOTE]"
-            echo "> このPRはAIによる自動分析で作成されました。"
+            echo "> このPRはAIによる自動分析で作成されました（SNS: ユーザー向けヘルプページ）。"
             echo "> 内容を確認し、必要に応じてヘルプページを手動で編集してください。"
-          } > pr_body.md
+          } > sns_pr_body.md
 
           # PR作成
           PR_URL=$(gh pr create \
-            --title "ヘルプページ更新提案 ($DATE)" \
-            --body-file pr_body.md \
+            --title "【SNS】ヘルプページ更新提案 ($DATE)" \
+            --body-file sns_pr_body.md \
             --label "$LABELS" \
             --base main \
             --head $BRANCH)
           echo "pr_url=$PR_URL" >> $GITHUB_OUTPUT
-          echo "pr_title=ヘルプページ更新提案 ($DATE)" >> $GITHUB_OUTPUT
-          echo "sns_items=$SNS_ITEMS" >> $GITHUB_OUTPUT
-          echo "clweb_items=$CLWEB_ITEMS" >> $GITHUB_OUTPUT
-          echo "total_skipped=$TOTAL_SKIPPED" >> $GITHUB_OUTPUT
 
-      - name: Send Slack notification
-        if: steps.save.outputs.has_impact == 'true'
+          # mainに戻る
+          git checkout main
+
+      - name: Create CLWeb PR if items exist
+        id: create-clweb-pr
+        if: steps.prepare-data.outputs.clweb_items != '0'
+        env:
+          GH_TOKEN: ${{ secrets.PAT_GITHUB }}
+        run: |
+          # ブランチ作成
+          DATE=$(date '+%Y%m%d')
+          BRANCH="auto/help-update-clweb-$DATE"
+          git checkout -b $BRANCH
+
+          # AI分析結果をファイルに保存
+          mkdir -p .github/help-updates
+          cp clweb_response.json .github/help-updates/clweb-$DATE.json
+
+          # コミット
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .github/help-updates/
+          git commit -m "Add CLWeb help page update suggestions for $DATE"
+          git push origin $BRANCH
+
+          # ラベルを抽出
+          LABELS=$(jq -r '[.items[].labels[]] | unique | join(",")' clweb_response.json)
+          if [ -z "$LABELS" ]; then
+            LABELS="help:review"
+          fi
+
+          CLWEB_ITEMS="${{ steps.prepare-data.outputs.clweb_items }}"
+          TOTAL_SKIPPED="${{ steps.prepare-data.outputs.total_skipped }}"
+
+          # PR本文を生成
+          {
+            echo "## 💼 CLWeb ヘルプページ更新提案"
+            echo ""
+            echo "### サマリ"
+            echo ""
+            echo "| 項目 | 件数 |"
+            echo "|------|------|"
+            echo "| 更新が必要 | $CLWEB_ITEMS 件 |"
+            echo "| スキップ | $TOTAL_SKIPPED 件 |"
+            echo ""
+            echo "---"
+            echo ""
+            echo "## 更新項目"
+            echo ""
+            jq -r '.items[] | "### [\(.pr_repo)#\(.pr_number)](\(.pr_url)): \(.pr_title)\n- **アクション**: `\(.action)`\n- **対象**: `\(.target_path)`\n- **理由**: \(.reason)\n- **提案内容**:\n  > \(.suggestion)\n"' clweb_response.json
+
+            echo "---"
+            echo ""
+            echo "<details>"
+            echo "<summary>スキップしたPR（$TOTAL_SKIPPED 件）</summary>"
+            echo ""
+
+            WEBAPP_SKIPPED=$(jq '[.skipped_prs[] | select(.pr_repo == "webapp")] | length' clweb_response.json)
+
+            if [ "$WEBAPP_SKIPPED" -gt 0 ]; then
+              echo "### webapp"
+              echo ""
+              jq -r '.skipped_prs[] | select(.pr_repo == "webapp") | "- [\(.pr_repo)#\(.pr_number)](https://github.com/team-youtrust/youtrust-webapp/pull/\(.pr_number)) \(.pr_title): \(.reason)"' clweb_response.json
+              echo ""
+            fi
+
+            echo "</details>"
+            echo ""
+            echo "---"
+            echo ""
+            echo "> [!NOTE]"
+            echo "> このPRはAIによる自動分析で作成されました（CLWeb: リクルーター向けヘルプページ）。"
+            echo "> 内容を確認し、必要に応じてヘルプページを手動で編集してください。"
+          } > clweb_pr_body.md
+
+          # PR作成
+          PR_URL=$(gh pr create \
+            --title "【CLWeb】ヘルプページ更新提案 ($DATE)" \
+            --body-file clweb_pr_body.md \
+            --label "$LABELS" \
+            --base main \
+            --head $BRANCH)
+          echo "pr_url=$PR_URL" >> $GITHUB_OUTPUT
+
+          # mainに戻る
+          git checkout main
+
+      # Slackチャンネルを分ける場合は SLACK_CHANNEL_ID_SNS と SLACK_CHANNEL_ID_CLWEB を別の値に設定してください
+      - name: Send SNS Slack notification
+        if: steps.prepare-data.outputs.sns_items != '0'
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID_SNS }}
         run: |
-          # 変数を設定
-          PR_URL="${{ steps.create-pr.outputs.pr_url }}"
-          TOTAL_SKIPPED="${{ steps.create-pr.outputs.total_skipped }}"
+          PR_URL="${{ steps.create-sns-pr.outputs.pr_url }}"
+          SNS_ITEMS="${{ steps.prepare-data.outputs.sns_items }}"
+          TOTAL_SKIPPED="${{ steps.prepare-data.outputs.total_skipped }}"
 
-          # サービス別の件数を計算（target_sectionで判定）
-          SNS_ITEMS=$(jq '[.items[] | select(.target_section == "一般ユーザー向け")] | length' ai_response.json)
-          CLWEB_ITEMS=$(jq '[.items[] | select(.target_section == "公式リクルーター向け")] | length' ai_response.json)
-          TOTAL_ITEMS=$((SNS_ITEMS + CLWEB_ITEMS))
-
-          # 更新項目のサマリを生成（サービス名 + PRリンク付き）
-          ITEMS_SUMMARY=$(jq -r '.items[] | "• [" + (if .target_section == "一般ユーザー向け" then "SNS" else "CLWeb" end) + "] <\(.pr_url)|\(.pr_repo)#\(.pr_number)> \(.pr_title | .[0:30]) → `\(.target_path)`"' ai_response.json | head -5)
+          # 更新項目のサマリを生成（PRリンク付き）
+          ITEMS_SUMMARY=$(jq -r '.items[] | "• <\(.pr_url)|\(.pr_repo)#\(.pr_number)> \(.pr_title | .[0:30]) → `\(.target_path)`"' sns_response.json | head -5)
 
           # Slack APIで通知を送信
           curl -X POST "https://slack.com/api/chat.postMessage" \
@@ -433,7 +511,7 @@ jobs:
                 "type": "header",
                 "text": {
                   "type": "plain_text",
-                  "text": "📝 ヘルプページ更新提案",
+                  "text": "📱 SNS ヘルプページ更新提案",
                   "emoji": true
                 }
               },
@@ -442,19 +520,91 @@ jobs:
                 "fields": [
                   {
                     "type": "mrkdwn",
-                    "text": "*更新が必要:*\n${TOTAL_ITEMS}件"
+                    "text": "*更新が必要:*\n${SNS_ITEMS}件"
                   },
                   {
                     "type": "mrkdwn",
                     "text": "*スキップ:*\n${TOTAL_SKIPPED}件"
+                  }
+                ]
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*対象:*\n${ITEMS_SUMMARY}"
+                }
+              },
+              {
+                "type": "actions",
+                "elements": [
+                  {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "PRを確認",
+                      "emoji": true
+                    },
+                    "url": "${PR_URL}",
+                    "style": "primary"
+                  },
+                  {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "マージする",
+                      "emoji": true
+                    },
+                    "url": "${PR_URL}",
+                    "style": "danger"
+                  }
+                ]
+              }
+            ]
+          }
+          EOF
+          )"
+
+      # Slackチャンネルを分ける場合は SLACK_CHANNEL_ID_SNS と SLACK_CHANNEL_ID_CLWEB を別の値に設定してください
+      - name: Send CLWeb Slack notification
+        if: steps.prepare-data.outputs.clweb_items != '0'
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID_CLWEB }}
+        run: |
+          PR_URL="${{ steps.create-clweb-pr.outputs.pr_url }}"
+          CLWEB_ITEMS="${{ steps.prepare-data.outputs.clweb_items }}"
+          TOTAL_SKIPPED="${{ steps.prepare-data.outputs.total_skipped }}"
+
+          # 更新項目のサマリを生成（PRリンク付き）
+          ITEMS_SUMMARY=$(jq -r '.items[] | "• <\(.pr_url)|\(.pr_repo)#\(.pr_number)> \(.pr_title | .[0:30]) → `\(.target_path)`"' clweb_response.json | head -5)
+
+          # Slack APIで通知を送信
+          curl -X POST "https://slack.com/api/chat.postMessage" \
+            -H "Authorization: Bearer $SLACK_BOT_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "$(cat <<EOF
+          {
+            "channel": "$SLACK_CHANNEL_ID",
+            "blocks": [
+              {
+                "type": "header",
+                "text": {
+                  "type": "plain_text",
+                  "text": "💼 CLWeb ヘルプページ更新提案",
+                  "emoji": true
+                }
+              },
+              {
+                "type": "section",
+                "fields": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "*更新が必要:*\n${CLWEB_ITEMS}件"
                   },
                   {
                     "type": "mrkdwn",
-                    "text": "*SNS (ユーザー向け):*\n${SNS_ITEMS}件"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "*CLWeb (リクルーター向け):*\n${CLWEB_ITEMS}件"
+                    "text": "*スキップ:*\n${TOTAL_SKIPPED}件"
                   }
                 ]
               },
@@ -505,3 +655,9 @@ jobs:
           echo "- Total: ${{ steps.combine.outputs.total || 0 }}" >> $GITHUB_STEP_SUMMARY
           echo "- Batches: ${{ steps.combine.outputs.batch_count || 0 }}" >> $GITHUB_STEP_SUMMARY
           echo "- Has impact: ${{ steps.save.outputs.has_impact || 'N/A' }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Service breakdown" >> $GITHUB_STEP_SUMMARY
+          echo "- SNS items: ${{ steps.prepare-data.outputs.sns_items || 0 }}" >> $GITHUB_STEP_SUMMARY
+          echo "- CLWeb items: ${{ steps.prepare-data.outputs.clweb_items || 0 }}" >> $GITHUB_STEP_SUMMARY
+          echo "- SNS PR: ${{ steps.create-sns-pr.outputs.pr_url || 'N/A' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- CLWeb PR: ${{ steps.create-clweb-pr.outputs.pr_url || 'N/A' }}" >> $GITHUB_STEP_SUMMARY
