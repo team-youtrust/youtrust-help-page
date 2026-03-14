@@ -291,6 +291,7 @@ jobs:
           cat ai_response.json
 
       - name: Create branch and PR if impact detected
+        id: create-pr
         if: steps.save.outputs.has_impact == 'true'
         env:
           GH_TOKEN: ${{ secrets.PAT_GITHUB }}
@@ -388,12 +389,104 @@ jobs:
           } > pr_body.md
 
           # PR作成
-          gh pr create \
+          PR_URL=$(gh pr create \
             --title "ヘルプページ更新提案 ($DATE)" \
             --body-file pr_body.md \
             --label "$LABELS" \
             --base main \
-            --head $BRANCH
+            --head $BRANCH)
+          echo "pr_url=$PR_URL" >> $GITHUB_OUTPUT
+          echo "pr_title=ヘルプページ更新提案 ($DATE)" >> $GITHUB_OUTPUT
+          echo "webapp_items=$WEBAPP_ITEMS" >> $GITHUB_OUTPUT
+          echo "nativeapp_items=$NATIVEAPP_ITEMS" >> $GITHUB_OUTPUT
+          echo "total_skipped=$TOTAL_SKIPPED" >> $GITHUB_OUTPUT
+
+      - name: Send Slack notification
+        if: steps.save.outputs.has_impact == 'true'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          # 変数を設定
+          PR_URL="${{ steps.create-pr.outputs.pr_url }}"
+          WEBAPP_ITEMS="${{ steps.create-pr.outputs.webapp_items }}"
+          NATIVEAPP_ITEMS="${{ steps.create-pr.outputs.nativeapp_items }}"
+          TOTAL_SKIPPED="${{ steps.create-pr.outputs.total_skipped }}"
+          TOTAL_ITEMS=$((WEBAPP_ITEMS + NATIVEAPP_ITEMS))
+
+          # 更新項目のサマリを生成
+          ITEMS_SUMMARY=$(jq -r '.items[] | "• [\(.pr_repo)#\(.pr_number)] \(.pr_title) → `\(.target_path)`"' ai_response.json | head -5)
+
+          # Slack通知を送信
+          curl -X POST "$SLACK_WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            -d "$(cat <<EOF
+          {
+            "blocks": [
+              {
+                "type": "header",
+                "text": {
+                  "type": "plain_text",
+                  "text": "📝 ヘルプページ更新提案",
+                  "emoji": true
+                }
+              },
+              {
+                "type": "section",
+                "fields": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "*更新が必要:*\n${TOTAL_ITEMS}件"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*スキップ:*\n${TOTAL_SKIPPED}件"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*webapp:*\n${WEBAPP_ITEMS}件"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*nativeapp:*\n${NATIVEAPP_ITEMS}件"
+                  }
+                ]
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*対象:*\n${ITEMS_SUMMARY}"
+                }
+              },
+              {
+                "type": "actions",
+                "elements": [
+                  {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "PRを確認",
+                      "emoji": true
+                    },
+                    "url": "${PR_URL}",
+                    "style": "primary"
+                  },
+                  {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "マージする",
+                      "emoji": true
+                    },
+                    "url": "${PR_URL}/merge",
+                    "style": "danger"
+                  }
+                ]
+              }
+            ]
+          }
+          EOF
+          )"
 
       - name: Summary
         if: always()
